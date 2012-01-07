@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<script>
+	/*
+		Creates an unordered list containing Github user info and an image with the avatar.
+		Will be placed inside a div-element with id "github_userinfo"
+	*/
+	
+	var gitUsername = "WrongEntertainment";
+	var gitBaseUrl = "http://github.com/api/v2/json/";
+	var gitUserUrl = "user/show/";
+	var gitRepoUrl = "repos/show/";
+	var callback = "?callback=?";
+	
+	var gravatarUrl = "http://www.gravatar.com/avatar/";
+	 
+	$.getJSON(gitBaseUrl + gitUserUrl + gitUsername + callback,
+		function(json, statuts) {			
+			var user_data = json.user;
+			//alert(user_data.login);
+			$("#github_userinfo").append("<ul id='github_userinfo-list'></ul>");
+			$("#github_userinfo-list").append("<li>Name: " + user_data.login + "</li>");
+			$("#github_userinfo-list").append("<li>Followers: " + user_data.followers_count + "</li>");
+			$("#github_userinfo-list").append("<li>Public Repos: " + user_data.public_repo_count + "</li>");
+			$('#github_userinfo').prepend('<img id="github_avatar" src="' + gravatarUrl + user_data.gravatar_id + '" />');
+		});
+	  
+  </script>  
+  
+  <div id="github_userinfo"></div>
+ 
+</body>
+</html>
