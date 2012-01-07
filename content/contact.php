@@ -9,13 +9,7 @@
 		<?php include("../static/header.php"); ?>
 		<?php include("../static/nav.php"); ?>
 		
-		<!-- CONTENT-->
-		<!-- Introduction -->
-		<!--<section id="intro">
-			<span class="small">sending open sound control</span>
-		</section> -->
-		
-		<!-- Main content area -->  
+		<!-- CONTENT--> 
 		<section>
 			<h2>Contact</h2>
 			<div id="introduction">
@@ -26,12 +20,7 @@
 				<p><a href="mail:tim.pulver@fh-potsdam.de">Tim Pulver</a> or check out <a href="">Powder</a></br>
 				For repo surf github <a href="http:www.github.com/Powder/">github.com/Powder</a></p>
 			</div>
-		</section>  
-		
-		<!-- Sidebar 
-		<aside>
-			<p>This is a sidebar.</p>
-		</aside> --> 
+		</section>
 		
 		<?php include("../static/footer.php"); ?>
 	</body>

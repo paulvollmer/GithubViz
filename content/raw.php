@@ -10,28 +10,19 @@
 		<?php include("../static/nav.php"); ?>
 		
 		<!-- CONTENT-->
-		<!-- Introduction -->
-		<!--<section id="intro">
-			<span class="small">sending open sound control</span>
-		</section> -->
-		<!-- Main content area -->  
 		<section>
 			<h2>Raw Repo Files</br>JSON Files</h2>
 			<div id="introduction">
 				<p>
-					<h1>Select a Github User.</h1>
-					<!-- Formular un den Github usernamen einzugeben. -->
-					<form method="post" action="user.php">
+					<p>Select a Github User.</p>
+					<!-- Formular um den Github usernamen einzugeben. -->
+					<form method="post" action="raw_json_user.php">
 					User: <input type="text" name="User"><br>
 					<input type="submit">
 					</form>
 				</p>
 			</div>
 		</section>
-		<!-- Sidebar 
-		<aside>
-			<p>This is a sidebar.</p>
-		</aside> --> 
 		
 		<?php include("../static/footer.php"); ?>
 	</body>
