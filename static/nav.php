@@ -1,6 +1,7 @@
+
 <!-- nav.php file - begin -->
 <nav>
-<ul id="Navigation">
+<ul id="navigation">
 <li><a href="about.php">About</a></li>
 <li><a href="discover.php">Discover</a></li>
 <li><a href="raw.php">Raw-, Json-Files</a></li>
