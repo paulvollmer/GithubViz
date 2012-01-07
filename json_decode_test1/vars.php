@@ -1,15 +1,15 @@
 
 <?php
-$user = 'Powder';
-$repo = 'GithubViz';
-
-
-$jsonfile = file_get_contents('https://api.github.com/repos/Powder/GithubViz/contributors');
-$jsonarray = json_decode($jsonfile);
-
-// print out the array.
-echo "<pre>";
-print_r($jsonarray);
-echo "</pre>";
-
+	// github parameter.
+	$user = "Powder";
+	$repo = "GithubViz";
+	
+	// Generate api url.
+	$apiurl = "https://api.github.com/repos/$user/$repo/contributors";
+	//echo "apiurl: $apiurl <br>";
+	
+	// github api json file
+	//$jsonfile = file_get_contents('https://api.github.com/repos/Powder/GithubViz/contributors');
+	$jsonfile = file_get_contents($apiurl);
+	$jsonarray = json_decode($jsonfile);
 ?>
