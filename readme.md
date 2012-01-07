@@ -1,6 +1,6 @@
-#Github Viz#
+ï»¿#Github Viz#
 
 Just testing...
 
 So jetzt hab ich mal ne neue Zeile getippt... 
-Und noch mal was geändert! BÄM!
+Und noch mal was geÃ¤ndert! BÃ„M!
