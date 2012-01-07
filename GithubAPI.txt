@@ -6,32 +6,32 @@ hier ein paar API example url's.
 
 
 
-User Infos
+
+
+User
+
+Infos
 https://api.github.com/users/WrongEntertainment
 
-Repos List
+
+
+Repository
+
+List
 https://api.github.com/users/WrongEntertainment/repos
-
-Repo info
+Info
 https://api.github.com/repos/WrongEntertainment/wrongPowder
-
-Repo contributors
+Contributors
 https://api.github.com/repos/WrongEntertainment/wrongPowder/contributors
-
-Repo languages
+Languages
 https://api.github.com/repos/WrongEntertainment/wrongPowder/languages
-
-Repo tags
+Tags
 https://api.github.com/repos/WrongEntertainment/wrongPowder/tags
-
-Repo branches
+Branches
 https://api.github.com/repos/WrongEntertainment/wrongPowder/branches
-
-Repo commits
+Commits
 https://api.github.com/repos/WrongEntertainment/wrongPowder/commits
-
-Repo issues
+Issues
 https://api.github.com/repos/WrongEntertainment/wrongPowder/issues
-
-Repo milestones
+Milestones
 https://api.github.com/repos/WrongEntertainment/wrongPowder/milestones
