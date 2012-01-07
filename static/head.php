@@ -1,4 +1,4 @@
-<!-- Title and Meta Parameter -->
+<!-- head.php file - begin -->
 <title>GithubViz</title>
 <meta name="description" content="GithubViz">
 <meta name="keywords" content="github, wrong entertainment, wrong-entertainment.com">
@@ -12,5 +12,5 @@
 <meta name="Rating" content="General" />
 <meta name="revisit-after" content="7 Days" />
 <meta name="doc-class" content="Living Document" />
-<!-- CSS file -->
 <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+<!-- head - end -->
