@@ -1,0 +1,37 @@
+
+GitHub API v3
+http://developer.github.com/
+
+hier ein paar API example url's.
+
+
+
+User Infos
+https://api.github.com/users/WrongEntertainment
+
+Repos List
+https://api.github.com/users/WrongEntertainment/repos
+
+Repo info
+https://api.github.com/repos/WrongEntertainment/wrongPowder
+
+Repo contributors
+https://api.github.com/repos/WrongEntertainment/wrongPowder/contributors
+
+Repo languages
+https://api.github.com/repos/WrongEntertainment/wrongPowder/languages
+
+Repo tags
+https://api.github.com/repos/WrongEntertainment/wrongPowder/tags
+
+Repo branches
+https://api.github.com/repos/WrongEntertainment/wrongPowder/branches
+
+Repo commits
+https://api.github.com/repos/WrongEntertainment/wrongPowder/commits
+
+Repo issues
+https://api.github.com/repos/WrongEntertainment/wrongPowder/issues
+
+Repo milestones
+https://api.github.com/repos/WrongEntertainment/wrongPowder/milestones
