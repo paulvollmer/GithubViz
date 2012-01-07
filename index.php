@@ -23,7 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 	</head>
 	<body>
-		<?php include("header.php"); ?>
+		<?php include("static/header.php"); ?>
 		<!-- ?php include("nav.php"); ?> -->
 		<!-- For this file we use the content from nav.php -->
 		<!-- Navigation -->
@@ -56,6 +56,6 @@
 			<p>This is a sidebar.</p>
 		</aside> --> 
 		
-		<?php include("footer.php"); ?>
+		<?php include("static/footer.php"); ?>
 	</body>
 </html>
