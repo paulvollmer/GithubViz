@@ -30,7 +30,7 @@
 		<nav>
 			<ul id="Navigation">
 			    <li><a href="content/about.php">About</a></li>
-			    <li><a href="content/explore.php">Explore</a></li>
+			    <li><a href="content/discover.php">Discover</a></li>
 			    <li><a href="content/raw.php">Raw-, Json-Files</a></li>
 				<li><a href="https://github.com/Powder/GithubViz">Github</a></li>
 				<li><a href="content/contact.php">Contact</a></li>
