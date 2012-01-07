@@ -16,7 +16,8 @@
 	  function(json, statuts) {
 	  $("#github_repositories").append("<ul id='repositoriy-list'></ul>");
 		$.each(json.repositories, function(i){
-		  $("#repositoriy-list").append("<li>" + this['name'] + "</li>");
+		  $("#repositoriy-list").append("<li>Name: " + this['name'] + "</li>");
+		  $("#repositoriy-list").append("<b>Size: " + this['size'] + "</b>");
 		});
 	  });
   </script>  
