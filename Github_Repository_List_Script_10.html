@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  
+</div>
+<script>
+/*
+	Generates an unordered list containing all the repositories of a certain user
+	The list will be added to the div-element with id "github_repositories".
+*/
+	var username = "Powder";
+	$.getJSON("http://github.com/api/v2/json/repos/show/" + username + "?callback=?",
+	  function(json, statuts) {
+	  $("#github_repositories").append("<ul id='repositoriy-list'></ul>");
+		$.each(json.repositories, function(i){
+		  $("#repositoriy-list").append("<li>" + this['name'] + "</li>");
+		});
+	  });
+  </script>  
+  
+  <div id="github_repositories"></div>
+ 
+</body>
+</html>
