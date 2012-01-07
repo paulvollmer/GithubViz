@@ -54,7 +54,7 @@ Url: http://www.wrong-entertainment.com
 Github: http://www.github.com/WrongEntertainment  
   
 **Tim Pulver**  
-Mail: tpulver.tim@googlemail.com  
+Mail: tim_pulver AT gmx DOT de
 Url: http://www.timpulver.de  
 Github: http://www.github.com/Powder  
   
