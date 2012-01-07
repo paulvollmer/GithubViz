@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
-		<?php include("head.php"); ?>
+		<?php include("../head.php"); ?>
 	</head>
 	<body>
-		<?php include("header.php"); ?>
-		<?php include("nav.php"); ?>
+		<?php include("../header.php"); ?>
+		<?php include("../nav.php"); ?>
 		
 		<!-- CONTENT-->
 		<!-- Introduction -->
@@ -33,6 +33,6 @@
 			<p>This is a sidebar.</p>
 		</aside> --> 
 		
-		<?php include("footer.php"); ?>
+		<?php include("../footer.php"); ?>
 	</body>
 </html>
