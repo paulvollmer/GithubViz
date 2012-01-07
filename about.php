@@ -17,10 +17,11 @@
 		
 		<!-- Main content area -->  
 		<section>
-			<h2>Explore your Github activity and discover your network.</h2>
+			<h2>About</br>Exploring Github</h2>
 			<div id="introduction">
-				<img src="http://placehold.it/750x150">
-				<p>Feel free to replace this paragraph ofs d tsdh es vam a sadre.</p>
+				
+				<p>Feel free to replace.</p>
+				<img src="http://placehold.it/750x350">
 			</div>
 		</section>  
 		

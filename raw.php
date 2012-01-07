@@ -14,16 +14,20 @@
 		<!--<section id="intro">
 			<span class="small">sending open sound control</span>
 		</section> -->
-		
 		<!-- Main content area -->  
 		<section>
-			<h2>Explore your Github activity and discover your network.</h2>
+			<h2>Raw Repo Files</br>JSON Files</h2>
 			<div id="introduction">
-				<img src="http://placehold.it/750x150">
-				<p>Feel free to replace this paragraph ofs d tsdh es vam a sadre.</p>
+				<p>
+					<h1>Select a Github User.</h1>
+					<!-- Formular un den Github usernamen einzugeben. -->
+					<form method="post" action="user.php">
+					User: <input type="text" name="User"><br>
+					<input type="submit">
+					</form>
+				</p>
 			</div>
-		</section>  
-		
+		</section>
 		<!-- Sidebar 
 		<aside>
 			<p>This is a sidebar.</p>
