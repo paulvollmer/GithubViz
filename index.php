@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <!-- ?php include("head.php"); ?> -->
-<!-- For this file we use the content from head.php -->
+<!-- For this file we use the content from head.php with correct links-->
 <!-- head.php file - begin --> 
 <head>
 <title>GithubViz</title>
@@ -30,11 +30,11 @@
 <!-- nav.php file - begin -->
 <nav>
 <ul id="navigation">
-<li><a href="about.php">About</a> | </li>
-<li><a href="discover.php">Discover</a> | </li>
-<li><a href="raw.php">Raw-, Json-Files</a> | </li>
+<li><a href="content/about.php">About</a> | </li>
+<li><a href="content/discover.php">Discover</a> | </li>
+<li><a href="content/raw.php">Raw Files</a> | </li>
 <li><a href="https://github.com/Powder/GithubViz">Github</a> | </li>
-<li><a href="contact.php">Contact</a></li>
+<li><a href="content/contact.php">Contact</a></li>
 </ul>
 <br>
 </nav>
@@ -44,7 +44,8 @@
 <!-- Main content area -->  
 <section>
 <h1>Discover your Github Network</h1>
-<img src="http://placehold.it/750x150/808080/4D4D4D">
+<!-- <img src="http://placehold.it/750x150/808080/4D4D4D"> -->
+<img src="http://www.wrong-entertainment.com/code/GithubViz/img/content1.png"width="750px">
 <p>Feel free to replace this paragraph ofs d tsdh es vam a sadre.</p>
 </section>  
 
