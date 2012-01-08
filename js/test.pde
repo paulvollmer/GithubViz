@@ -21,11 +21,11 @@ void setup() {
 
 
 void draw() {
-  background(50, 50, 50);
+  background(0xFF4D4D4D);
 
-  fill(00);
+  fill(0xFF48A1F0);
   noStroke();
-  rect(0, 0, width, 10);
+  rect(0, 0, width, 5);
 
   fill(255);
   text("User: "+username, 100, 100);
@@ -34,7 +34,7 @@ void draw() {
 
   for(int i=0; i<(int)repository; i++) {
 	int n = 4;
-	rect(100+(i*25), 50-n, 20, n);
+	rect(100+(i*7), 150-n, 5, n);
 }
   
 }
