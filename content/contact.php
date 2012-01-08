@@ -9,7 +9,7 @@
 		
 <!-- CONTENT begin --> 
 <section>
-<h2>Contact</h2>
+<h1>Contact</h1>
 <div id="introduction">
 <p>Feel free to write an email or create a new issue for bug tracking or new features.</p>
 <!-- <img src="http://placehold.it/300x150"> <img src="http://placehold.it/300x150"><br> -->

@@ -10,7 +10,7 @@
 
 <!-- CONTENT begin --> 
 <section>
-<h2>About</br>GithubViz</h2>
+<h1>About</br>GithubViz</h1>
 <div id="introduction">
 <p>Feel free to replace.</p>
 <img src="http://placehold.it/750x350/808080/4D4D4D">

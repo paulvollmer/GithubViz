@@ -9,7 +9,8 @@
 		
 <!-- CONTENT begin -->
 <section>
-<h2>Raw Repo Files</br>JSON Files</h2>
+<h1>Explore your raw Files and json Database</h1>
+<img src="http://www.wrong-entertainment.com/code/GithubViz/img/content3.png" width="750px">
 <div id="introduction">
 <p>
 <p>Select a Github User.</p>
