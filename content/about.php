@@ -53,19 +53,59 @@ function drawSomeText(id) {
   function(json, statuts) {
     //$("#github_repositories").append("<ul id='repositoriy-list'></ul>");
 	$.each(json.repositories, function(i){
-		//alert(json.repositories.length);
-		// binding processing.js function
 		var type = this['type'];
+		var language = this['language'];
+		var has_downloads = this['has_downloads'];
+		var url = this['url']
+		var homepage = this['homepage']
+		var pushed_at = this['pushed_at']
+		var created_at = this['created_at']
+		var fork = this['fork']
+		var has_wiki = this['has_wiki']
+		var score = this['score']
+		var size = this['size']
+		var private_repo = this['private_repo']
 		var name = this['name'];
-		pjs.repodata(type);
+		var watchers = this['watchers'];
+		var owner = this['owner'];
+		var open_issues = this['open_issues'];
+		var description = this['description'];
+		var forks = this['forks'];
+		var has_issues = this['has_issues'];
+		var followers = this['followers'];
+		var pushed = this['pushed'];
+		var created = this['created'];
+		var username = this['username'];
+		// binding processing.js function
+		pjs.repodata(type,
+		  language,
+		  has_downloads,
+		  url,
+		  homepage,
+		  pushed_at,
+		  created_at,
+		  fork,
+		  has_wiki,
+		  score,
+		  size,
+		  private_repo,
+		  name,
+		  watchers,
+		  owner,
+		  open_issues,
+		  description,
+		  forks,
+		  has_issues,
+		  followers,
+		  pushed,
+		  created,
+		  username);
     });
   });
-
 
   //pjs.drawText(text);
 }
 </script>
-
 </head>
 	
 <body>
