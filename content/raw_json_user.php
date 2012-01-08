@@ -1,8 +1,10 @@
 <!-- GithubViz -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
 <?php include("../static/head.php"); ?>
-
+</head>
+	
 <body>
 <?php include("../static/header.php"); ?>
 <?php include("../static/nav.php"); ?>
@@ -21,7 +23,7 @@ $jsonfile = file_get_contents($apiurl);
 $jsonarray = json_decode($jsonfile);
 
 // print infos
-echo "<h2>$user</h2><br>";
+echo "<h1>$user</h1><br>";
 echo "<b>UserInformation</b><br>";
 				
 // print out the whole json array.

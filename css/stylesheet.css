@@ -5,6 +5,13 @@ body {
 	color: #808080;
 }
 
+body a {
+	color: #808080;
+}
+body a:hover {
+	color: #48A1F0;
+}
+
 /* Header */
 header {
 	position: absolute;

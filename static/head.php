@@ -1,6 +1,5 @@
 
 <!-- head.php file - begin --> 
-<head>
 <title>GithubViz</title>
 <meta name="description" content="GithubViz">
 <meta name="keywords" content="github, wrong entertainment, wrong-entertainment.com">
@@ -15,5 +14,4 @@
 <meta name="revisit-after" content="7 Days" />
 <meta name="doc-class" content="Living Document" />
 <link rel="stylesheet" type="text/css" href="http://www.wrong-entertainment.com/code/GithubViz/css/stylesheet.css">
-</head>
 <!-- head - end -->
