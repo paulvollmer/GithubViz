@@ -3,6 +3,7 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	background-color: #4D4D4D;
 	color: #808080;
+	font-size: 12pt;
 }
 
 body a {
@@ -97,14 +98,45 @@ h1 {
 	color: #48A1F0;
 }
 
+
 p {
 	color: #808080;
 }
 
+pre code {
+	color: #000000;
+}
 
 pre {
-	background: #000;
-	width: 750px;
+  background: #000;
+  width: 750px;
+  color: #48A1F0;
+  padding: 15px;
+	
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+#githubAPI_username {
+	font-size: 16pt;
 	color: #48A1F0;
-	padding: 15px;
+	margin-left: 90px;
+	margin-top: -20px;
+}
+#githubAPI_userinfo table {
+	width: 750px;
+	border: 0px;
+	text-align: left;
+	
+}
+#githubAPI_userinfo table th {
+	padding: 5px;
+	background-color: #000;
+	text-decoration: none;
+	font-size: 10pt;
+	font-style: normal;
 }
