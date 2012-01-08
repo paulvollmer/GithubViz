@@ -103,7 +103,8 @@ p {
 
 
 pre {
-	background: #27323b;
-	color: #fff;
+	background: #000;
+	width: 750px;
+	color: #48A1F0;
 	padding: 15px;
 }
