@@ -128,7 +128,7 @@ class Repo {
   String created;
   String username;
 
-  /*Repo(String _type,
+  Repo(String _type,
   String _language,
   String _has_downloads,
   String _url,
@@ -150,10 +150,10 @@ class Repo {
   String _followers,
   String _pushed,
   String _created,
-  String _username) {*/
-	Repo(String _type) {
+  String _username) {
+	//Repo(String _type, String _language, String _has_downloads, String _name) {
     type = _type;
-	 /*language = _language;
+	 language = _language;
 	 has_downloads = _has_downloads;
 	 url = _url;
 	 homepage = _homepage;
@@ -174,10 +174,10 @@ class Repo {
 	 followers = _followers;
 	 pushed = _pushed;
 	 created = _created;
-	 username = _username;*/
+	 username = _username;
     
     println("type:          "+type);
-    /*println("language:      "+language);
+    println("language:      "+language);
     println("has_downloads: "+has_downloads);
     println("url:           "+url);
     println("homepage:      "+homepage);
@@ -198,7 +198,8 @@ class Repo {
     println("followers:     "+followers);
     println("pushed:        "+pushed);
     println("created:       "+created);
-    println("username:      "+username);*/
+    println("username:      "+username);
+    println("---");
   }
   
   void display(int x, int y) {
@@ -258,7 +259,7 @@ String _mail) {
  * This is our javaScript connection
  * If you change something, you must also update the javascript at the .html file.
  */
-/*void repodata(String _type,
+void repodata(String _type,
   String _language,
   String _has_downloads,
   String _url,
@@ -280,7 +281,30 @@ String _mail) {
   String _followers,
   String _pushed,
   String _created,
-  String _username) {*/
-void repodata(String _type) {
-  repos.add(new Repo(type));
+  String _username) {
+//void repodata(String _type, String _language, String _has_downloads, String _name) {
+  //repos.add(new Repo(_type, _language, _has_downloads, _name));
+  repos.add(new Repo(_type,
+  _language,
+  _has_downloads,
+  _url,
+  _homepage,
+  _pushed_at,
+  _created_at,
+  _fork,
+  _has_wiki,
+  _score,
+  _size,
+  _private_repo,
+  _name,
+  _watchers,
+  _owner,
+  _open_issues,
+  _description,
+  _forks,
+  _has_issues,
+  _followers,
+  _pushed,
+  _created,
+  _username));
 }
