@@ -7,8 +7,8 @@
 	<img src="http://www.wrong-entertainment.com/code/github_white.png" height="45" alt="github, social coding"/></br></br></br>
 	<table>
 		<tr>
-		<td><img src="http://www.wrong-entertainment.com/code/GithubViz/img/agent_s_green.png" alt="wrong-entertainment.com creative studiolab for motion and graphicdesign"></td>
-		<td style="color: #00FF00">all items on this website are copyright by wrong-entertainment and powder.<br/>2012, all rights reserved. lovely made in germany.</td>
+		<td><img src="http://www.wrong-entertainment.com/code/GithubViz/img/agent_s_blue.png" alt="wrong-entertainment.com creative studiolab for motion and graphicdesign"></td>
+		<td style="color: #48A1F0">all items on this website are copyright by wrong-entertainment and powder.<br/>2012, all rights reserved. lovely made in germany.</td>
 		</tr>
 	</table>
 	<table border = "0" width="700">
