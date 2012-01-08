@@ -6,51 +6,33 @@
 <?php include("../static/head.php"); ?>
 <script src="http://www.wrong-entertainment.com/code/GithubViz/js/processing-1.3.6.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-<!-- <script type="text/javascript">  
-            var bound = false;  
-  
-            function bindJavascript() {  
-                var pjs = Processing.getInstanceById('sketch1');  
-                if(pjs!=null) {  
-                    pjs.bindJavascript(this);  
-                    bound = true; }  
-                if(!bound) setTimeout(bindJavascript, 250);   
-       }  
-            bindJavascript();  
-  
-            function showXYCoordinates(x, y) {  
-                document.getElementById('xcoord').value = x;  
-                document.getElementById('ycoord').value = y;   
-       }  
-</script>-->
-
 <script type="text/javascript">  
 function drawSomeText(id) {  
   var pjs = Processing.getInstanceById(id);  
   var text = document.getElementById('inputtext').value;
 
 
-var gitUsername = text;//"WrongEntertainment";
-var gitBaseUrl = "http://github.com/api/v2/json/";
-var gitUserUrl = "user/show/";
-var gitRepoUrl = "repos/show/";
-var callback = "?callback=?";	
-var gravatarUrl = "http://www.gravatar.com/avatar/";
+/*
+  Creates an unordered list containing Github user info and an image with the avatar.
+  Will be placed inside a div-element with id "github_userinfo"
+*/
+  var gitUsername = text;
+  var gitBaseUrl = "http://github.com/api/v2/json/";
+  var gitUserUrl = "user/show/";
+  var gitRepoUrl = "repos/show/";
+  var callback = "?callback=?";	
+  var gravatarUrl = "http://www.gravatar.com/avatar/";
 	 
-$.getJSON(gitBaseUrl + gitUserUrl + gitUsername + callback,
-function(json, statuts) {			
-	var user_data = json.user;
-	//alert(user_data.login);
-	$("#github_userinfo").append("<ul id='github_userinfo-list'></ul>");
-	$("#github_userinfo-list").append("<li>Name: " + user_data.login + "</li>");
-	name = user_data.login;
-	pjs.drawText(name);
-	$("#github_userinfo-list").append("<li>Followers: " + user_data.followers_count + "</li>");
-	$("#github_userinfo-list").append("<li>Public Repos: " + user_data.public_repo_count + "</li>");
-	$('#github_userinfo').prepend('<img id="github_avatar" src="' + gravatarUrl + user_data.gravatar_id + '" />');
-});
-		
+  $.getJSON(gitBaseUrl + gitUserUrl + gitUsername + callback,
+  function(json, statuts) {			
+    var user_data = json.user;
+    //alert(user_data.login);
+    $("#github_userinfo").append("<ul id='github_userinfo-list'></ul>");
+    pjs.drawText(user_data.login, user_data.followers_count, user_data.public_repo_count);
+    $("#github_userinfo-list").append("<li>Public Repos: " + user_data.public_repo_count + "</li>");
+    $('#github_userinfo').prepend('<img id="github_avatar" src="' + gravatarUrl + user_data.gravatar_id + '" />');
+  });
+
 
   //pjs.drawText(text);
 }
@@ -66,18 +48,11 @@ function(json, statuts) {
 <div id="github_repositories"></div>
 
 <section>
-<h1>About</br>GithubViz</h1>
-<canvas id="sketch1" data-processing-sources="http://www.wrong-entertainment.com/code/GithubViz/js/test.pde"></canvas>
-<div id="coordinates">  
-            x/y: <input type="textfield" id="xcoord"/>/<input type="textfield" id="ycoord"/>  
-</div>
-
-<input type="textfield" value="my text" id="inputtext"/>  
-<button onclick="drawSomeText('sketch1')"/>
-
-
-<p>Feel free to replace.</p>
-<!-- <img src="http://placehold.it/750x350/808080/4D4D4D"> -->
+<h1>Processing.js Test</h1>
+<!-- Processing canvas-->
+<canvas id="sketch1" data-processing-sources="http://www.wrong-entertainment.com/code/GithubViz/js/test.pde"></canvas><br><br>
+<input type="textfield" value="Powder" id="inputtext"/>  
+<button onclick="drawSomeText('sketch1')" id="button4"/>Send</button>
 </section>
 <!-- CONTENT end -->
 
