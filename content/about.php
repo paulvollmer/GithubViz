@@ -13,7 +13,7 @@
 <h2>About</br>GithubViz</h2>
 <div id="introduction">
 <p>Feel free to replace.</p>
-<img src="http://placehold.it/750x350">
+<img src="http://placehold.it/750x350/808080/4D4D4D">
 </div>
 </section>
 <!-- CONTENT end -->
