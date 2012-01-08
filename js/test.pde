@@ -1,34 +1,86 @@
-	ArrayList points;
-	void setup() {
-	  size(200,200);
-	  points = new ArrayList(); 
-}
-	void draw() {
-	  background(200,200,255);
-	  for(int p=0, end=points.size(); p<end; p++) {
-	    Point pt = (Point) points.get(p);
-	    if(p<end-1) {
-	      Point next = (Point) points.get(p+1);
-	      line(pt.x,pt.y,next.x,next.y); }
-	    pt.draw(); }
+/*interface JavaScript {  
+   void showXYCoordinates(int x, int y);   
+ }  
+  
+void bindJavascript(JavaScript js) {  
+    javascript = js;   
+ }  
+  
+JavaScript javascript;*/
+
+
+
+int mx, my;
+String textContent;
+
+ArrayList username;
+
+void setup() {
+  size(750, 400);
+  //loop();
+  username = new ArrayList();
+  username.add(new User("def"));
 }
 
-	void mouseClicked() {
-	  addPoint(mouseX,mouseY); 
+void draw() {
+  background(0x808080);
+  fill(255, 0, 0);
+  ellipse(mx, my, 10, 10);
+  
+  println("username.size()" + username.size());
+  for (int i = username.size()-1; i >= 0; i--) { 
+ // An ArrayList doesn't know what it is storing so we have 
+ // to cast the object coming out
+ User usr = (User) username.get(i);
+ test(usr.name, 100, 10*i);
+println(i);
+ }
+
+  // place the text centered on the drawing area  
+  text(textContent, (width - twidth)/2, height/2);
 }
 
-	Point addPoint(int x, int y) {
-	  Point pt = new Point(x,y);
-	  points.add(pt);
-	  return pt; 
-}
 
-	class Point {
-	  int x,y;
-	  Point(int x, int y) { this.x=x; this.y=y; }
-	  void draw() {
-	    stroke(255,0,0);
-	    fill(255);
-	    ellipse(x,y,10,10); 
-  }
+/*void mouseMoved() {
+	if(javascript!=null){  
+	     javascript.showXYCoordinates(mouseX, mouseY);
+	mx = mouseX;
+	my = mouseY; 
+	   }
+}*/
+
+
+
+
+
+
+
+
+
+void drawText(String t) {
+	background(0x808080);
+   // get the width for the text  
+   float twidth = textWidth(t);
+   textContent = t;
+
+username.add(new User(textContent));
+
+   // place the text centered on the drawing area  
+   text(t, (width - twidth)/2, height/2);     
+ }
+
+
+
+
+class User {
+
+	String name;
+
+	User(String n) {
+		name = n;
+	}
+
+	void init(){
+		println(name);
+	}
 }
