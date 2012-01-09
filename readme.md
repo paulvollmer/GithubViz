@@ -4,6 +4,11 @@
 
 Aktueller Server Mirror  
 http://www.wrong-entertainment.com/code/GithubViz/  
+
+THIRD-PARTY ADDONS:  
+- Processing.js  
+- jQuery  
+- jQuery ui  
   
   
 **GitHub API v3**  
