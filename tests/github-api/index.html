@@ -80,10 +80,10 @@
 		/*
 		 * Repository selected
 		*/
-		var nameRepo = "fxgP5";
+		var nameRepo = getUrlVars()["repo"]; //"fxgP5";
 		gh.repo(name, nameRepo).show(function(data) {
 			//console.log("gh.repo _ data.repository " + nameRepo);
-			console.log(data.repository);
+			//console.log(data.repository);
 			
 			getTest("github_repo_created_at",      data.repository.created_at);
 			getTest("github_repo_description",     data.repository.description);
@@ -176,7 +176,7 @@
 		</table>
 	</div>
 	
-	<h2>User Repository fxgP5</h2>
+	<h2>User Repository</h2>
 	<div>
 		<table>
 			<tr>
