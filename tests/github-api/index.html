@@ -4,15 +4,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>GithubViz - Test</title>
+	
+	<style type="text/css">
+	table {
+		text-align: left;
+		width: 750px;
+	}
+	th {
+		padding: 5px;
+		background: #ccc;
+	}
+	</style>
+	
 	<!-- javascript src -->
 	<script src="https://raw.github.com/fitzgen/github-api/master/github.js"></script>
 	
-	
+	<!-- javascript example -->
 	<script type="text/javascript">
 	onload = function(){
 		/* Set a Github Username you want to discover. */
 		var name = "WrongEntertainment";
-		
 		
 		/*
 		 * User Info
@@ -23,38 +34,22 @@
 			//console.log("gh.user _ data.user");
 			//console.log(data.user);
 			
-			/* blog */
 			document.getElementById("github_user_blog").innerHTML = data.user.blog;
-			/* company */
 			document.getElementById("github_user_company").innerHTML = data.user.company;
-			/* created_at */
 			document.getElementById("github_user_created_at").innerHTML = data.user.created_at;
-			/* email */
 			document.getElementById("github_user_email").innerHTML = data.user.email;
-			/* followers_count */
 			document.getElementById("github_user_followers_count").innerHTML = data.user.followers_count;
-			/* following_count */
 			document.getElementById("github_user_following_count").innerHTML = data.user.following_count;
-			/* gravatar_id */
 			document.getElementById("github_user_gravatar_id").innerHTML = data.user.gravatar_id;
-			/* id */
 			document.getElementById("github_user_id").innerHTML = data.user.id;
-			/* location */
 			document.getElementById("github_user_location").innerHTML = data.user.location;
-			/* login */
 			document.getElementById("github_user_login").innerHTML = data.user.login;
-			/* name */
 			document.getElementById("github_user_name").innerHTML = data.user.name;
-			/* permission */
 			document.getElementById("github_user_permission").innerHTML = data.user.permission;
-			/* public_gist_count */
 			document.getElementById("github_user_public_gist_count").innerHTML = data.user.public_gist_count;
-			/* public_repo_count */
 			document.getElementById("github_user_public_repo_count").innerHTML = data.user.public_repo_count;
-			/* type */
 			document.getElementById("github_user_type").innerHTML = data.user.type;
 		});
-		
 		
 		/*
 		 * User Repositories Info
@@ -73,7 +68,7 @@
 		var nameRepo = "fxgP5";
 		gh.repo(name, nameRepo).show(function (data) {
 			//console.log("gh.repo _ data.repository " + nameRepo);
-			//console.log(data.repository);
+			console.log(data.repository);
 			
 			document.getElementById("github_repo_created_at").innerHTML = data.repository.created_at;
 			document.getElementById("github_repo_description").innerHTML = data.repository.description;
@@ -99,46 +94,144 @@
 
 <body>
 	<h1>github-api Test</h1>
-	
 	<h2>User Information</h2>
 	<div>
-		<b>Blog: </b><code id="github_user_blog"></code><br>
-		<b>Company: </b><code id="github_user_company"></code><br>
-		<b>Created at: </b><code id="github_user_created_at"></code><br>
-		<b>Email: </b><code id="github_user_email"></code><br>
-		<b>Followers: </b><code id="github_user_followers_count"></code><br>
-		<b>Following: </b><code id="github_user_following_count"></code><br>
-		<b>Gravatar: </b><code id="github_user_gravatar_id"></code><br>
-		<b>ID: </b><code id="github_user_id"></code><br>
-		<b>Location: </b><code id="github_user_location"></code><br>
-		<b>Login: </b><code id="github_user_login"></code><br>
-		<b>Name: </b><code id="github_user_name"></code><br>
-		<b>Permission: </b><code id="github_user_permission"></code><br>
-		<b>Public Gist: </b><code id="github_user_public_gist_count"></code><br>
-		<b>Public Repo: </b><code id="github_user_public_repo_count"></code><br>
-		<b>Type: </b><code id="github_user_type"></code><br>
+		<table>
+			<tr>
+				<th>Blog:</th>
+				<th id="github_user_blog"></th>
+			</tr>
+			<tr>
+				<th>Company:</th>
+				<th id="github_user_company"></th>
+			</tr>
+			<tr>
+				<th>Created at:</th>
+				<th id="github_user_created_at"></th>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<th id="github_user_email"></th>
+			</tr>
+			<tr>
+				<th>Followers:</th>
+				<th id="github_user_followers_count"></th>
+			</tr>
+			<tr>
+				<th>Following:</th>
+				<th id="github_user_following_count"></th>
+			</tr>
+			<tr>
+				<th>Gravatar:</th>
+				<th id="github_user_gravatar_id"></th>
+			</tr>
+			<tr>
+				<th>ID:</th>
+				<th id="github_user_id"></th>
+			</tr>
+			<tr>
+				<th>Location:</th>
+				<th id="github_user_location"></th>
+			</tr>
+			<tr>
+				<th>Login:</th>
+				<th id="github_user_login"></th>
+			</tr>
+			<tr>
+				<th>Name:</th>
+				<th id="github_user_name"></th>
+			</tr>
+			<tr>
+				<th>Permission:</th>
+				<th id="github_user_permission"></th>
+			</tr>
+			<tr>
+				<th>Public Gist:</th>
+				<th id="github_user_public_gist_count"></th>
+			</tr>
+			<tr>
+				<th>Public Repo:</th>
+				<th id="github_user_public_repo_count"></th>
+			</tr>
+			<tr>
+				<th>Type:</th>
+				<th id="github_user_type"></th>
+			</tr>
+		</table>
 	</div>
 	
-	<h2>User Repository <b id="github_repo_name"></b></h2>
+	<h2>User Repository fxgP5</h2>
 	<div>
-		<b>Created at: </b><code id="github_repo_created_at"></code><br>
-		<b>Description: </b><code id="github_repo_description"></code><br>
-		<b>Fork: </b><code id="github_repo_fork"></code><br>
-		<b>Forks: </b><code id="github_repo_forks"></code><br>
-		<b>Has downloads: </b><code id="github_repo_has_downloads"></code><br>
-		<b>Has issues: </b><code id="github_repo_has_issues"></code><br>
-		<b>Has wiki: </b><code id="github_repo_has_wiki"></code><br>
-		<b>Homepage: </b><code id="github_repo_homepage"></code><br>
-		<b>Language: </b><code id="github_repo_language"></code><br>
-		<b>Name: </b><code id="github_repo_name"></code><br>
-		<b>Open issues: </b><code id="github_repo_open_issues"></code><br>
-		<b>Owner: </b><code id="github_repo_owner"></code><br>
-		<b>Private: </b><code id="github_repo_private"></code><br>
-		<b>Pushed at: </b><code id="github_repo_pushed_at"></code><br>
-		<b>Size: </b><code id="github_repo_size"></code><br>
-		<b>Url: </b><code id="github_repo_url"></code><br>
-		<b>Watchers: </b><code id="github_repo_watchers"></code><br>
-		
+		<table>
+			<tr>
+				<th>Created at:</th>
+				<th id="github_repo_created_at"></th>
+			</tr>
+			<tr>
+				<th>Description:</th>
+				<th id="github_repo_description"></th>
+			</tr>
+			<tr>
+				<th>Fork:</th>
+				<th id="github_repo_fork"></th>
+			</tr>
+			<tr>
+				<th>Forks:</th>
+				<th id="github_repo_forks"></th>
+			</tr>
+			<tr>
+				<th>Has Downloads:</th>
+				<th id="github_repo_has_downloads"></th>
+			</tr>
+			<tr>
+				<th>Has Issues:</th>
+				<th id="github_repo_has_issues"></th>
+			</tr>
+			<tr>
+				<th>Has Wiki:</th>
+				<th id="github_repo_has_wiki"></th>
+			</tr>
+			<tr>
+				<th>Homepage:</th>
+				<th id="github_repo_homepage"></th>
+			</tr>
+			<tr>
+				<th>Language:</th>
+				<th id="github_repo_language"></th>
+			</tr>
+			<tr>
+				<th>Name:</th>
+				<th id="github_repo_name"></th>
+			</tr>
+			<tr>
+				<th>Open Issues:</th>
+				<th id="github_repo_open_issues"></th>
+			</tr>
+			<tr>
+				<th>Owner:</th>
+				<th id="github_repo_owner"></th>
+			</tr>
+			<tr>
+				<th>Private:</th>
+				<th id="github_repo_private"></th>
+			</tr>
+			<tr>
+				<th>Pushed at:</th>
+				<th id="github_repo_pushed_at"></th>
+			</tr>
+			<tr>
+				<th>Size:</th>
+				<th id="github_repo_size"></th>
+			</tr>
+			<tr>
+				<th>Url:</th>
+				<th id="github_repo_url"></th>
+			</tr>
+			<tr>
+				<th>Watchers:</th>
+				<th id="github_repo_watchers"></th>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>
