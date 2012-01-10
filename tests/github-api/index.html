@@ -21,35 +21,47 @@
 	
 	<!-- javascript example -->
 	<script type="text/javascript">
-	onload = function(){
+	onload = function() {
+		
+		function getTest(s, data) {
+			if(data != null) {
+				document.getElementById(s).innerHTML = data;
+			} else {
+				document.getElementById(s).innerHTML = "Not Available";
+			}
+		}
+		
+		
 		/* Set a Github Username you want to discover. */
 		var name = "WrongEntertainment";
 		
 		/*
 		 * User Info
 		 */
-		gh.user(name).show(function (data) {
+		gh.user(name).show(function(data) {
 			/* print Object to console 
 			 * Open your Browser console to see the data objects. */
 			//console.log("gh.user _ data.user");
 			//console.log(data.user);
 			
-			document.getElementById("github_user_blog").innerHTML = data.user.blog;
-			document.getElementById("github_user_company").innerHTML = data.user.company;
-			document.getElementById("github_user_created_at").innerHTML = data.user.created_at;
-			document.getElementById("github_user_email").innerHTML = data.user.email;
-			document.getElementById("github_user_followers_count").innerHTML = data.user.followers_count;
-			document.getElementById("github_user_following_count").innerHTML = data.user.following_count;
-			document.getElementById("github_user_gravatar_id").innerHTML = data.user.gravatar_id;
-			document.getElementById("github_user_id").innerHTML = data.user.id;
-			document.getElementById("github_user_location").innerHTML = data.user.location;
-			document.getElementById("github_user_login").innerHTML = data.user.login;
-			document.getElementById("github_user_name").innerHTML = data.user.name;
-			document.getElementById("github_user_permission").innerHTML = data.user.permission;
-			document.getElementById("github_user_public_gist_count").innerHTML = data.user.public_gist_count;
-			document.getElementById("github_user_public_repo_count").innerHTML = data.user.public_repo_count;
-			document.getElementById("github_user_type").innerHTML = data.user.type;
+			getTest("github_user_blog",                data.user.blog);
+			getTest("github_user_company",             data.user.company);
+			getTest("github_user_company",             data.user.company);
+			getTest("github_user_created_at",          data.user.created_at);
+			getTest("github_user_email",               data.user.email);
+			getTest("github_user_followers_count",     data.user.followers_count);
+			getTest("github_user_following_count",     data.user.following_count);
+			getTest("github_user_gravatar_id",         data.user.gravatar_id);
+			getTest("github_user_id",                  data.user.id);
+			getTest("github_user_location",            data.user.location);
+			getTest("github_user_login",               data.user.login);
+			getTest("github_user_name",                data.user.name);
+			getTest("github_user_permission",          data.user.permission);
+			getTest("github_user_public_gist_count",   data.user.public_gist_count);
+			getTest("github_user_public_repo_count",   data.user.public_repo_count);
+			getTest("github_user_type",                data.user.type);
 		});
+		
 		
 		/*
 		 * User Repositories Info
@@ -66,27 +78,28 @@
 		 * Repository selected
 		*/
 		var nameRepo = "fxgP5";
-		gh.repo(name, nameRepo).show(function (data) {
+		gh.repo(name, nameRepo).show(function(data) {
 			//console.log("gh.repo _ data.repository " + nameRepo);
 			console.log(data.repository);
 			
-			document.getElementById("github_repo_created_at").innerHTML = data.repository.created_at;
-			document.getElementById("github_repo_description").innerHTML = data.repository.description;
-			document.getElementById("github_repo_fork").innerHTML = data.repository.fork;
-			document.getElementById("github_repo_forks").innerHTML = data.repository.forks;
-			document.getElementById("github_repo_has_downloads").innerHTML = data.repository.has_downloads;
-			document.getElementById("github_repo_has_issues").innerHTML = data.repository.has_issues;
-			document.getElementById("github_repo_has_wiki").innerHTML = data.repository.has_wiki;
-			document.getElementById("github_repo_homepage").innerHTML = data.repository.homepage;
-			document.getElementById("github_repo_language").innerHTML = data.repository.language;
-			document.getElementById("github_repo_name").innerHTML = data.repository.name;
-			document.getElementById("github_repo_open_issues").innerHTML = data.repository.open_issues;
-			document.getElementById("github_repo_owner").innerHTML = data.repository.owner;
-			document.getElementById("github_repo_private").innerHTML = data.repository.private;
-			document.getElementById("github_repo_pushed_at").innerHTML = data.repository.pushed_at;
-			document.getElementById("github_repo_size").innerHTML = data.repository.size;
-			document.getElementById("github_repo_url").innerHTML = data.repository.url;
-			document.getElementById("github_repo_watchers").innerHTML = data.repository.watchers;
+			getTest("github_repo_created_at",      data.repository.created_at);
+			getTest("github_repo_description",     data.repository.description);
+			getTest("github_repo_fork",            data.repository.fork);
+			getTest("github_repo_forks",           data.repository.forks);
+			getTest("github_repo_has_downloads",   data.repository.has_downloads);
+			getTest("github_repo_has_issues",      data.repository.has_issues);
+			getTest("github_repo_has_wiki",        data.repository.has_wiki);
+			getTest("github_repo_homepage",        data.repository.homepage);
+			getTest("github_repo_language",        data.repository.language);
+			getTest("github_repo_name",            data.repository.name);
+			getTest("github_repo_open_issues",     data.repository.open_issues);
+			getTest("github_repo_owner",           data.repository.owner);
+			getTest("github_repo_private",         data.repository.private);
+			getTest("github_repo_pushed_at",       data.repository.pushed_at);
+			getTest("github_repo_size",            data.repository.size);
+			getTest("github_repo_url",             data.repository.url);
+			getTest("github_repo_watchers",        data.repository.watchers);
+			
 		});
 	}
 	</script>
