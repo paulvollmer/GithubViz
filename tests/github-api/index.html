@@ -18,10 +18,16 @@
 	
 	<!-- javascript src -->
 	<script src="https://raw.github.com/fitzgen/github-api/master/github.js"></script>
+	<script src="../../js/get_url_vars.js"></script>
 	
 	<!-- javascript example -->
 	<script type="text/javascript">
 	onload = function() {
+		
+		/* Set a Github Username you want to discover. */
+		var name = getUrlVars()["user"];
+		//alert(getUrlVars()["user"]);
+		
 		
 		function getTest(s, data) {
 			if(data != null) {
@@ -31,9 +37,6 @@
 			}
 		}
 		
-		
-		/* Set a Github Username you want to discover. */
-		var name = "WrongEntertainment";
 		
 		/*
 		 * User Info
