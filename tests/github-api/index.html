@@ -5,6 +5,7 @@
 <head>
 	<title>GithubViz - Test</title>
 	
+	<!-- stylesheet -->
 	<style type="text/css">
 	table {
 		text-align: left;
@@ -17,7 +18,7 @@
 	</style>
 	
 	<!-- javascript src -->
-	<script src="https://raw.github.com/fitzgen/github-api/master/github.js"></script>
+	<script src="../../js/libs/github.js"></script>
 	<script src="../../js/get_url_vars.js"></script>
 	
 	<!-- javascript example -->
@@ -29,6 +30,12 @@
 		//alert(getUrlVars()["user"]);
 		
 		
+		/*
+		 * @param s
+		 *        id of the html element.
+		 * @param data
+		 *        json data object.
+		 */
 		function getTest(s, data) {
 			if(data != null) {
 				document.getElementById(s).innerHTML = data;
@@ -46,7 +53,6 @@
 			 * Open your Browser console to see the data objects. */
 			//console.log("gh.user _ data.user");
 			//console.log(data.user);
-			
 			getTest("github_user_blog",                data.user.blog);
 			getTest("github_user_company",             data.user.company);
 			getTest("github_user_company",             data.user.company);
@@ -84,7 +90,6 @@
 		gh.repo(name, nameRepo).show(function(data) {
 			//console.log("gh.repo _ data.repository " + nameRepo);
 			//console.log(data.repository);
-			
 			getTest("github_repo_created_at",      data.repository.created_at);
 			getTest("github_repo_description",     data.repository.description);
 			getTest("github_repo_fork",            data.repository.fork);
@@ -102,7 +107,6 @@
 			getTest("github_repo_size",            data.repository.size);
 			getTest("github_repo_url",             data.repository.url);
 			getTest("github_repo_watchers",        data.repository.watchers);
-			
 		});
 	}
 	</script>
