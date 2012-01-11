@@ -1,5 +1,20 @@
 #GithubViz#
 
+###TODO  
+  
+- Landingpage  
+- Zielgruppe?  
+- Wo steigt man ein? User oder Repo?
+- Visualisierung?
+  - Parameter?
+  - Interaktion?
+  - Grafik?
+- Technisches
+  - Progress Bar
+  - Framework? Boilerplate?
+
+* * * 
+
 ###Description  
 
 Aktueller Server Mirror  
