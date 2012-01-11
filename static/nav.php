@@ -6,6 +6,7 @@
 <li><a href="discover.php">Discover</a> | </li>
 <li><a href="raw.php">Raw Files</a> | </li>
 <li><a href="https://github.com/Powder/GithubViz">Github</a> | </li>
+<li><a href="../tests/index.html">Tests</a> | </li>
 <li><a href="contact.php">Contact</a></li>
 </ul>
 <br>
