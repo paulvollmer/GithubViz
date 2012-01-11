@@ -4,13 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<?php include("../static/head.php"); ?>
-	<script src="http://www.wrong-entertainment.com/code/GithubViz/js/processing-1.3.6.min.js"></script>
-	<link rel="stylesheet" href="../css/themes/dark-hive/jquery-ui-dark-hive.css">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="../js/ui/jquery.ui.core.js"></script>
-	<script src="../js/ui/jquery.ui.widget.js"></script>
-	<script src="../js/ui/jquery.ui.accordion.js"></script>
-	<link rel="stylesheet" href="../css/demos.css">
+	<script src="../js/libs/processing-1.3.6.min.js"></script>
+	<link rel="stylesheet" href="../css/jquery-ui/themes/base/jquery.ui.all.css">
+	<script src="../js/libs/jquery-1.7.1.js"></script>
+	<script src="../js/libs/ui/jquery.ui.core.js"></script>
+	<script src="../js/libs/ui/jquery.ui.widget.js"></script>
+	<script src="../js/libs/ui/jquery.ui.accordion.js"></script>
+	<link rel="stylesheet" href="../css/jquery-ui/demos.css">
 	<script>
 	$(function() {
 		$( "#accordion1" ).accordion({
