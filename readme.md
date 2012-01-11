@@ -1,32 +1,34 @@
 #GithubViz#
-
-###TODO  
   
-- Landingpage  
-- Zielgruppe?  
-- Wo steigt man ein? User oder Repo?
-- Visualisierung?
-  - Parameter?
-  - Interaktion?
-  - Grafik?
-- Technisches
-  - Progress Bar
-  - Framework? Boilerplate?
-
-* * * 
-
 ###Description  
+  
+**TODO**  
+  
+> - Landingpage  
+> - Zielgruppe?  
+> - Wo steigt man ein? User oder Repo?
+> - Visualisierung?
+>   - Parameter?
+>   - Interaktion?
+>   - Grafik?
+> - Technisches
+>   - Progress Bar
+>   - Framework? Boilerplate? 
 
-Aktueller Server Mirror  
+**Aktueller Server Mirror**  
+  
 http://www.wrong-entertainment.com/code/GithubViz/  
 
-THIRD-PARTY ADDONS:  
-- Processing.js  
-- jQuery  
-- jQuery ui  
+**THIRD-PARTY ADDONS:**  
+  
+> - [github.js](https://github.com/fitzgen/github-api)  
+> - [Processing.js](https://github.com/jeresig/processing-js)  
+> - [jQuery](https://github.com/jquery/jquery)  
+> - [jQuery ui](https://github.com/jquery/jquery-ui)  
   
   
 **GitHub API v3**  
+  
 [developer.github](http://developer.github.com/)  
 
 hier ein paar API example url's.  
@@ -67,8 +69,6 @@ NA
 NA    
   
 This file is part of GithubViz.  
-  
-* * *
 
 ###Contact###
 
@@ -82,8 +82,6 @@ Mail: tim_pulver@gmx.de
 Url: http://www.timpulver.de  
 Github: http://www.github.com/Powder  
   
-* * *
-
 ###License  
 
 **GithubViz 0.1.0**  
