@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <?php include("../static/head.php"); ?>
-<script src="http://www.wrong-entertainment.com/code/GithubViz/js/processing-1.3.6.min.js"></script>
+<script src="../js/libs/processing-1.3.6.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <!-- ? $HTTP_GET_VARS["Vorname"]; ?> -->
@@ -29,7 +29,7 @@ function drawSomeText(id) {
   function(json, statuts) {			
     var user_data = json.user;
     // TODO: fix whitespace bug (if no whitespace available, table style broken.)
-	$("#github_userinfo").append("<table id='github_userinfo-list' border='1' width='750'></table>");
+	/*$("#github_userinfo").append("<table id='github_userinfo-list' border='1' width='750'></table>");
 	
 	$("#github_userinfo-list").append(" <tr>");
 	$("#github_userinfo-list").append("    <th>Company:</th>");
@@ -101,7 +101,7 @@ function drawSomeText(id) {
 	$("#github_userinfo-list").append("    <th>" + user_data.email + "</th>");
 	$("#github_userinfo-list").append("  </tr>");
 	
-	$('#github_userinfo').prepend('<img id="github_avatar" src="' + gravatarUrl + user_data.gravatar_id + '" />');
+	$('#github_userinfo').prepend('<img id="github_avatar" src="' + gravatarUrl + user_data.gravatar_id + '" />');*/
 	
     // binding processing.js function
     pjs.userdata(user_data.gravatar_id,
@@ -125,8 +125,8 @@ function drawSomeText(id) {
    * Generates an unordered list containing all the repositories of a certain user.
    * The list will be added to the div-element with id "github_repositories".
    */
-  var username = "Powder";
-  $.getJSON("http://github.com/api/v2/json/repos/show/" + username + "?callback=?",
+  //var username = "Powder";
+  $.getJSON("http://github.com/api/v2/json/repos/show/" + gitUsername + "?callback=?",
   function(json, statuts) {
     //$("#github_repositories").append("<ul id='repositoriy-list'></ul>");
 	$.each(json.repositories, function(i){
@@ -195,17 +195,17 @@ function drawSomeText(id) {
 <section>
 <h1>Processing.js Test</h1>
 <!-- Processing canvas-->
-<canvas id="sketch1" data-processing-sources="http://www.wrong-entertainment.com/code/GithubViz/js/githubviz.pde"></canvas><br><br>
+<canvas id="sketch1" data-processing-sources="../js/githubviz.pde"></canvas><br><br>
 <input type="textfield" value="Powder" id="inputtext"/>  
 <button onclick="drawSomeText('sketch1')" id="button4"/>Send</button>
 <div id="github_userinfo"></div>
 
-<table id="github_userinfo-list" border="1" width="750">
+<!-- <table id="github_userinfo-list" border="1" width="750">
 	<tr>
 		<th>email:</th>
 		<th> <script type="text/javascript">document.write(gitUsername);</script> </th>
 	</tr>
-</table>
+</table> -->
 
 
 
