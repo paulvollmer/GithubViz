@@ -2,7 +2,7 @@
 <!-- head.php file - begin --> 
 <title>GithubViz</title>
 <meta name="description" content="GithubViz">
-<meta name="keywords" content="github, wrong entertainment, wrong-entertainment.com">
+<meta name="keywords" content="github, github visualisation, visualisation, data, timpulver.de, wrong entertainment, wrong-entertainment.com">
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="en-us" />
 <meta name="ROBOTS" content="index,follow,archive" />
@@ -17,8 +17,9 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 
 <link rel="stylesheet" type="text/css" href="http://www.wrong-entertainment.com/code/GithubViz/css/stylesheet.css">
+
+<!-- counter script --> 
 <?php
-// counter script
 $file = fopen("../counter.txt","r+");
 $counter = fgets($file, 10);
 if($counter == ""){
