@@ -1,0 +1,45 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  GithubViz: Tim Pulver & Paul Vollmer
+  Site: 
+  Twitter:
+  Location: germany
+
+/* THANKS */
+  Tina Deibel Seibt
+  FH-Potsdam, University of Applied Sciences
+  Ben Fry, Casey Reas
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, processing.js, github.js
+  Software: 
+
+
+
+                               -o/-
+                               +oo//-
+                              :ooo+//:
+                             -ooooo///-
+                             /oooooo//:
+                            :ooooooo+//-
+                           -+oooooooo///-
+           -://////////////+oooooooooo++////////////::
+            :+ooooooooooooooooooooooooooooooooooooo+:::-
+              -/+ooooooooooooooooooooooooooooooo+/::////:-
+                -:+oooooooooooooooooooooooooooo/::///////:-
+                  --/+ooooooooooooooooooooo+::://////:-
+                     -:+ooooooooooooooooo+:://////:--
+                       /ooooooooooooooooo+//////:-
+                      -ooooooooooooooooooo////-
+                      /ooooooooo+oooooooooo//:
+                     :ooooooo+/::/+oooooooo+//-
+                    -oooooo/::///////+oooooo///-
+                    /ooo+::://////:---:/+oooo//:
+                   -o+/::///////:-      -:/+o+//-
+                   :-:///////:-            -:/://
+                     -////:-                 --//:
+                       --                       -:
