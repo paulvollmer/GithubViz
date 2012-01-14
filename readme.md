@@ -4,20 +4,30 @@
   
 **TODO**  
   
-> - Landingpage  
+> ---- Landingpage  
 > - Zielgruppe?  
-> - Wo steigt man ein? User oder Repo?
-> - Visualisierung?
->   - Parameter?
->   - Interaktion?
->   - Grafik?
-> - Technisches
->   - Progress Bar
->   - Framework? Boilerplate? 
+> ---- Wo steigt man ein? User oder Repo?  
+> - Visualisierung?  
+>   - Parameter?  
+>   - Interaktion?  
+>   - Grafik?  
+> - Technisches  
+>   - Progress Bar  
+>   ---- Framework? Boilerplate?  
+>   - Weltkarten API javascript  (http://www.toshop.com/latlonlookup.cfm) Wieviele Watcher werden dargestellt. API limits?  
+>   - Devices / Größen?  
+>   - Images einfärben/Avatare (Performance?)    
+
+v2  
+
+> - Programmiersprachen Explorer (Popularität...)  
+> - Landing Page Popular Searches
+
 
 **Aktueller Server Mirror**  
   
 http://www.wrong-entertainment.com/code/GithubViz/  
+TODO: script für einen automatischen server mirror von github generieren. serverseitig.
 
 **THIRD-PARTY ADDONS:**  
   
