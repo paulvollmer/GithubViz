@@ -6,7 +6,7 @@
   GithubViz: Tim Pulver & Paul Vollmer
   Site: 
   Twitter:
-  Location: germany
+  Location: Potsdam, Germany
 
 /* THANKS */
   Tina Deibel Seibt
