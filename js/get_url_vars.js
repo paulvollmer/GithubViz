@@ -1,6 +1,6 @@
 /**
  * get url variables like
- * http:77www.wng.cc/?VAR=xyz
+ * http://www.wng.cc/?VAR=xyz
  */
 function getUrlVars(){
     var vars = [], hash;
