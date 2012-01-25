@@ -3,17 +3,10 @@
 
 
 /* TEAM */
-<<<<<<< HEAD
-  GithubViz: Tim Pulver & Paul Vollmer
-  Site: 
-  Twitter:
-  Location: Potsdam, Germany
-=======
    GithubViz: Tim Pulver & Paul Vollmer
    Site: 
    Twitter:
-   Location: germany
->>>>>>> delete boilerplate favicon
+   Location: Potsdam, Germany
 
 /* THANKS */
    Tina Deibel Seibt
