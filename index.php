@@ -6,8 +6,6 @@
 
 <body>
   <?php include("static/nav.php"); ?>
-  
-<img src="img/githubviz_logo.png" alt="GitHubViz"/>
 
   <header>
   <h3>Search GitHub User</h3>
