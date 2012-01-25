@@ -3,43 +3,24 @@
 
 
 /* TEAM */
+<<<<<<< HEAD
   GithubViz: Tim Pulver & Paul Vollmer
   Site: 
   Twitter:
   Location: Potsdam, Germany
+=======
+   GithubViz: Tim Pulver & Paul Vollmer
+   Site: 
+   Twitter:
+   Location: germany
+>>>>>>> delete boilerplate favicon
 
 /* THANKS */
-  Tina Deibel Seibt
-  FH-Potsdam, University of Applied Sciences
-  Ben Fry, Casey Reas
+   Tina Deibel Seibt
+   FH-Potsdam, University of Applied Sciences
+   Ben Fry, Casey Reas
 
 /* SITE */
-  Standards: HTML5, CSS3
-  Components: Modernizr, jQuery, processing.js, github.js
-  Software: 
-
-
-
-                               -o/-
-                               +oo//-
-                              :ooo+//:
-                             -ooooo///-
-                             /oooooo//:
-                            :ooooooo+//-
-                           -+oooooooo///-
-           -://////////////+oooooooooo++////////////::
-            :+ooooooooooooooooooooooooooooooooooooo+:::-
-              -/+ooooooooooooooooooooooooooooooo+/::////:-
-                -:+oooooooooooooooooooooooooooo/::///////:-
-                  --/+ooooooooooooooooooooo+::://////:-
-                     -:+ooooooooooooooooo+:://////:--
-                       /ooooooooooooooooo+//////:-
-                      -ooooooooooooooooooo////-
-                      /ooooooooo+oooooooooo//:
-                     :ooooooo+/::/+oooooooo+//-
-                    -oooooo/::///////+oooooo///-
-                    /ooo+::://////:---:/+oooo//:
-                   -o+/::///////:-      -:/+o+//-
-                   :-:///////:-            -:/://
-                     -////:-                 --//:
-                       --                       -:
+   Standards: HTML5, CSS3
+   Components: Modernizr, jQuery, processing.js, github.js
+   Software: 
