@@ -1,39 +1,52 @@
 
 <!-- footer.php file - begin -->
 <footer>
-<img src="http://www.wrong-entertainment.com/code/GithubViz/img/footerbg.png">
+<img src="img/footerbg.png">
 <div id="footer_content">
-	<img src="http://www.wrong-entertainment.com/code/fhp_white.png" height="35" alt="fh-potsdam, university of applied sciences"/>  
-	<img src="http://www.wrong-entertainment.com/code/github_white.png" height="45" alt="github, social coding"/></br></br></br>
 	<table>
-		<tr>
-		<td><img src="http://www.wrong-entertainment.com/code/GithubViz/img/agent_s_blue.png" alt="wrong-entertainment.com creative studiolab for motion and graphicdesign"></td>
-		<td style="color: #48A1F0">all items on this website are copyright by wrong-entertainment and powder.<br/>2012, all rights reserved. lovely made in germany.</td>
+		<colgroup width="150" span="4"></colgroup>
+		<tr align="right" valign="middle">
+		<td><img src="img/fhp_white.png" alt="fh-potsdam, university of applied sciences"/></td>
+		<td><img src="img/github_white.png" alt="github, social coding"/></td>
+		<td><img src="img/powder_white.png" alt="Powder"/></td>
+		<td><img src="img/wrongagent_white.png" alt="wrong-entertainment"/></td>
 		</tr>
 	</table>
-	<table border = "0" width="700">
+	</br></br></br>
+	
+	<table width="750">
 		<tr>
-		<td><b><a href="http://www.wrong-entertainment.com/code/GithubViz/">GithubViz</a></b></td>
+		<td><b><a href="GitHubViz">GitHubViz</a></b></td>
+		<td> </td>
 		<td> </td>
 		<td> </td>
 		</tr>
+		
 		<tr>
-		<td>developed by:</td>
-		<td>fork this project at:</td>
-		<td><a href="https://www.incom.org" target="_blank">incom</a></td>
+		<td>Developed by</td>
+		<td>Developed at</td>
+		<td>Fork this Project at</td>
+		<td><a href="http://www.github.com/" target="_blank">GitHub</a></td>
 		</tr>
+		
 		<tr>
-		<td>Tim Pulver, <a href="http://www.timpulver.de">timpulver.de</a></td>
+		<td>Tim Pulver, <a href="http://www.timpulver.de" target="_blank">timpulver.de</a></td>
+		<td><a href="http://www.fh-potsdam.de" target="_blank">FH Potsdam, University of Applied Sciences</a></td>
 		<td><a href="https://github.com/Powder/GithubViz" target="_blank">github/GithubViz</a></td>
-		<td><a href="http://www.flickr.com/people/7186222@N03/" target="_blank">flickr</a></td>
+		<td><a href="http://www.incom.org/" target="_blank">Incom</a></td>
 		</tr>
+		
 		<tr>
-		<td>Paul Vollmer, <a href="http://www.wrong-entertainment.com">wrong-entertainment.com </a></td>
+		<td>Paul Vollmer, <a href="http://www.wrong-entertainment.com" target="_blank">wrong-entertainment.com </a></td>
 		<td> </td>
-		<td><a href="http://www.vimeo.com/wrong" target="_blank">vimeo</a></td>
+		<td> </td>
+		<td><a href="http://www.processingjs.com/" target"_blank">processing.js</td>
 		</tr>
 	</table>
-	<br><br>
+	
+	<div style="color: #3399FF;">
+		<br>Copyleft 2012<br>Lovely made in Germany.<br><br>
+	</div>
 </div>
 </footer>
 <!-- footer - end -->

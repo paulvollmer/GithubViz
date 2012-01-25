@@ -1,4 +1,4 @@
-#GithubViz#
+#GitHubViz#
   
 ###Description  
   
@@ -26,7 +26,7 @@ v2
 
 **Aktueller Server Mirror**  
   
-http://www.wrong-entertainment.com/code/GithubViz/  
+http://www.wrong-entertainment.com/code/GitHubViz/  
 TODO: script für einen automatischen server mirror von github generieren. serverseitig.
 
 **THIRD-PARTY ADDONS:**  
@@ -78,7 +78,7 @@ NA
 **Dependencies**  
 NA    
   
-This file is part of GithubViz.  
+This file is part of GitHubViz.  
 
 ###Contact###
 
@@ -94,24 +94,24 @@ Github: http://www.github.com/Powder
   
 ###License  
 
-**GithubViz 0.1.0**  
+**GitHubViz 0.1.0**  
 Copyright (c) 2012, Paul Vollmer & Tim Pulver  
   
-GithubViz is free software; you can redistribute it and/or  
+GitHubViz is free software; you can redistribute it and/or  
 modify it under the terms of the GNU Lesser General Public  
 License as published by the Free Software Foundation; either  
 version 2.1 of the License, or (at your option) any later version.  
   
-GithubViz is distributed in the hope that it will be useful,  
+GitHubViz is distributed in the hope that it will be useful,  
 but WITHOUT ANY WARRANTY; without even the implied warranty of  
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU  
 Lesser General Public License for more details.  
   
 You should have received a copy of the GNU Lesser General  
-Public License along with GithubViz; if not, write to the  
+Public License along with GitHubViz; if not, write to the  
 Free Software Foundation, Inc., 59 Temple Place, Suite 330,  
 Boston, MA  02111-1307  USA  
   
 Author      Paul Vollmer & Tim Pulver  
-Modified    2012.01.07  
+Modified    2012.01.25  
 Version     0.1.0

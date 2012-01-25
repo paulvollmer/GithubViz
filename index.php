@@ -1,54 +1,75 @@
-<!-- GithubViz -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<!-- ?php include("head.php"); ?> -->
-<!-- For this file we use the content from head.php with correct links-->
-<!-- head.php file - begin --> 
+<!-- GitHubViz -->
+<!doctype html>
 <head>
-<title>GithubViz</title>
-<meta name="description" content="GithubViz">
-<meta name="keywords" content="github, wrong entertainment, wrong-entertainment.com">
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Language" content="en-us" />
-<meta name="ROBOTS" content="index,follow,archive" />
-<meta http-equiv="imagetoolbar" content="false" />
-<meta name="MSSmartTagsPreventParsing" content="true" />
-<meta name="author" content="Paul Vollmer, wrong-entertainment.com">
-<meta name="author" content="Tim Pulver, timpulver.de">
-<meta name="Rating" content="General" />
-<meta name="revisit-after" content="7 Days" />
-<meta name="doc-class" content="Living Document" />
-<link rel="stylesheet" type="text/css" href="http://www.wrong-entertainment.com/code/GithubViz/css/stylesheet.css">
+  <?php include("static/head.php"); ?>
 </head>
-<!-- head - end -->
 
 <body>
-<?php include("static/header.php"); ?>
-<!-- ?php include("nav.php"); ?> -->
-<!-- For this file we use the content from nav.php -->
-<!-- nav.php file - begin -->
-<nav>
-<ul id="navigation">
-<li><a href="content/about.php">About</a> | </li>
-<li><a href="content/discover.php">Discover</a> | </li>
-<li><a href="content/raw.php">Raw Files</a> | </li>
-<li><a href="https://github.com/Powder/GithubViz">Github</a> | </li>
-<li><a href="content/contact.php">Contact</a></li>
-</ul>
-<br>
-</nav>
-<!-- nav - end -->
+  <?php include("static/nav.php"); ?>
+  
+<img src="img/githubviz_logo.png" alt="GitHubViz"/>
 
-<!-- CONTENT begin -->
-<!-- Main content area -->  
-<section>
-<h1>Discover your Github Network</h1>
-<!-- <img src="http://placehold.it/750x150/808080/4D4D4D"> -->
-<img src="http://www.wrong-entertainment.com/code/GithubViz/img/content1.png"width="750px">
-<p>Feel free to replace this paragraph ofs d tsdh es vam a sadre.</p>
-</section>  
+  <header>
+  <h3>Search GitHub User</h3>
 
-<?php include("static/footer.php"); ?>
+	<table width="750" border="1">
+		<tr>
+			<td><h3>Popular Users</h3></td>
+			<td><h3>Popular Repos</h3></td>
+		</tr>
+		<tr>
+			<td>jquery<br>jquery JavaScript Library</td>
+			<td>openFrameworks / openFrameworks<br>OpenFrameworks is a cross platform ...</td>
+		</tr>
+		<tr>
+			<td>diaspora<br>Distributes and Contextural social network</td>
+			<td>twitter / bootstrap<br>HTML, CSS and JS toolkit from twitter</td>
+		</tr>
+		<tr>
+			<td>facebook<br>We have created a new repository for this</td>
+			<td>jquery / jqueryui<br>The offical jQuery user interface library</td>
+		</tr>
+		<tr>
+			<td>openFrameworks<br>OpenFrameworks is a cross platform ...</td>
+			<td>jquery / sizzle<br>A sizzlin hot lector engine.</td>
+		</tr>
+		<tr>
+			<td>cinder<br>Cinder is a community-developed, free and ...</td>
+			<td>jresig / procesing.js<br>A port of the processing visualisation ...</td>
+		</tr>
+    </table>
+	
+  </header>
+
+  <div role="main">
+  </div>
+  
+  <?php include("static/footer.php"); ?>
+
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via build script -->
+  <script defer src="js/plugins.js"></script>
+  <!-- end scripts -->
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet 
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script> -->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+  <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+  <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
 </body>
 </html>
