@@ -5,7 +5,6 @@ audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
 
-
 /* Base
  * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
  * 2. Force vertical scrollbar in non-IE
@@ -13,7 +12,7 @@ audio:not([controls]) { display: none; }
  */
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 body { margin: 0; background-color: #4D4D4D; font-size: 1em; line-height: 1.4; }
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea { font-family: sans-serif; color: #999; }
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate
@@ -23,15 +22,13 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 ::selection { background: #57fbfe; color: #fff; text-shadow: none; }
 
 
-
 /* Links */
-a { color: #00e; }
-a:visited { color: #551a8b; }
+a { color: #39F; }
+a:visited { color: #1F60A1; }
 a:hover { color: #06e; }
 a:focus { outline: thin dotted; }
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
-
 
 
 /* Typography */
@@ -59,12 +56,10 @@ sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
 
-
 /* Lists */
 ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
-
 
 
 /* Embedded content
@@ -74,15 +69,12 @@ nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 
 
-
 /* Correct overflow not hidden in IE9 */
 svg:not(:root) { overflow: hidden; }
 
 
-
 /* Figures */
 figure { margin: 0; }
-
 
 
 /* Forms */
@@ -126,25 +118,53 @@ input:valid, textarea:valid {  }
 input:invalid, textarea:invalid { background-color: #f0dddd; }
 
 
-
 /* Tables */
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
 
 
-/* primary styles */
+
+
+/* primary styles
+   hier ist unser GitHubViz css style */
+h1 {
+	font-size: 16pt;
+	color: #48A1F0;
+}
+
+h2 {
+	font-size: 12pt;
+	color: #39F;
+	margin: 0;
+}
+
+p {
+	color: #808080;
+}
+
+td:hover {
+  background-color: #3a6087;
+}
+td.popname { /* popular user/repo name */
+	color: #FFF;
+}
+p.popdesc { /* popular user/repo description */
+	color: #999;
+	margin: 0px;
+}
+
 
 /* nav */
 ul#navigation {
 	list-style-type:none;
 	margin-left:0;
 	margin-top: 24px;
-	padding-left: 140px;
-	color: #808080;
+	margin-left: 30px;
+	color: #999;
 }
 ul#navigation a {
-	color: #808080;
+	color: #999;
 	text-decoration: none;
 }
 ul#navigation a:hover {
@@ -155,19 +175,26 @@ ul#navigation li{
 	padding-right:2px;
 }
 
+/* section */
+#section {
+	width: 795px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 70px;
+}
+
 /* Footer */
 footer {
 	position: absolute;
 	left: 50%;
 	width: 795px;
 	margin-left: -397px;
-	
 }
 #footer_content {
 	position: absolute;
-	left: 0px;
-	width: 795px;
-	margin-top: -150px;
+	margin-top: -140px;
 	margin-left: 20px;
 	color: #999999;
 	font-size: 9pt;
@@ -176,6 +203,7 @@ footer {
 	text-decoration: none;
 	color: #999999;
 }
+
 
 
 
