@@ -1,73 +1,81 @@
 <!-- GitHubViz -->
 <!doctype html>
 <head>
-  <?php include("static/head.php"); ?>
+<?php include("static/head.php"); ?>
 </head>
 
 <body>
-  <?php include("static/nav.php"); ?>
+<?php include("static/nav.php"); ?>
 
-  <header>
-  <h3>Search GitHub User</h3>
-
-	<table width="750" border="1">
-		<tr>
-			<td><h3>Popular Users</h3></td>
-			<td><h3>Popular Repos</h3></td>
-		</tr>
-		<tr>
-			<td>jquery<br>jquery JavaScript Library</td>
-			<td>openFrameworks / openFrameworks<br>OpenFrameworks is a cross platform ...</td>
-		</tr>
-		<tr>
-			<td>diaspora<br>Distributes and Contextural social network</td>
-			<td>twitter / bootstrap<br>HTML, CSS and JS toolkit from twitter</td>
-		</tr>
-		<tr>
-			<td>facebook<br>We have created a new repository for this</td>
-			<td>jquery / jqueryui<br>The offical jQuery user interface library</td>
-		</tr>
-		<tr>
-			<td>openFrameworks<br>OpenFrameworks is a cross platform ...</td>
-			<td>jquery / sizzle<br>A sizzlin hot lector engine.</td>
-		</tr>
-		<tr>
-			<td>cinder<br>Cinder is a community-developed, free and ...</td>
-			<td>jresig / procesing.js<br>A port of the processing visualisation ...</td>
-		</tr>
-    </table>
-	
-  </header>
-
-  <div role="main">
+<div id="section">
+  <!-- Search Area -->
+  <div style="margin-bottom: 50px;">
+    <h1>Search GitHub User</h1>
+    <form action="discover.php">
+      <input type="text" size="65" name="user" value="Wrong-Entertainment" style="padding: 5px; background-color: #999; border: 1px; color: #fff;">
+      <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"> <br/>
+    </form>
   </div>
+
+  <!-- Popular Users/Popular Repos -->
+  <table cellpadding="5" style="color: #39F;">
+    <colgroup cellspacing="10" width="350" span="2"></colgroup>
+    <tr>
+      <td><h2>Popular Users</h2></td>
+      <td><h2>Popular Repos</h2></td>
+    </tr>
+  </table>
   
-  <?php include("static/footer.php"); ?>
-
-
-
-  <!-- JavaScript at the bottom for fast page loading -->
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
-  <!-- scripts concatenated and minified via build script -->
-  <script defer src="js/plugins.js"></script>
-  <!-- end scripts -->
-
-  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet 
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script> -->
-
-  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7 ]>
-  <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-  <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
+  <table cellpadding="5" border="1" bordercolor="#39F">
+    <colgroup cellspacing="10" width="350" span="2"></colgroup>
+	
+	<tr>
+	  <td class="popname" onclick="location.href='discover.php?user=jquery';" style="cursor:pointer; cursor:hand;">
+		jquery
+		<p class="popdesc">jquery JavaScript Library</p></td>
+	  <td class="popname" onclick="location.href='discover.php?user=openFrameworks';" style="cursor:pointer; cursor:hand;">
+		openFrameworks / openFrameworks
+		<p class="popdesc">OpenFrameworks is a cross platform ...</p></td>
+	</tr>
+	
+	<tr>
+	  <td class="popname" onclick="location.href='discover.php?user=diaspora';" style="cursor:pointer; cursor:hand;">
+		diaspora
+		<p class="popdesc">Distributes and Contextural social network</p></td>
+	  <td class="popname" onclick="location.href='discover.php?user=twitter';" style="cursor:pointer; cursor:hand;">
+		twitter / bootstrap
+		<p class="popdesc">HTML, CSS and JS toolkit from twitter</p></td>
+	</tr>
+	
+	<tr>
+	  <td class="popname" onclick="location.href='discover.php?user=facebook';" style="cursor:pointer; cursor:hand;">
+		facebook
+		<p class="popdesc">We have created a new repository for this</p></td>
+	  <td class="popname" onclick="location.href='discover.php?user=jqueryui';" style="cursor:pointer; cursor:hand;">
+		jquery / jqueryui
+		<p class="popdesc">The offical jQuery user interface library</p></td>
+	</tr>
+	
+	<tr>
+	  <td class="popname" onclick="location.href='discover.php?user=openFrameworks';" style="cursor:pointer; cursor:hand;">
+		openFrameworks
+		<p class="popdesc">OpenFrameworks is a cross platform ...</p></td>
+	  <td class="popname" onclick="location.href='discover.php?user=jquery';" style="cursor:pointer; cursor:hand;">
+		jquery / sizzle
+		<p class="popdesc">A sizzlin hot lector engine.</p></td>
+	</tr>
+	
+	<tr>
+	  <td class="popname" onclick="location.href='discover.php?user=cinder';" style="cursor:pointer; cursor:hand;">
+		cinder
+		<p class="popdesc">Cinder is a community-developed, free and ...</p></td>
+	  <td class="popname" onclick="location.href='discover.php?user=processingjs';" style="cursor:pointer; cursor:hand;">
+		jresig / procesing.js
+		<p class="popdesc">A port of the processing visualisation ...</p></td>
+	</tr>
+  </table>
+</div>
+  
+<?php include("static/footer.php"); ?>
 </body>
 </html>
