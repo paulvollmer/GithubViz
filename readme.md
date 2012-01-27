@@ -26,7 +26,7 @@ v2
 
 **Aktueller Server Mirror**  
   
-http://www.wrong-entertainment.com/code/GitHubViz/  
+http://interface.fh-potsdam.de/Users/web_basics/tim_paul_projekt/GitHubViz/  
 TODO: script für einen automatischen server mirror von github generieren. serverseitig.
 
 **THIRD-PARTY ADDONS:**  
