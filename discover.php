@@ -191,7 +191,7 @@
   </noscript>
 -->
 
-<canvas id="sketch1" data-processing-sources="js/githubviz_alpha.pde"></canvas>
+<canvas id="sketch1" data-processing-sources="js/githubviz_alpha/githubviz_alpha.pde"></canvas>
 </div> 
 
 
