@@ -23,7 +23,7 @@ void setup() {
   frameRate(60);
 
   user = new User();
-  user.init("octocat", "https://github.com/images/error/octocat_happy.gif", "https://www.github.com/octocat", "monalisa octocat", "GitHub", "https://github.com/blog", "San Francisco", 5, 2, 20, 5, "2008-01-14T04:33:35Z", "User");
+  user.init("octocat", "https://github.com/images/error/octocat_happy.gif", "https://www.github.com/octocat", "monalisa octocat", "GitHub", "https://github.com/blog", "San Francisco", 5, 2, 20, 15, "2008-01-14T04:33:35Z", "User");
 }
 
 
@@ -32,8 +32,9 @@ void setup() {
  */
 void draw() {
   background(#4D4D4D);
-  cursor(mouseX, mouseY);
-
+  translate(20, 0);
+  println(frameRate);
+  
   user.draw();
 
   // red outline arround the canvas
@@ -44,6 +45,12 @@ void draw() {
   /*noStroke();
    fill(#3399FF);
    ellipse(mouseX, mouseY, 20, 20);*/
+   
+   // using the grid to debug layout raster issues
+   //grid();
+   
+   // cursor function must be at the bottom of our draw code.
+   cursor(mouseX, mouseY);
 }
 
 
@@ -57,4 +64,16 @@ void cursor(int x, int y) {
   line(x, y, x+10, y+10);
   line(x, y, x+5, y);
   line(x, y, x, y+5);
+}
+
+
+
+
+void grid() {
+  for(int i=0; i<10; i++) {
+    stroke(255, 255, 0);
+    strokeWeight(1);
+    noFill();
+    rect(i*(width/10), 0, width/10, height);
+  }
 }

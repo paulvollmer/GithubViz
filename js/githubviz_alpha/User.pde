@@ -20,7 +20,8 @@ class User {
   String created_at;
   String type;
 
-  //Repo repo;
+  // Follower / Following;
+  CirclePie circlePie;
 
 
   /**
@@ -64,6 +65,9 @@ class User {
 
     //repo = new Repo();
     //repo.init("GitHubViz", "Visualize your Social Coding Projects", "githubviz.com", "javascript", 23, 47, 1209);
+    
+    circlePie = new CirclePie();
+    circlePie.init(0, 0, width/5, followers, following);
   }
 
 
@@ -90,26 +94,9 @@ class User {
     float posX = width/2;
     float posY = height/2;
     
-    noStroke();
-    fill(#999999);
-    ellipse(posX, posY, height-40, height-40);
-    
-    // code
-    // gists
-    fill(#3399FF);
-    //ellipse(width/2, height/2, );
-    
     // peoples
-    int peoples = followers+following;
-    noStroke();
-    // follower
-    fill(#ffffff);
-    //ellipse(posX, posY, 300, 300);
-    // following
-    fill(#3399FF);
-    float followingDegree = map(following, 0, peoples, 0, 360);
-    println(followingDegree);
-    arc(posX, posY, 300, 300, 0, followingDegree);
+    //chart.circlePie(0, 0, 250, public_repos, public_gists);
+    circlePie.draw();
     
   }
 }
