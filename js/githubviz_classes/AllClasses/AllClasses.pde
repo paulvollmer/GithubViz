@@ -14,6 +14,8 @@ wngPie pie;
 wngCirclePie circlePie;
 wngCircleChain circleChain;
 
+
+
 void setup() {
   size(1200, 700);
   smooth();
@@ -33,6 +35,8 @@ void setup() {
   circleChain.init(temp1, 560, 250, 500, 200);
 }
 
+
+
 void draw() {
   background(#4d4d4d);
   
@@ -40,6 +44,7 @@ void draw() {
   textFont(typo.pTag);
   text("wngTypography Example", 20, 40);
   
+  // typography test
   textFont(typo.h1);
   typo.draw("wngTypography <h1>", 20, 100);
   textFont(typo.h2);
@@ -49,14 +54,16 @@ void draw() {
   textFont(typo.pTag);
   typo.draw("wngTypography <p>", 20, 190);
   
+  // chart test
+  pie.draw();
+  circlePie.draw();
+  circleChain.draw();
   
+  // description test
+  fill(255, 255,0);
   text("wnPie", 20, 240);
   text("wngCirclePie", 240, 240);
   text("wngCircleChain", 460, 240);
   
-  pie.draw();
-  
-  circlePie.draw();
-  
-  circleChain.draw();
 }
+

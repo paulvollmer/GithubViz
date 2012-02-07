@@ -65,8 +65,7 @@ class wngCirclePie {
   /**
    * Constuctor
    */
-  wngCirclePie() {
-  }
+  wngCirclePie() {}
 
 
   /**
@@ -134,4 +133,5 @@ class wngCirclePie {
     fill(#FFFFFF);
     text(circle1_value + " Followers", circle1_typoX, circle1_typoY);
   }
+  
 }

@@ -51,8 +51,7 @@ class wngCircleChain {
   /**
    * Constuctor
    */
-  wngCircleChain() {
-  }
+  wngCircleChain() {}
 
 
   /**
@@ -97,7 +96,7 @@ class wngCircleChain {
         ballX[i] = x;
       }
       
-     println("ballX["+i+"]: "+ballX[i]);
+      println("ballX["+i+"]: "+ballX[i]);
   
   /*      temp = temp+ballDiam[i];
       // die position für jeden ball berechnen.
@@ -128,5 +127,6 @@ class wngCircleChain {
     fill(#4d4d4d);
     rect(x, y+h/2, w, h);
   }
+  
   
 }

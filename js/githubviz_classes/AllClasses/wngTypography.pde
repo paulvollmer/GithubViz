@@ -35,7 +35,7 @@ hatte ich mich jetzt aber nochnicht weiter drum gekümmert, da ich erstmal die c
 
 
 
-class wngTypography {
+class wngTypography { //extends {
   
   PFont h1, h2, h3;
   PFont pTag;
@@ -60,8 +60,29 @@ class wngTypography {
   void draw(String msg, int x, int y) {
     noStroke();
     text(msg, x, y);
+    //wngText(msg, x, y);
   }
   
+}
+
+
+
+
+
+
+
+class Typo {
   
+  //PFont font;
+  int col = #000000;
+  
+  Typo(){}
   
 }
+
+
+
+/*class StyleSheet {
+  
+  int c;
+}*/
