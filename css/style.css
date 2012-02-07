@@ -23,10 +23,10 @@ body, button, input, select, textarea { font-family: sans-serif; color: #999; }
 
 
 /* Links */
-a { color: #39F; }
-a:visited { color: #1F60A1; }
-a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
+a { color: #39F; text-decoration: none; }
+a:visited { color: #FFF; text-decoration: none; }
+a:hover { color: #FFF; text-decoration: none; }
+a:focus { outline: thin dotted; text-decoration: none; }
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
 
@@ -178,11 +178,15 @@ ul#navigation li{
 /* section */
 #section {
 	width: 795px;
-	margin-top: 100px;
+	margin-top: 40px;
 	margin-bottom: 100px;
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 70px;
+}
+
+.githubviz_canvas {
+	margin-top:-90px;
 }
 
 /* Footer */
