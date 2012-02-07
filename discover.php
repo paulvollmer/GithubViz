@@ -1,25 +1,40 @@
 <!-- GitHubViz -->
 <!doctype html>
+
 <head>
 <?php include("static/head.php"); ?>
 
+<!-- ~~~~~~~~~~~~~~~~~~~~ JAVASCRIPIS ~~~~~~~~~~~~~~~~~~~~ -->
 
+<!-- github -->
+<script src="js/libs/vendor/jsclass.js"></script>
+<script src="js/libs/github.js"></script>
 
+<!-- processing -->
+<script src="processing.js" type="text/javascript"></script>
 
-<!-- javascript src -->
+<!-- call this to get the main sketch id -->
+<script type="text/javascript">function getProcessingSketchID () { return 'callbackTest'; }</script>
+
+<!-- processing source -->
+<script src="bla.js" type="text/javascript"></script>
 
 <!-- jquery -->
 <script src="js/libs/jquery-1.7.1.min.js"></script>
+
+<!-- jquery-style logging -->
+<script src="js/jquery_log.js" type="text/javascript"></script>
+
+<!-- get variables from the url -->
+<script src="js/get_url_vars.js"></script>
+
+<!-- Github Data Management -->
+<script src="js/github_data_fetch.js" type="text/javascript"></script>
 
 <!-- processing.js> -->
 <!--[if lt IE 9]>
 	<script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
 <![endif]-->
-<script src="js/libs/processing-1.3.6.min.js" type="text/javascript"></script>
-
-<!-- jquery -->
-<script src="js/get_url_vars.js"></script>
-
 
 <script>
 	/*
@@ -180,18 +195,25 @@
 <div id="github_userinfo" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 70px;"></div>
 
 <!-- processing.js canvas -->
-<div class="githubviz_canvas">
+<!--<div class="githubviz_canvas">
 	
-  <!-- <canvas id="Creating" data-processing-sources="githubviz.pde">
-    <p>Your browser does not support the canvas tag.</p>
-    <!-- Note: you can put any alternative content here. --
-  </canvas>
+   <canvas id="Creating" data-processing-sources="githubviz.pde">
+    <p>Your browser does not support the canvas tag.</p>-->
+    <!--Note: you can put any alternative content here. -->
+  <!--</canvas>
   <noscript>
     <p>JavaScript is required to view the contents of this page.</p>
   </noscript>
 -->
 
-<canvas id="sketch1" data-processing-sources="js/githubviz_alpha/githubviz_alpha.pde"></canvas>
+<!--<canvas id="sketch1" data-processing-sources="js/githubviz_alpha/githubviz_alpha.pde"></canvas>-->
+
+<!-- new one t..-->
+<canvas id="callbackTest" data-processing-sources="callbackTest.pde" 
+						width="100" height="100">
+					<p>Your browser does not support the canvas tag.</p>
+					<!-- Note: you can put any alternative content here. -->
+</canvas>
 </div> 
 
 
