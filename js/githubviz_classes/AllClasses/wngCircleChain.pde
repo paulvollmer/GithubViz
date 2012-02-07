@@ -107,9 +107,11 @@ class wngCircleChain {
     }
     //println("totalVal: " + totalVal);
     
-    
-    
   }
+
+
+
+
 
   /**
    * Draw
@@ -127,6 +129,5 @@ class wngCircleChain {
     fill(#4d4d4d);
     rect(x, y+h/2, w, h);
   }
-  
-  
+   
 }
