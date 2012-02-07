@@ -1,47 +1,62 @@
+/*
+All classes ist für die reine classen gedacht.
+hier können wir testen und bauen.
+Wenn eine klasse fertig ist müssen wir manuell den code in die pde aus dem discover.php canvas updaten.
+das halte ich aber für sehr sinfoll, da wir so sehr gut an den untershiedlichen klassen testen können und 
+durch ne gescheite versionierung genau wissen velche klassen stabil laufen.
+*/
 
 
 
+wngTypography typo;
 
-Typography typo;
-
-Pie pie;
-CirclePie circlePieUser;
+wngPie pie;
+wngCirclePie circlePie;
+wngCircleChain circleChain;
 
 void setup() {
   size(1200, 700);
   smooth();
   
-  typo = new Typography();
-  typo.init("Helvetica");
+  typo = new wngTypography();
+  //typo.listFonts();
+  typo.init("sans-seriv");
   
-  pie = new Pie();
+  pie = new wngPie();
   pie.init(120, 350, 200, 72, 2);
   
-  circlePieUser = new CirclePie();
-  circlePieUser.init(340, 350, 200, 2, 2);
+  circlePie = new wngCirclePie();
+  circlePie.init(340, 350, 200, 2, 2);
+  
+  circleChain = new wngCircleChain();
+  int[] temp1 = {50, 25, 10, 10, 5};
+  circleChain.init(temp1, 560, 250, 500, 200);
 }
 
 void draw() {
   background(#4d4d4d);
   
+  fill(#FFFFFF);
   textFont(typo.pTag);
-  text("Tpography Example", 20, 40);
+  text("wngTypography Example", 20, 40);
   
   textFont(typo.h1);
-  typo.draw("Typography <h1>", 10, 100);
+  typo.draw("wngTypography <h1>", 20, 100);
   textFont(typo.h2);
-  typo.draw("Typography <h2>", 10, 130);
+  typo.draw("wngTypography <h2>", 20, 130);
   textFont(typo.h3);
-  typo.draw("Typography <h3>", 10, 160);
+  typo.draw("wngTypography <h3>", 20, 160);
   textFont(typo.pTag);
-  typo.draw("Typography <p>", 10, 190);
+  typo.draw("wngTypography <p>", 20, 190);
   
   
-  text("Pie", 20, 240);
-  text("CirclePie", 240, 240);
+  text("wnPie", 20, 240);
+  text("wngCirclePie", 240, 240);
+  text("wngCircleChain", 460, 240);
   
   pie.draw();
   
-  circlePieUser.draw();
+  circlePie.draw();
   
+  circleChain.draw();
 }

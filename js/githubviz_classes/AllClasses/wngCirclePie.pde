@@ -1,14 +1,41 @@
 /**
- * CirclePie
- * Die klasse circlePie ist für zwei werte gebaut und zeichnet einen
- * grossen circle mit zwei weiteren enthalten. Diese zwei weitere kreise
- * weden auf ihre werte angepasst und der draw bereich wird berechnet
- * (größe des jeweiligen kreises).
+ *  wngCirclePie is developed by wrong-entertainment & powder
  *
- * author Pail Vollmer
- * version 0.1.0
+ *
+ *  Copyright 2011 Paul Vollmer & Tim Pulver
+ *  paulvollmer.net
+ *  vollmerpaul@yahoo.de
+ *  timpulver.de
+ *  pulver.tim@googlemail.com
+ * 
+ *  This file is part of GitHubViz software.
+ *
+ *  GitHubViz is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ *  GNU Lesser General Public License for more details.
+ *  
+ *  You should have received a copy of the GNU Lesser General Public License
+ *  along with GitHubViz. If not, see <http://www.gnu.org/licenses/>.
+ * 
+ *  @author     Paul Vollmer & Tim Pulver
+ *  @modified   2012.02.07
+ *  @version    0.1.2
  */
-class CirclePie {
+
+
+
+/*
+CirclePie
+Die klasse circlePie ist für zwei werte gebaut und zeichnet einen
+grossen circle mit zwei weiteren enthalten. Diese zwei weitere kreise
+weden auf ihre werte angepasst und der draw bereich wird berechnet
+(größe des jeweiligen kreises).
+ */
+
+
+
+class wngCirclePie {
 
   // variables thet will be calculate at the init function,
   // to min. position calculation at draw (no calculation needed).
@@ -38,7 +65,7 @@ class CirclePie {
   /**
    * Constuctor
    */
-  CirclePie() {
+  wngCirclePie() {
   }
 
 
