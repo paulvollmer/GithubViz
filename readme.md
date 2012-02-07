@@ -32,6 +32,8 @@ TODO: script für einen automatischen server mirror von github generieren. serve
 **THIRD-PARTY ADDONS:**  
   
 > - [github.js](https://github.com/fitzgen/github-api)  
+> - [github.js example 1](https://github.com/Powder/github-js/blob/master/examples/ghb.html)
+> - [github.js example 2](https://github.com/judofyr/github-js/blob/master/README.markdown)
 > - [Processing.js](https://github.com/jeresig/processing-js)  
 > - [jQuery](https://github.com/jquery/jquery)  
 > - [jQuery ui](https://github.com/jquery/jquery-ui)  
