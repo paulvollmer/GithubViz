@@ -26,7 +26,8 @@
 
 
 /*
-desc.......
+mit der stylesheet classe soll das handling mit verschiedenen schriften performanter ablaufen.
+
 */
 
 
