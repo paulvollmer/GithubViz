@@ -35,12 +35,21 @@ hatte ich mich jetzt aber nochnicht weiter drum gekümmert, da ich erstmal die c
 
 
 
-class wngTypography { //extends {
+class wngTypography {
   
-  PFont h1, h2, h3;
-  PFont pTag;
+  //PFont h1, h2, h3;
+  //PFont pTag;
   
+  wngStyleSheet css;
+  
+  
+  
+  /**
+   * Constuctor
+   */
   wngTypography() {}
+  
+  
   
   void listFonts() {
     // Uncomment the following two lines to see the available fonts 
@@ -48,11 +57,17 @@ class wngTypography { //extends {
     println(fontList);
   }
   
+  
+  
   void init(String fontname) {
-    h1 = createFont(fontname, 34);
-    h2 = createFont(fontname, 26);
-    h3 = createFont(fontname, 21);
-    pTag = createFont(fontname, 12);
+    css = new wngStyleSheet();
+    css.init(48, 36, 18, 12);
+    
+    //h1 = createFont(fontname, 36);
+    h1 = createFont(fontname, css.hTag[0]);
+    h2 = createFont(fontname, css.hTag[1]);
+    h3 = createFont(fontname, css.hTag[2]);
+    pTag = createFont(fontname, css.pTag);
   }
   
   
@@ -71,18 +86,12 @@ class wngTypography { //extends {
 
 
 
-class Typo {
+/*class Typo {
   
   //PFont font;
   int col = #000000;
   
   Typo(){}
   
-}
-
-
-
-/*class StyleSheet {
-  
-  int c;
 }*/
+
