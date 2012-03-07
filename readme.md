@@ -39,7 +39,10 @@ TODO: script für einen automatischen server mirror von github generieren. serve
 > - [jQuery ui](https://github.com/jquery/jquery-ui)  
 > - Clickhandling bei komplexen Formen (Pfaden) Sourcecode
 > - [paper.js](http://paperjs.org/examples/hit-testing/)
+
+**GitHub API v2 (verwendet von github.js)**  
   
+[API V2 Reference](http://develop.github.com/p/general.html)
   
 **GitHub API v3**  
   
