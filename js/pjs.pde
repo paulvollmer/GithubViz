@@ -29,7 +29,7 @@ void drawFollower(int n){
 		ellipse(random(0, width), random(0, height), 40, 40);
 	}
 	
-	var userData = getUser("Powder");
+	var userData = getUser(getUrlVars()["user"]);
 	println("Log test");
 	// make sure userData has been loaded already!!
 	println("Accessing a Javascript Object from within P5: " + userData.login);
