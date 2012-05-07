@@ -9,6 +9,7 @@
  * Look up the names here: https://github.com/judofyr/github-js/blob/master/README.markdown
  */
 var displayUserData = function(userData){	
+	
 	// LOGIN ---------------------------------------------------------------
 	$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub"><h1 id="userLogin">' + userData.login + '</h1></a>').log("userData appended!");
 	// BLOG ---------------------------------------------------------------
