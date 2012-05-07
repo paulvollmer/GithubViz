@@ -93,6 +93,7 @@
 	 */
 
 	/* Set a Github Username you want to discover. */
+	/*
 	var gitUsername = getUrlVars()["user"];
 
 	$.getJSON("http://github.com/api/v2/json/user/show/" + gitUsername + "?callback=?",
@@ -121,6 +122,8 @@
 				$("#github_userinfo").append("<a href='" + user_data.blog + "'> " + temp + "</a>");
         	}
         });
+        */
+       loadBasicUserData(curUser);
     </script>
 </head>
 	
@@ -143,7 +146,8 @@
     </nav>
     <!-- NAV ------------------------------------------------------------------------------------>
 
-    <div id="github_userinfo" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 0px;"></div>
+    <div id="userData" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 0px;"></div>
+    <div id="repoData" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 0px;"></div>
     <!-- Search Form (top right)-->
     <form action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>
     <br><br>
