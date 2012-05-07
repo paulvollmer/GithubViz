@@ -1,0 +1,237 @@
+<!-- GitHubViz -->
+<!doctype html>
+
+<head>
+    <!-- HEAD ------------------------------------------------------------------------------------>
+    <meta charset="utf-8">
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+         More info: h5bp.com/b/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GitHubViz</title>
+    <meta name="description" content="GitHubViz">
+    <meta name="keywords" content="github, github visualisation, visualisation, data, timpulver.de, wrong entertainment, wrong-entertainment.com">
+    <meta name="author" content="Paul Vollmer, wrong-entertainment.com">
+    <meta name="author" content="Tim Pulver, timpulver.de">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Import css stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Import the counter.php file for counting every site load. -->
+    <!-- include("static/counter.php"); -->
+
+    <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
+         Respond is a polyfill for min/max-width media queries.
+         Modernizr enables HTML5 elements & feature detects;
+         for optimal performance, create your own custom Modernizr build:
+         www.modernizr.com/download/ -->
+    <script src="js/libs/modernizr-2.0.6.min.js"></script>
+    <!-- HEAD ------------------------------------------------------------------------------------>
+
+
+
+    <!-- LIBRARIES ------------------------------>
+    <!-- JQUERY -->
+     <script src="js/libs/jquery-1.7.1.min.js"></script>
+     <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+
+     <!-- GITHUB JS -->
+     <script src="js/vendor/jsclass.js"></script>
+     <script src="js/libs/github.js"></script>
+
+     <!-- PROCESSING JS -->
+     <script src="js/libs/processing-1.3.6.min.js"></script>
+    <!--[if lt IE 9]>
+	    <script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+    <![endif]-->
+    
+    
+    
+    <!-- CUSTOM SCRIPTS ------------------------>
+    <!-- CALLBACK HANDLER -->
+    <!-- when data we requested is ready, a function here will be called -->
+    <script src="js/callback_handler.js"></script>  
+
+    <script src="js/gitDataManager.js"></script>    
+    <script src="js/jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
+    <script src="js/get_url_vars.js"></script>
+
+	<script>
+        //var currentUser = "Powder";
+        var currentUser = getUrlVars()["user"];
+       	var currentRepo = "";
+		var cuurentView = "User"; 
+    </script>
+
+    <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
+    
+    
+    <!-- github_userinfo -->    
+    <script>
+    /*
+	 * javascript to generate text line over canvas
+	 * Creates an unordered list containing Github user info and an image with the avatar.
+	 * Will be placed inside a div-element with id "github_userinfo"
+	 */
+
+	/* Set a Github Username you want to discover. */
+	var gitUsername = getUrlVars()["user"];
+
+	$.getJSON("http://github.com/api/v2/json/user/show/" + gitUsername + "?callback=?",
+		function(json, statuts) {			
+			var user_data = json.user;
+			//alert(user_data.login);
+
+			// gravatar image
+			$("#github_userinfo").append("<img id='github_avatar' width='50px' src='" + "http://www.gravatar.com/avatar/" + user_data.gravatar_id + "' />");
+
+			// user login name
+    		$("#github_userinfo").append("<b style='color: #48A1F0; font-size: 14pt;'> " + user_data.login + "</b>");
+
+    		// check if a locatio exist
+        	if(user_data.location != null) {
+        		$("#github_userinfo").append("<span> from " + user_data.location + ",</span>");
+			}
+
+        	// check if a website url exist
+    		if(user_data.blog != null) {
+    			// save data content to temp variable
+    			var temp = user_data.blog;
+        		// remove http://www. from url
+    			temp = temp.replace("http://", "");
+        		temp = temp.replace("www.", "");
+				$("#github_userinfo").append("<a href='" + user_data.blog + "'> " + temp + "</a>");
+        	}
+        });
+    </script>
+</head>
+	
+
+<body>
+    <!-- NAV ------------------------------------------------------------------------------------>
+    <!-- GitHubViz logo at the upper right corner -->
+    <img style="position: absolute; top: 0; right: 0; border: 0; padding: 15px;" src="img/githubviz_logo.png" alt="GitHubViz"/>
+    <!-- Sublin under our GitHubViz logo -->
+    <p style="position: absolute; top: 0; right: 0; border: 0; padding-right: 15px; padding-top: 30px; font-size: 9pt; color: #3399FF">Visualize your Social Coding Projects</p>
+    <!-- Navigation -->
+    <nav>
+      <ul id="navigation">
+        <li><a href="index.html">Search</a> | </li>
+        <li><a href="about.html">About</a> | </li>
+        <li><a href="discover.html?user=WrongEntertainment">Discover</a> | </li>
+        <li><a href="contact.html">Contact</a> </li>
+      </ul>
+      <br/>
+    </nav>
+    <!-- NAV ------------------------------------------------------------------------------------>
+
+    <div id="github_userinfo" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 0px;"></div>
+    <!-- Search Form (top right)-->
+    <form action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>
+    <br><br>
+
+
+
+
+
+<!--<div id="userData"></div>
+<div id="repoData"></div>-->
+<script>
+	loadBasicUserData(currentUser);
+</script>
+
+<canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> 
+
+<!-- uhh jetzt hat jemand auf ein repo geklickt...-->
+<script>
+	/*
+	var curUserData = getUser(currentUser);
+	//var rndRepo = Math.floor(Math.random()*curUserData.public_repo_count);	//random [0..nRepos]
+	var rndRepo = 0;
+	var aRepo = curUserData.repos[rndRepo];
+	$("#userData").append();
+	*/		
+</script>
+
+
+
+
+    <!-- FOOTER ---------------------------------------------------------------------------------->
+    <footer>
+    <img src="img/footerbg.png">
+    <div id="footer_content">
+      <table>
+        <colgroup width="150" span="4"></colgroup>
+        <tr align="right" valign="middle">
+          <td><img src="img/fhp_white.png" alt="fh-potsdam, university of applied sciences"/></td>
+          <td><img src="img/github_white.png" alt="github, social coding"/></td>
+          <td><img src="img/powder_white.png" alt="Powder"/></td>
+          <td><img src="img/wrongagent_white.png" alt="wrong-entertainment"/></td>
+        </tr>
+      </table>
+      <br/><br/><br/>
+
+      <table width="750">
+        <tr>
+    	  <td><b><a href="index.php">GitHubViz</a></b></td>
+    	  <td> </td>
+    	  <td> </td>
+    	  <td> </td>
+    	</tr>
+
+    	<tr>
+    	  <td>Developed by</td>
+    	  <td>Developed at</td>
+    	  <td>Fork this Project at</td>
+    	  <td><a href="http://www.github.com/" target="_blank">GitHub</a></td>
+    	</tr>
+
+    	<tr>
+    	  <td>Tim Pulver, <a href="http://www.timpulver.de" target="_blank">timpulver.de</a></td>
+    	  <td><a href="http://www.fh-potsdam.de" target="_blank">FH Potsdam, University of Applied Sciences</a></td>
+    	  <td><a href="https://github.com/Powder/GithubViz" target="_blank">github/GithubViz</a></td>
+    	  <td><a href="http://www.incom.org/" target="_blank">Incom</a></td>
+    	  </tr>
+
+    	<tr>
+    	  <td>Paul Vollmer, <a href="http://www.wrong-entertainment.com" target="_blank">wrong-entertainment.com </a></td>
+    	  <td> </td>
+    	  <td> </td>
+    	  <td><a href="http://www.processingjs.com/" target"_blank">processing.js</td>
+    	</tr>
+      </table>
+
+      <div style="color: #3399FF;">
+        <br>Copyleft 2012<br>Lovely made in Germany.<br><br>
+      </div>
+    </div>
+    </footer>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script> -->
+
+    <!-- scripts concatenated and minified via build script 
+    <script defer src="js/plugins.js"></script> -->
+    <!-- end scripts -->
+
+    <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet 
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script> -->
+
+    <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+         chromium.org/developers/how-tos/chrome-frame-getting-started -->
+    <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+    <![endif]-->
+    <!-- FOOTER ---------------------------------------------------------------------------------->
+</body>
+</html>
