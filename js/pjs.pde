@@ -5,7 +5,7 @@ GhvGraphicsObject[] drawables;
 
 void setup(){
   size(800,600);
-  background(125);
+  background(#4D4D4D);
   fill(255);
   noLoop();
   //PFont fontA = loadFont("courier");
