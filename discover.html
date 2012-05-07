@@ -18,7 +18,8 @@
 
     <!-- Import css stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/discover.css">
+    
     <!-- Import the counter.php file for counting every site load. -->
     <!-- include("static/counter.php"); -->
 
@@ -50,6 +51,9 @@
     
     
     <!-- CUSTOM SCRIPTS ------------------------>
+    <!-- CURRENT VIEW -->
+    <!-- [repo, user], current User, current Repo -->
+    <script src="js/mode.js"></script> 
     <!-- CALLBACK HANDLER -->
     <!-- when data we requested is ready, a function here will be called -->
     <script src="js/callback_handler.js"></script>  
@@ -59,10 +63,22 @@
     <script src="js/get_url_vars.js"></script>
 
 	<script>
-        //var currentUser = "Powder";
-        var currentUser = getUrlVars()["user"];
-       	var currentRepo = "";
-		var cuurentView = "User"; 
+		// store current view, current user and current repo from URL
+		// i.e. discover.html?view=user&user=powder
+		// STORE VIEW -------------------
+		switch (getUrlVars()["view"]){
+			case viewEnum.USER:
+				curEnum = viewEnum.USER;
+				break;
+			case viewEnum.REPO:
+				curView = viewEnum.REPO;
+				break;				 
+		}
+		// STORE USER -------------------   
+        curUser = getUrlVars()["user"].toLowerCase();
+        // STORE REPO -------------------
+       	if(getUrlVars()["repo"] != null) curRepo = getUrlVars()["repo"].toLowerCase();
+       	//alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepo);
     </script>
 
     <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
@@ -70,41 +86,10 @@
     
     <!-- github_userinfo -->    
     <script>
-    /*
-	 * javascript to generate text line over canvas
-	 * Creates an unordered list containing Github user info and an image with the avatar.
-	 * Will be placed inside a div-element with id "github_userinfo"
-	 */
-
-	/* Set a Github Username you want to discover. */
-	var gitUsername = getUrlVars()["user"];
-
-	$.getJSON("http://github.com/api/v2/json/user/show/" + gitUsername + "?callback=?",
-		function(json, statuts) {			
-			var user_data = json.user;
-			//alert(user_data.login);
-
-			// gravatar image
-			$("#github_userinfo").append("<img id='github_avatar' width='50px' src='" + "http://www.gravatar.com/avatar/" + user_data.gravatar_id + "' />");
-
-			// user login name
-    		$("#github_userinfo").append("<b style='color: #48A1F0; font-size: 14pt;'> " + user_data.login + "</b>");
-
-    		// check if a locatio exist
-        	if(user_data.location != null) {
-        		$("#github_userinfo").append("<span> from " + user_data.location + ",</span>");
-			}
-
-        	// check if a website url exist
-    		if(user_data.blog != null) {
-    			// save data content to temp variable
-    			var temp = user_data.blog;
-        		// remove http://www. from url
-    			temp = temp.replace("http://", "");
-        		temp = temp.replace("www.", "");
-				$("#github_userinfo").append("<a href='" + user_data.blog + "'> " + temp + "</a>");
-        	}
-        });
+    	// Request the user data of the user taken from the url parameter
+    	// When data is ready displayUserData within callback_handler.js will be called
+    	// Places an avatar image, a user heading and the blog url in the div called 'userData'
+		loadBasicUserData(curUser);
     </script>
 </head>
 	
@@ -112,9 +97,9 @@
 <body>
     <!-- NAV ------------------------------------------------------------------------------------>
     <!-- GitHubViz logo at the upper right corner -->
-    <img style="position: absolute; top: 0; right: 0; border: 0; padding: 15px;" src="img/githubviz_logo.png" alt="GitHubViz"/>
+    <img id="GitHubVizLogo" src="img/githubviz_logo.png" alt="GitHubViz"/>
     <!-- Sublin under our GitHubViz logo -->
-    <p style="position: absolute; top: 0; right: 0; border: 0; padding-right: 15px; padding-top: 30px; font-size: 9pt; color: #3399FF">Visualize your Social Coding Projects</p>
+    <p id="SiteSlogan" >Visualize your Social Coding Projects</p>
     <!-- Navigation -->
     <nav>
       <ul id="navigation">
@@ -127,9 +112,14 @@
     </nav>
     <!-- NAV ------------------------------------------------------------------------------------>
 
-    <div id="github_userinfo" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 0px;"></div>
+    <div id="userData"></div>
+    <div id="repoData"></div>
     <!-- Search Form (top right)-->
-    <form action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>
+    <!--<form id="SearchBox" action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>-->
+    <form id="SearchBox" action="discover.html">
+    	<input id="textInput" type="text" size="30" name="user" />
+    	<input id="submitButton" type="submit" class="Button" value="Search" />
+    </form>
     <br><br>
 
 
