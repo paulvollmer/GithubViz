@@ -21,7 +21,13 @@ var displayUserData = function(userData){
 	}
 	
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
+	//alert("Current View:");
+	alert("Current View: " + window.curMode);
+	//var curUser = 'Powder';
+	alert("Current User: " + window.curUser);
 	p5.drawFollower(userData.followers_count);
+	
+	
 }
 
 /*

@@ -18,7 +18,7 @@
 
     <!-- Import css stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
+    
     <!-- Import the counter.php file for counting every site load. -->
     <!-- include("static/counter.php"); -->
 
@@ -50,6 +50,9 @@
     
     
     <!-- CUSTOM SCRIPTS ------------------------>
+    <!-- CURRENT VIEW -->
+    <!-- [repo, user], current User, current Repo -->
+    <script src="js/mode.js"></script> 
     <!-- CALLBACK HANDLER -->
     <!-- when data we requested is ready, a function here will be called -->
     <script src="js/callback_handler.js"></script>  
@@ -59,10 +62,12 @@
     <script src="js/get_url_vars.js"></script>
 
 	<script>
-        //var currentUser = "Powder";
-        var currentUser = getUrlVars()["user"];
-       	var currentRepo = "";
-		var cuurentView = "User"; 
+		// store current view, current user and current repo from URL
+		// i.e. discover.html?view=user&user=powder
+		curView = getUrlVars()["view"]     
+        curUser = getUrlVars()["user"];
+       	curRepo = '';
+       	//alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepo);
     </script>
 
     <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
