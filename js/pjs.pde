@@ -1,7 +1,9 @@
-boolean viewChanged = false;
-boolean userChanged = false;
-boolean repoChanged = false;
+//boolean viewChanged = false;
+//boolean userChanged = false;
+//boolean repoChanged = false;
 GhvGraphicsObject[] drawables;
+
+
 
 void setup(){
   size(800,600);
@@ -30,10 +32,9 @@ void drawFollower(int n){
 	}
 	
 	var userData = getUser(getUrlVars()["user"]);
-	println("Log test");
+	println("user name: " + userData.login);
 	// make sure userData has been loaded already!!
 	println("Accessing a Javascript Object from within P5: " + userData.login);
-	alert('BÖAAAA');
 }
 
 void mouseClicked(){
