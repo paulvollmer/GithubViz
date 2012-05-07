@@ -35,7 +35,6 @@ void drawFollower(int n){
 	println("user name: " + userData.login);
 	// make sure userData has been loaded already!!
 	println("Accessing a Javascript Object from within P5: " + userData.login);
-	alert('BÖAAAA');
 }
 
 void mouseClicked(){

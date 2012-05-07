@@ -1,0 +1,43 @@
+#GitHubVizLogo{
+	position: absolute; 
+	top: 0; right: 0; border: 0; 
+	padding: 15px;
+}
+
+#SiteSlogan{
+	position: absolute; 
+	top: 0; right: 0; border: 0; 
+	padding-right: 15px; padding-top: 30px; 
+	font-size: 9pt; 
+	color: #3399FF;
+}
+
+#userData{
+	width: 100%; 
+	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;
+}
+
+#repoData{
+	width: 100%; 
+	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;	
+}
+
+#SearchBox{
+	position: absolute; 
+	top: 85px; right: 10px;
+}
+
+#SearchBox input#textInput{
+	padding: 5px; 
+	background-color: #999; 
+	border: 1px; 
+	color: #fff;
+}
+
+#SearchBox input#submitButton{
+	padding: 5px; 
+	background-color:#39F; 
+	color:#fff; 
+	width:70px; 
+	border: 0px;
+}
