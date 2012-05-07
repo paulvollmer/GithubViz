@@ -47,24 +47,65 @@
 	    <script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
     <![endif]-->
     
+    
+    
     <!-- CUSTOM SCRIPTS ------------------------>
     <!-- CALLBACK HANDLER -->
     <!-- when data we requested is ready, a function here will be called -->
     <script src="js/callback_handler.js"></script>  
 
-       <script src="js/gitDataManager.js"></script>    
-       <script src="js/jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
-       <script src="js/get_url_vars.js"></script>
+    <script src="js/gitDataManager.js"></script>    
+    <script src="js/jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
+    <script src="js/get_url_vars.js"></script>
 
-    	<script>
-       		//var currentUser = "Powder";
-       		var currentUser = getUrlVars()["user"];
-       		var currentRepo = "";
-       		var cuurentView = "User"; 
-       </script>
+	<script>
+        //var currentUser = "Powder";
+        var currentUser = getUrlVars()["user"];
+       	var currentRepo = "";
+		var cuurentView = "User"; 
+    </script>
 
-       <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
-        
+    <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
+    
+    
+    <!-- github_userinfo -->    
+    <script>
+    /*
+	 * javascript to generate text line over canvas
+	 * Creates an unordered list containing Github user info and an image with the avatar.
+	 * Will be placed inside a div-element with id "github_userinfo"
+	 */
+
+	/* Set a Github Username you want to discover. */
+	var gitUsername = getUrlVars()["user"];
+
+	$.getJSON("http://github.com/api/v2/json/user/show/" + gitUsername + "?callback=?",
+		function(json, statuts) {			
+			var user_data = json.user;
+			//alert(user_data.login);
+
+			// gravatar image
+			$("#github_userinfo").append("<img id='github_avatar' width='50px' src='" + "http://www.gravatar.com/avatar/" + user_data.gravatar_id + "' />");
+
+			// user login name
+    		$("#github_userinfo").append("<b style='color: #48A1F0; font-size: 14pt;'> " + user_data.login + "</b>");
+
+    		// check if a locatio exist
+        	if(user_data.location != null) {
+        		$("#github_userinfo").append("<span> from " + user_data.location + ",</span>");
+			}
+
+        	// check if a website url exist
+    		if(user_data.blog != null) {
+    			// save data content to temp variable
+    			var temp = user_data.blog;
+        		// remove http://www. from url
+    			temp = temp.replace("http://", "");
+        		temp = temp.replace("www.", "");
+				$("#github_userinfo").append("<a href='" + user_data.blog + "'> " + temp + "</a>");
+        	}
+        });
+    </script>
 </head>
 	
 
@@ -86,27 +127,22 @@
     </nav>
     <!-- NAV ------------------------------------------------------------------------------------>
 
-<div id="github_userinfo" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 70px;">
-
-
-<img id="github_avatar" width="50px" src="http://www.gravatar.com/avatar/193c1a93276f729041fc875cf2a20773">
-<b style="color: #48A1F0; font-size: 14pt;"> facebook</b>
-<span> from Menlo Park, CA,</span>
-<a href="http://facebook.com/opensource/"> facebook.com/opensource/</a>
-<form action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>
-<br><br>
+    <div id="github_userinfo" style="width: 100%; margin-left: 30px; margin-top: 30px; margin-bottom: 0px;"></div>
+    <!-- Search Form (top right)-->
+    <form action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>
+    <br><br>
 
 
 
 
 
-<div id="userData"></div>
-<div id="repoData"></div>
+<!--<div id="userData"></div>
+<div id="repoData"></div>-->
 <script>
 	loadBasicUserData(currentUser);
 </script>
 
-<canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde"></canvas> 
+<canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> 
 
 <!-- uhh jetzt hat jemand auf ein repo geklickt...-->
 <script>
@@ -118,10 +154,6 @@
 	$("#userData").append();
 	*/		
 </script>
-
-
-
-</div> 
 
 
 
