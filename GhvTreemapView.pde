@@ -35,3 +35,29 @@ void userDataReady(){
 	// Calculate block sizes and strore in rects-array
 	tm.makeBlock(10, 10, width-20, height-20, numbers, indexes);
 }
+
+
+void drawTreemap(){
+	for(int i=0; i<rects.length; i++){
+		rects[i].draw();
+	}
+}
+
+void handleTreemapClick(){
+	for(int i=0; i<rects.length; i++){
+		if(pointInRect(mouseX, mouseY, rects[i].x, rects[i].y, rects[i].w, rects[i].h) == true){
+			switchMode(viewEnum.REPO, curUser, rects[i].index); 
+		}		
+	}
+}
+
+
+boolean pointInRect(int mx, int my, int x, int y, int width, int height) {
+    if(mx >= x && mx <= x+width && 
+       my >= y && my <= y+height) {
+      return true;
+    } 
+    else {
+      return false;
+    }
+}

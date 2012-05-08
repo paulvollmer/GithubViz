@@ -32,3 +32,4 @@ class TreemapRect extends Interaction {
 		text(userData.repos[index].name, x+6, y+20);
 	}
 }
+

@@ -7,4 +7,4 @@ int cTxt = #000000;	// Text color
 int cTxtHover = #ffffff;	// Text color hover
 int cBgClick = cBgHover;
 int cTxtClick = cTxtHover;
-int cRectOutline = #4d4d4d;
+int cRectOutline = cBgCanvas;
