@@ -17,6 +17,18 @@
 	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;
 }
 
+
+#map{
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#map img{
+	position: absolute;
+	top: 0; left: 0;
+}
+
 #repoData{
 	width: 100%; 
 	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;	

@@ -21,6 +21,10 @@ var displayUserData = function(userData){
 		var shortBlog = userData.blog.replace("http://", "").replace("www.", "");
 		$("#userData").append('<a id="userBlog" href="' + userData.blog + '" title="Homepage">' + shortBlog + '</a>').log("blog appended!");
 	}
+	if(userData.location != null){
+		// On success a map will be drawn
+		getLatLong(userData.location, latLongCallback);
+	}
 	
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
 	p5.drawFollower(userData.followers_count);	
