@@ -64,7 +64,6 @@ void drawFollower(int n){
 		println("open_issues   =   " + userData.repos[i].open_issues);
 	}
 	
-	alert('BÖAAAA');
 	
 	/*fill(0);
 	rect(90, 90, 200, 200);
