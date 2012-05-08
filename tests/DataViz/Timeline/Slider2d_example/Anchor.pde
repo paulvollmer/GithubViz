@@ -34,7 +34,7 @@ class Anchor {
   
   
   /**
-   * h = size of the anchor
+   * 
    */
   void drawLeft(int y){
     if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
@@ -52,7 +52,7 @@ class Anchor {
   
   
   /**
-   * h = size of the anchor
+   * 
    */
   void drawRight(int y){
     if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
