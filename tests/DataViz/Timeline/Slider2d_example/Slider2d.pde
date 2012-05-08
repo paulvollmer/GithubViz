@@ -1,9 +1,10 @@
 
 class Slider2d {
   
-  // Pos size for slider
+  // Position and size of the slider
   int x, y, w, h;
   
+  // min, max value of the Anchors
   float valueMin = 0.0;
   float valueMax = 1.0;
   
@@ -11,6 +12,7 @@ class Slider2d {
   Anchor rightAnchor;
   
   Interaction interaction;
+  
   
   
   
@@ -28,6 +30,8 @@ class Slider2d {
    * @param y y-position
    * @param w width of the slider
    * @param h height of the slider
+   * @param val1 Value of left Anchor
+   * @param val2 Value of right Anchor
    */
   void init(int x, int y, int w, int h, float val1, float val2){
     this.x = x;
