@@ -11,7 +11,7 @@
 var displayUserData = function(userData){
 	// AVATAR -------------------------------------------------------------	
 	if(userData.id != null){
-		$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub" target="_blank"><img id="userId" width="50px" src=" http://www.gravatar.com/avatar/' + userData.gravatar_id + '" /></a>');
+		$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub" target="_blank"><img id="userId" width="120px" src=" http://www.gravatar.com/avatar/' + userData.gravatar_id + '" /></a>');
 	}
 	
 	// LOGIN --------------------------------------------------------------
