@@ -9,7 +9,7 @@
  */
 class Treemap {
 
-  TreemapRect[] tRect;
+  TreemapRect tRect;
   
   
   //the total values of all elements together, just to write % on square.
@@ -27,57 +27,11 @@ class Treemap {
   void init(int[] value) {
     println("INIT");
     
-    tRect = new TreemapRect[value.length];
-    for (int i = 0; i<value.length; i++) {
-      tRect[i] = new TreemapRect();
-    }
+    tRect = new TreemapRect();
   }
   
   
   
-  
-  void draw(){
-    
-  }
-
-  
-  
-  
-  /**
-   *
-   */
-  void mousePressed() {
-    println("mousePressed ");
-    
-    for(int i=0; i<tRect.length-1; i++){
-      tRect[i].mousePressed();
-    }
-    
-  }
-  
-  void mouseMoved() {
-    //println("mouseMoved ");
-    
-    for(int i=0; i<tRect.length-1; i++){
-      tRect[i].mousePressed();
-    }
-  }
-
-
-  /**
-   *
-   */
-  void calc(int x, int y, int w, int h){
-    /*for(int i=0; i<=value.length-1; i++){
-      
-      tRect[i].init(0, 0, 100, 100, value[i]);
-    }*/
-    
-  }
-
-
-
-
   /**
    * FIND GOOD SPLIT NUMBER - advantagous block aspect ratio.
    *
@@ -162,10 +116,8 @@ class Treemap {
 
     int valueA = 0;//the biggest value
     int valueB = 0;//value B will correspond to the sum of all remmaining objects in array
-    int[] numbersA = {
-    }; //in the loop, we'll populate these two out of our main array.
-    int[] numbersB = {
-    };
+    int[] numbersA = {}; //in the loop, we'll populate these two out of our main array.
+    int[] numbersB = {};
     //int[] numbersA = new int[numbers.length-1]; //a new array excluding the big value.
     //int[] numbersB = new int[numbers.length-1]; //a new array excluding the big value of part A.
 
@@ -239,7 +191,7 @@ class Treemap {
       //if it's done, we add the B to display list, and that's it for recussivity, we return to main level...
       // the main function will then deal with all the data...
       ///////////////////////////////////////////////////////////////////////////////////////drawRect(xA, yA, widthA, heightA, valueA);
-      tRect[0].draw(xA, yA, widthA, heightA, valueA);
+      tRect.draw(xA, yA, widthA, heightA, valueA);
     }
 
 
@@ -250,7 +202,7 @@ class Treemap {
       //if it's done, we add the B to display list, and that's it for recussivity, we return to main level...
       // the main function will then deal with all the data...
       ///////////////////////////////////////////////////////////////////////////////////////drawRect(xB, yB, widthB, heightB, valueB);
-      tRect[0].draw(xB, yB, widthB, heightB, valueB);
+      tRect.draw(xB, yB, widthB, heightB, valueB);
     }
     //If it represent more than one value, we send the block B to be split again (recursivly)
   }

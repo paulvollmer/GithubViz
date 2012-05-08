@@ -1,6 +1,7 @@
 
 class TreemapRect extends Interaction {
 
+  int x, y, w, h;
   int value;
   
   int col;
@@ -35,7 +36,8 @@ class TreemapRect extends Interaction {
   void draw(int x, int y, int w, int h, int value) {
     stroke(1);
     if(overRect(mouseX, mouseY, x, y, w, h)){
-      col = 0xFF00FF00;
+      col = 0xFFFFFF00;
+      if(mousePressed) col = 0xFF00FF00;
     } else {
       col = 0xFFFF0000;
     }

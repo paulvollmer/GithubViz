@@ -2,9 +2,6 @@
 
 class Interaction {
   
-  int x, y, w, h;
-  
-  
   Interaction(){}
 
 

@@ -51,13 +51,5 @@ void draw() {
 
 void mousePressed() {
  // redraw();
- tm.mousePressed();
-}
-
-
-
-void mouseMoved() {
- // redraw();
- tm.mouseMoved();
 }
 
