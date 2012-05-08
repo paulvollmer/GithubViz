@@ -1,6 +1,6 @@
 
 /**
- * Diese klasse benutzen wir für unseren Slider"d.
+ * Diese klasse benutzen wir für unseren Slider.
  * der Anchor wird rechts und links benutzt um den silder zu bedienen.
  
  
@@ -14,8 +14,6 @@ class Anchor {
   // size of the anchor
   int size = 20;
   
-  boolean state;
-  
   
   Interaction interaction;
   
@@ -23,7 +21,6 @@ class Anchor {
   
   Anchor(){
     interaction = new Interaction();
-    state = false;
   }
   
   
@@ -40,8 +37,7 @@ class Anchor {
    * h = size of the anchor
    */
   void drawLeft(int y){
-    if(state){
-      x = mouseX;
+    if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
@@ -51,8 +47,6 @@ class Anchor {
     vertex(x, y+size);
     vertex(x-size, y);
     endShape();
-    
-    state = false;
   }
   
   
@@ -61,8 +55,7 @@ class Anchor {
    * h = size of the anchor
    */
   void drawRight(int y){
-    if(state){
-      x = mouseX;
+    if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
@@ -72,8 +65,6 @@ class Anchor {
     vertex(x, y+size);
     vertex(x+size, y);
     endShape();
-    
-    state = false;
   }
   
   
@@ -81,9 +72,7 @@ class Anchor {
   void mousePressed(int y){
     if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
       println("over");
-      state = true;
-    } else {
-      state = false;
+      x = mouseX;
     }
   }
   

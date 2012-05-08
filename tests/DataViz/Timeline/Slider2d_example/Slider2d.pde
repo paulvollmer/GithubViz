@@ -22,6 +22,13 @@ class Slider2d {
   
   
   
+  /**
+   *
+   * @param x x-position
+   * @param y y-position
+   * @param w width of the slider
+   * @param h height of the slider
+   */
   void init(int x, int y, int w, int h, float val1, float val2){
     this.x = x;
     this.y = y;
