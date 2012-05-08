@@ -1,7 +1,7 @@
 
 // We have to hardcode the width and height of the map image
-var mapWidth = 502;	
-var mapHeight = 253;
+var mapWidth = 188;	
+var mapHeight = 140;
 
 // pinMarhinTop and pinMaringLeft will be overridden later...
 var pinMarginTop = 0;
@@ -9,8 +9,8 @@ var pinMarginLeft = 0;
 // to actually place the pin on the correct spot we have to 
 // substract half of the width and height,
 // so the middle of the pin is on the coorinates
-var pinWidth = 20;	
-var pinHeight = 20;
+var pinWidth = 8;	
+var pinHeight = 8;
 
 /*
  * Maps a value from range [minFrom..maxFrom] to [minTo..maxTo]
@@ -25,8 +25,8 @@ var map = function(value, minFrom, maxFrom, minTo, maxTo){
  */
 function displayMap(){
 	$("#userData").append('<figure id="map"></figure>');
-	$("#map").append('<img id="mapImg" src="img/world.png" />');
-	$("#map").append('<img id="mapPin" src="img/blue_dot_20x20.png" />');		
+	$("#map").append('<img id="mapImg" src="img/worldmap_188x140.png" />');
+	$("#map").append('<img id="mapPin" src="img/Pin_8x8_white.png" />');		
 	$("#mapPin").css("marginTop", pinMarginTop-pinHeight*0.5);
 	$("#mapPin").css("marginLeft", pinMarginLeft-pinWidth*0.5);
 }

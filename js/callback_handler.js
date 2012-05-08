@@ -14,17 +14,21 @@ var displayUserData = function(userData){
 		$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub" target="_blank"><img id="userId" width="120px" src=" http://www.gravatar.com/avatar/' + userData.gravatar_id + '" /></a>');
 	}
 	
+	$("#userData").append('<div id="userTextInfo"></div');
+	
 	// LOGIN --------------------------------------------------------------
-	$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub"><h1 id="userLogin">' + userData.login + '</h1></a>').log("userData appended!");
+	$("#userTextInfo").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub"><h1 id="userLogin">' + userData.login + '</h1></a>').log("userData appended!");
 	// BLOG ---------------------------------------------------------------
 	if(userData.blog != null){
 		var shortBlog = userData.blog.replace("http://", "").replace("www.", "");
-		$("#userData").append('<a id="userBlog" href="' + userData.blog + '" title="Homepage">' + shortBlog + '</a>').log("blog appended!");
+		$("#userTextInfo").append('<a id="userBlog" href="' + userData.blog + '" title="Homepage">' + shortBlog + '</a>').log("blog appended!");
 	}
 	if(userData.location != null){
+		$("#userTextInfo").append('<p id="userLocation">' + userData.location + '</p>').log("user location appended!");
 		// On success a map will be drawn
 		getLatLong(userData.location, latLongCallback);
 	}
+	//alert(userData.followers_count + ', ' + userData.public_repo_count);
 	
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
 	p5.drawFollower(userData.followers_count);	
