@@ -12,7 +12,7 @@ class Anchor {
   // position of the anchor
   int x;
   // size of the anchor
-  int size = 20;
+  int anchorSize = 20;
   
   
   Interaction interaction;
@@ -37,15 +37,15 @@ class Anchor {
    * 
    */
   void drawLeft(int y){
-    if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
+    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
     }
     beginShape();
     vertex(x, y);
-    vertex(x, y+size);
-    vertex(x-size, y);
+    vertex(x, y+anchorSize);
+    vertex(x-anchorSize, y);
     endShape();
   }
   
@@ -55,22 +55,22 @@ class Anchor {
    * 
    */
   void drawRight(int y){
-    if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
+    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
     }
     beginShape();
     vertex(x, y);
-    vertex(x, y+size);
-    vertex(x+size, y);
+    vertex(x, y+anchorSize);
+    vertex(x+anchorSize, y);
     endShape();
   }
   
   
   
   void mousePressed(int y){
-    if(interaction.overRect(mouseX, mouseY, x, y, size, size)){
+    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
       println("over");
       x = mouseX;
     }

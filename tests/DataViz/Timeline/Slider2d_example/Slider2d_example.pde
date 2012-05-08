@@ -7,7 +7,7 @@ void setup(){
   smooth();
   
   slider = new Slider2d();
-  slider.init(100, 100, width-200, 50, 0.0f, 1.0f);
+  slider.init(100, 100, width-200, 50, 0.3f, 0.7f);
   
 }
 
