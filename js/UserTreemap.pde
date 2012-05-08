@@ -1,32 +1,56 @@
 boolean userDataLoaded;
-
 int[] numbers;
 int[] indexes;
 Treemap tm;
-//int nEntries = 10;
-var userData;
-TreemapRect[] rects;
-int rectCount = 0;
+var userData;	
+TreemapRect[] rects; // Here all TreemapRects are stored
+int rectCount = 0;	// used for creating new elements within the index-array, will increment by time
 
+// colors
+int cBg = #5c5c5c;
+int cBgHover = #48a1f0;
+int cTxt = #000000;
+int cTxtHover = #ffffff;
+int cBgClick = cBgHover;
+int cTxtClick = cTxtHover;
+int cRectOutline = #4d4d4d;
 
 
 /**
- * Processing Main Setup
+ * Setup
+ * General display stuff
  */
 void setup(){
  	size(800,600);  
+ 	smooth();
  	PFont fontA = loadFont("CordiaNew-18.vlw");
- 	textFont(fontA, 20);
-	//userDataReady();
+ 	textFont(fontA, 14);
 	userDataLoaded = false;
 }
 
+
+/**
+ * Processing Main Draw
+ */
+void draw(){
+	background(#4D4D4D);
+	
+	stroke(1);
+	if(userDataLoaded){
+		for(int i=0; i<rects.length; i++){
+			rects[i].draw();
+		}
+	}	
+}
+
+
 /**
  * NOTE: look at callback_handler.js
+ * Will be called when Github-data request was successful
+ * Init the treemap here
  */
 void userDataReady(){
-	userDataLoaded = true;
-	
+	userDataLoaded = true;	
 	userData = getUser(getUrlVars()["user"]);
 	tm = new Treemap();
 
@@ -42,32 +66,16 @@ void userDataReady(){
 		indexes[i] = i;
 		tm.totalValue += numbers[i]; //There's a problem here, the total is never accurate...
   	}
-  	tm.init();
-  // Print indexes + values
-  println("\nIndex \t Value");
-  for(int i=0; i<nbItems; i++){
-    println(indexes[i] + " \t "  + numbers[i]); 
-  }
+  	
+	// Print indexes + values
+	println("\nIndex \t Value");
+	for(int i=0; i<nbItems; i++){
+		println(indexes[i] + " \t "  + numbers[i]); 
+	}
+	// Calculate block sizes and strore in rects-array
 	tm.makeBlock(10, 10, width-20, height-20, numbers, indexes);
 
 }
-
-
-
-/**
- * Processing Main Draw
- */
-void draw(){
-	background(#4D4D4D);
-	if(userDataLoaded){
-		for(int i=0; i<rects.length; i++){
-			rects[i].draw();
-		}
-	}
-	
-}
-
-
 
 
 
@@ -79,23 +87,12 @@ void draw(){
  * we take a heuristic approach, and don't resplit if it's not bat (close to 1:1, square ratio).
  */
 class Treemap {
-  TreemapRect tRect;
   
   //the total values of all elements together, just to write % on square.
   float totalValue = 0;
 
   Treemap(){}
 
-  /**
-   *
-   */
-  void init() {
-    println("INIT");
-    
-    //tRect = new TreemapRect();
-  }
-  
-  
   
   /**
    * FIND GOOD SPLIT NUMBER - advantagous block aspect ratio.
@@ -144,30 +141,32 @@ class Treemap {
       return 1;
     }
   }
-/*
- * Standard bubble sort algorithm
- * It will edit the indexes array as well, so we now later what is where
- */
-void bubbleSort(int[] arr, int[] indexes) {
-  boolean swapped = true;
-  int j = 0;
-  int tmp, tmpi;
-  while (swapped) {
-    swapped = false;
-    j++;
-    for (int i = 0; i < arr.length - j; i++) {                                       
-      if (arr[i] > arr[i + 1]) {                          
-        tmp = arr[i];        
-        arr[i] = arr[i + 1];        
-        arr[i + 1] = tmp;
-        tmpi = indexes[i];
-        indexes[i] = indexes[i + 1];
-        indexes[i + 1] = tmpi;
-        swapped = true;
-      }
-    }                
-  }
-}
+  
+  
+	/*
+	 * Standard bubble sort algorithm
+	 * It will edit the indexes array as well, so we now later what is where
+	 */
+	void bubbleSort(int[] arr, int[] indexes) {
+	  boolean swapped = true;
+	  int j = 0;
+	  int tmp, tmpi;
+	  while (swapped) {
+	    swapped = false;
+	    j++;
+	    for (int i = 0; i < arr.length - j; i++) {                                       
+	      if (arr[i] > arr[i + 1]) {                          
+	        tmp = arr[i];        
+	        arr[i] = arr[i + 1];        
+	        arr[i + 1] = tmp;
+	        tmpi = indexes[i];
+	        indexes[i] = indexes[i + 1];
+	        indexes[i + 1] = tmpi;
+	        swapped = true;
+	      }
+	    }                
+	  }
+	}
 
 
 
@@ -176,12 +175,9 @@ void bubbleSort(int[] arr, int[] indexes) {
    *
    */
   void makeBlock(int refX, int refY, int blockW, int blockH, int[] numbers, int[] indexes) {
-    // We sort the received array.
-    //numbers = reverse(sort(numbers));// we sort the array from biggest to smallest value.
     bubbleSort(numbers, indexes);// we sort the array from biggest to smallest value.
     numbers = reverse(numbers);
     indexes = reverse(indexes);
-    // println(numbers);
 
     //First we need to asses the optimal number of item to be used for block A
     // How do we do that?
@@ -203,14 +199,12 @@ void bubbleSort(int[] arr, int[] indexes) {
       if (i < nbItemsInABlock) {//item has to be placed in A array...
         numbersA = append(numbersA, numbers[i]);
         indexesA = append(indexesA, indexes[i]);
-        //numbersA[i] = numbers[i]; //we populate our new array of values, we'll send it recursivly...
         valueA += numbers[i];
         indexA += indexes[i];
       } 
       else {
         numbersB = append(numbersB, numbers[i]);
         indexesB = append(indexesB, indexes[i]);
-        //numbersB[i-nbItemsInABlock] = numbers[i]; //we populate our new array of values, we'll send it recursivly...
         valueB += numbers[i];
         indexB += indexes[i];
       }
@@ -256,7 +250,7 @@ void bubbleSort(int[] arr, int[] indexes) {
       // the main function will then deal with all the data...
       ///////////////////////////////////////////////////////////////////////////////////////drawRect(xA, yA, widthA, heightA, valueA);
       //tRect.draw(xA, yA, widthA, heightA, valueA, indexA);
-      rects[rectCount] = new TreemapRect(xA, yA, widthA, heightA, valueA, #ffffff, indexA);
+      rects[rectCount] = new TreemapRect(xA, yA, widthA, heightA, valueA, indexA);
       rectCount++;
     }
 
@@ -269,14 +263,12 @@ void bubbleSort(int[] arr, int[] indexes) {
       // the main function will then deal with all the data...
       ///////////////////////////////////////////////////////////////////////////////////////drawRect(xB, yB, widthB, heightB, valueB);
       //tRect.draw(xB, yB, widthB, heightB, valueB, indexB);
-      rects[rectCount] = new TreemapRect(xB, yB, widthB, heightB, valueB, #ffffff, indexB);
+      rects[rectCount] = new TreemapRect(xB, yB, widthB, heightB, valueB, indexB);
       rectCount++;
     }
     //If it represent more than one value, we send the block B to be split again (recursivly)
   }
 }
-
-
 
 
 
@@ -295,89 +287,40 @@ class Interaction {
 
 
 
-
+/*
 
 class TreemapRect extends Interaction {
 
-  int x, y, w, h;
-  int value;
+	int x, y, w, h, value, index;
   
-  int col;
-  int index;
-
-
-  TreemapRect(int x, int y, int w, int h, int value, int col, int index){
-    //println("INIT");
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.value = value;
-    this.col = col;
-    this.index = index;
-  } 
+	TreemapRect(int x, int y, int w, int h, int value, int index){
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.value = value;
+		this.index = index;
+	} 
 
   
-  /**
-   *
-   */
-  void init(int x, int y, int w, int h, int value, int col, int index){
-    //println("INIT");
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.value = value;
-    this.col = col;
-    this.index = index;
-  }
-  
-
-  /**
-   *
-   */
-  void draw(int x, int y, int w, int h, int value, int index) {
-    stroke(1);
-    if(overRect(mouseX, mouseY, x, y, w, h)){
-      col = 0xFFFFFF00;
-      if(mousePressed) col = 0xFF00FF00;
-    } else {
-      col = 0xFFFF0000;
-    }
-    fill(col);
-    rect(x, y, w, h);
-    
-    fill(0);
-    text(userData.repos[index].name, x+6, y+20);
-  }
-  
-   void draw() {
-    stroke(1);
-    if(overRect(mouseX, mouseY, x, y, w, h)){
-      col = #48a1f0;
-      if(mousePressed) col = #48a1f0;
-    } else {
-      col = #5c5c5c;
-    }
-    fill(col);
-    rect(x, y, w, h);
-    
-    fill(0);
-    text(userData.repos[index].name, x+6, y+20);
-  }
-
-
-  /**
-   *
-   */
-  void mousePressed() {
-    if(overRect(mouseX, mouseY, x, y, w, h)){
-      println("OVER");
-      col = 0xFF00FF00;
-    } else {
-      col = 0xFFFF0000;
-    }
-  }
-  
-  
+	void draw(){
+		int colorBg, colorTxt;
+		
+		if(overRect(mouseX, mouseY, x, y, w, h)){
+			colorBg = cBgHover;
+			colorTxt = cTxtHover;
+		}
+		else{
+			colorBg = cBg;
+			colorTxt = cTxt;
+		}
+		fill(colorBg);
+		stroke(#4d4d4d);
+		rect(x, y, w, h);
+		
+		fill(colorTxt);
+		noStroke();
+		text(userData.repos[index].name, x+6, y+20);
+	}
 }
+*/
