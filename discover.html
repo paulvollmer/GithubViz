@@ -112,32 +112,21 @@
     </nav>
     <!-- NAV ------------------------------------------------------------------------------------>
 
+
+
+    <!-- CONTENT START ------------------------------------------------------------------------------------>
     <div id="userData"></div>
     <div id="repoData"></div>
     <!-- Search Form (top right)-->
-    <!--<form id="SearchBox" action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>-->
     <form id="SearchBox" action="discover.html">
     	<input id="textInput" type="text" size="30" name="user" />
     	<input id="submitButton" type="submit" class="Button" value="Search" />
     </form>
     <br><br>
 
-
-
-<!-- <canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> -->
-<canvas id="gitHubVizCanvas" data-processing-sources="js/UserTreemap.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> 
-
-<!-- uhh jetzt hat jemand auf ein repo geklickt...-->
-<script>
-	/*
-	var curUserData = getUser(currentUser);
-	//var rndRepo = Math.floor(Math.random()*curUserData.public_repo_count);	//random [0..nRepos]
-	var rndRepo = 0;
-	var aRepo = curUserData.repos[rndRepo];
-	$("#userData").append();
-	*/		
-</script>
-
+    <!-- Processing.js -->
+    <canvas id="gitHubVizCanvas" data-processing-sources="js/UserTreemap.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> 
+    <!-- CONTENT STOP ------------------------------------------------------------------------------------>
 
 
 
