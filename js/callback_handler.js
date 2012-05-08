@@ -9,7 +9,7 @@
  * Look up the names here: https://github.com/judofyr/github-js/blob/master/README.markdown
  */
 var displayUserData = function(userData){
-	// AVATAR -------------------------------------------------------------	
+	// AVATAR -------------------------------------------------------------
 	if(userData.id != null){
 		$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub" target="_blank"><img id="userId" width="120px" src=" http://www.gravatar.com/avatar/' + userData.gravatar_id + '" /></a>');
 	}
@@ -28,10 +28,10 @@ var displayUserData = function(userData){
 		// On success a map will be drawn
 		getLatLong(userData.location, latLongCallback);
 	}
-	//alert(userData.followers_count + ', ' + userData.public_repo_count);
 	
+    // PJS -----------------------------------------------------------------
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
-	p5.drawFollower(userData.followers_count);	
+    p5.userDataReady();
 }
 
 /*
