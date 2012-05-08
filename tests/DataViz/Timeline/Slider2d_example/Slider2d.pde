@@ -28,11 +28,11 @@ class Slider2d {
     this.w = w;
     this.h = h;
     
-    leftAnchor.init(0.0);
-    rightAnchor.init(1.0);
+    leftAnchor.init(val1);
+    rightAnchor.init(val2);
     
-    leftAnchor.x = (int)mapValueToPixel(0.0);
-    rightAnchor.x = (int)mapValueToPixel(1.0);
+    leftAnchor.x = (int)mapValueToPixel(val1);
+    rightAnchor.x = (int)mapValueToPixel(val2);
   }
   
   
