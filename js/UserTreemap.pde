@@ -5,6 +5,8 @@ int[] indexes;
 Treemap tm;
 //int nEntries = 10;
 var userData;
+TreemapRect[] rects;
+int rectCount = 0;
 
 
 
@@ -29,6 +31,7 @@ void userDataReady(){
 	tm = new Treemap();
 
   	int nbItems = userData.public_repo_count;
+  	rects = new TreemapRect[nbItems];
     //int nbItems = nEntries;
   	println("nbItems = " + nbItems);
   	numbers = new int[nbItems];
@@ -45,6 +48,8 @@ void userDataReady(){
   for(int i=0; i<nbItems; i++){
     println(indexes[i] + " \t "  + numbers[i]); 
   }
+	tm.makeBlock(10, 10, width-20, height-20, numbers, indexes);
+
 }
 
 
@@ -54,10 +59,12 @@ void userDataReady(){
  */
 void draw(){
 	background(#4D4D4D);
-	
-	if(userDataLoaded) {
-		tm.makeBlock(10, 10, width-20, height-20, numbers, indexes);
+	if(userDataLoaded){
+		for(int i=0; i<rects.length; i++){
+			rects[i].draw();
+		}
 	}
+	
 }
 
 
@@ -85,7 +92,7 @@ class Treemap {
   void init() {
     println("INIT");
     
-    tRect = new TreemapRect();
+    //tRect = new TreemapRect();
   }
   
   
@@ -248,7 +255,9 @@ void bubbleSort(int[] arr, int[] indexes) {
       //if it's done, we add the B to display list, and that's it for recussivity, we return to main level...
       // the main function will then deal with all the data...
       ///////////////////////////////////////////////////////////////////////////////////////drawRect(xA, yA, widthA, heightA, valueA);
-      tRect.draw(xA, yA, widthA, heightA, valueA, indexA);
+      //tRect.draw(xA, yA, widthA, heightA, valueA, indexA);
+      rects[rectCount] = new TreemapRect(xA, yA, widthA, heightA, valueA, #ffffff, indexA);
+      rectCount++;
     }
 
 
@@ -259,7 +268,9 @@ void bubbleSort(int[] arr, int[] indexes) {
       //if it's done, we add the B to display list, and that's it for recussivity, we return to main level...
       // the main function will then deal with all the data...
       ///////////////////////////////////////////////////////////////////////////////////////drawRect(xB, yB, widthB, heightB, valueB);
-      tRect.draw(xB, yB, widthB, heightB, valueB, indexB);
+      //tRect.draw(xB, yB, widthB, heightB, valueB, indexB);
+      rects[rectCount] = new TreemapRect(xB, yB, widthB, heightB, valueB, #ffffff, indexB);
+      rectCount++;
     }
     //If it represent more than one value, we send the block B to be split again (recursivly)
   }
@@ -292,17 +303,10 @@ class TreemapRect extends Interaction {
   int value;
   
   int col;
+  int index;
 
 
-  TreemapRect() {
-    col = 0xFFFF0000;
-  } 
-
-  
-  /**
-   *
-   */
-  void init(int x, int y, int w, int h, int value, int col){
+  TreemapRect(int x, int y, int w, int h, int value, int col, int index){
     //println("INIT");
     this.x = x;
     this.y = y;
@@ -310,6 +314,22 @@ class TreemapRect extends Interaction {
     this.h = h;
     this.value = value;
     this.col = col;
+    this.index = index;
+  } 
+
+  
+  /**
+   *
+   */
+  void init(int x, int y, int w, int h, int value, int col, int index){
+    //println("INIT");
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.value = value;
+    this.col = col;
+    this.index = index;
   }
   
 
@@ -323,6 +343,21 @@ class TreemapRect extends Interaction {
       if(mousePressed) col = 0xFF00FF00;
     } else {
       col = 0xFFFF0000;
+    }
+    fill(col);
+    rect(x, y, w, h);
+    
+    fill(0);
+    text(userData.repos[index].name, x+6, y+20);
+  }
+  
+   void draw() {
+    stroke(1);
+    if(overRect(mouseX, mouseY, x, y, w, h)){
+      col = #48a1f0;
+      if(mousePressed) col = #48a1f0;
+    } else {
+      col = #5c5c5c;
     }
     fill(col);
     rect(x, y, w, h);
