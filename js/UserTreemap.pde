@@ -1,8 +1,5 @@
-boolean viewChanged = false;
-boolean userChanged = false;
-boolean repoChanged = false;
 
-
+boolean userDataLoaded;
 
 // TREEMAP
 int[] numbers;
@@ -10,95 +7,54 @@ Treemap tm;
 
 
 
+/**
+ * Processing Main Setup
+ */
 void setup(){
-  size(800,600);
-  background(#4D4D4D);
-  fill(255);
-  noLoop();
-
-  PFont fontA = loadFont("courier");
-  textFont(fontA, 14);
+ 	size(800,600);
+  
+ 	PFont fontA = loadFont("courier");
+ 	textFont(fontA, 14);
 }
 
 
 
-void draw(){    
-  println("Hello ErrorLog!########");
-
-
-  // x, y, w, h, VALUE
-  //tm.makeBlock(10, 10, width-20, height-20, numbers);
-}
-
-
-
-void drawFollower(int n){
-	/*for(int i=0; i<n; i++){
-		rect(random(0, width), random(0, height), 40, 40);
-	}*/
+/**
+ * NOTE: look at callback_handler.js
+ */
+void userDataReady(){
+	userDataLoaded = true;
 	
 	var userData = getUser(getUrlVars()["user"]);;
-	println("### Log test");
+	//println("### Log test");
 	
-	// make sure userData has been loaded already!!
 	
-	/*println("\nAccessing a Javascript Object from within P5: ");
-	println("\nuserData =============================================================================");
-	println("login          =   " + userData.login);
-	println("id             =   " + userData.id);
-	println("avatar_url     =   " + userData.avatar_url);
-	println("gravatar_id    =   " + userData.gravatar_id);
-	println("url            =   " + userData.url);
-	println("name           =   " + userData.name);
-	println("company        =   " + userData.company);
-	println("blog           =   " + userData.blog);
-	println("location       =   " + userData.location);
-	println("email          =   " + userData.email);
-	println("hireable       =   " + userData.hireable);
-	println("bio            =   " + userData.bio);
-	println("public_repos   =   " + userData.public_repo_count);
-	println("public_gists   =   " + userData.public_gist_count);
-	println("followers      =   " + userData.followers.length());
-	println("following      =   " + userData.following.length());
-	println("html_url       =   " + userData.html_url);
-	println("created_at     =   " + userData.created_at);
-	println("type           =   " + userData.type);
-	
-	println("\nrepoData =============================================================================");
-	int tempL = userData.repos.length();
-	for(int i=0; i<tempL; i++){
-		println("\nrepo[" + userData.repos[i].name + "]");
-		println("watchers      =   " + userData.repos[i].watchers);
-		println("description   =   " + userData.repos[i].description);
-		println("size          =   " + userData.repos[i].size);
-		println("updated_at    =   " + userData.repos[i].updated_at);
-		println("open_issues   =   " + userData.repos[i].open_issues);
-	}*/
-	
-		tm = new Treemap();
+	tm = new Treemap();
 
-		  // FIRST, we generate an array with n number of random values.
-		  ///////////////////////////////////////////////////////////////
-		  int nbItems = userData.public_repo_count; //floor(random(2,50));
-		  println("nbItems = "+nbItems);
-		  numbers = new int[nbItems];
-		  //totalValue = 0;
-		  for( int i=0; i <= numbers.length-1; i++ ) {
-		    numbers[i] = (userData.repos[i].watchers + userData.repos[i].forks);
-			tm.totalValue += numbers[i]; //There's a problem here, the total is never accurate...
-		  }
-		  tm.init(numbers);
-		
-	tm.makeBlock(10, 10, width-20, height-20, numbers);
+	 // FIRST, we generate an array with n number of random values.
+	 ///////////////////////////////////////////////////////////////
+  	int nbItems = userData.public_repo_count; //floor(random(2,50));
+  	println("nbItems = "+nbItems);
+  	numbers = new int[nbItems];
+  	//totalValue = 0;
+  	for( int i=0; i <= numbers.length-1; i++ ) {
+    	numbers[i] = (userData.repos[i].watchers + userData.repos[i].forks);
+		tm.totalValue += numbers[i]; //There's a problem here, the total is never accurate...
+  	}
+  	tm.init(numbers);
+}
+
+
+
+/**
+ * Processing Main Draw
+ */
+void draw(){
+	background(#4D4D4D);
 	
-	
-	//alert('BÖAAAA');
-	
-	
-	/*fill(0);
-	rect(90, 90, 200, 200);
-	fill(255);
-	text("test", 100, 100);*/
+	if(userDataLoaded) {
+		tm.makeBlock(10, 10, width-20, height-20, numbers);
+	}
 }
 
 
@@ -120,21 +76,6 @@ void drawFollower(int n){
 
 
 
-
-
-
-class Interaction {  
-  Interaction(){}
-  boolean overRect(int mx, int my, int x, int y, int width, int height) {
-    if(mx >= x && mx <= x+width && 
-       my >= y && my <= y+height) {
-      return true;
-    } 
-    else {
-      return false;
-    }
-  }
-}
 
 
 /**
@@ -340,6 +281,26 @@ class Treemap {
 }
 
 
+
+
+
+class Interaction {  
+  Interaction(){}
+  boolean overRect(int mx, int my, int x, int y, int width, int height) {
+    if(mx >= x && mx <= x+width && 
+       my >= y && my <= y+height) {
+      return true;
+    } 
+    else {
+      return false;
+    }
+  }
+}
+
+
+
+
+
 class TreemapRect extends Interaction {
 
   int x, y, w, h;
@@ -366,10 +327,6 @@ class TreemapRect extends Interaction {
     this.col = col;
   }
   
-  void calc(){
-    println("calc");
-  }
-  
 
   /**
    *
@@ -385,24 +342,8 @@ class TreemapRect extends Interaction {
     fill(col);
     rect(x, y, w, h);
     
-    /*String myPcntStr ;
-    int myPcnt = int(round ((value / totalValue) *100)) ;
-    float myPcntDecimal = int(round ((value / totalValue) *1000)) ;
-    myPcntDecimal = myPcntDecimal/10;
-    //myPcnt = floor (myPcnt);
-
-    if (myPcntDecimal > 10) { //bigger than 10%, we round it up.
-      myPcntStr = str(myPcnt) + "%";
-    }
-    else {
-      myPcntStr = str (myPcntDecimal) + "%";
-    }*/
-    
     fill(0);
-    text(value, x+6, y+20);  //(we don't care about the actual value now that we have the pcnt...)
-    //text(myPcntStr, x1+(w1/2)-10, y1+(h1/2)+5);
-
-    ///////////println("### totalValue = "+totalValue);
+    text(value, x+6, y+20);
   }
 
 
@@ -416,7 +357,6 @@ class TreemapRect extends Interaction {
     } else {
       col = 0xFFFF0000;
     }
-  
   }
   
   
