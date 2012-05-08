@@ -13,7 +13,7 @@ var displayUserData = function(userData){
 	if(userData.id != null){
 		$("#userData").append('<a href="http://github.com/' + userData.login + '" title="Visit on GitHub" target="_blank"><img id="userId" width="120px" src=" http://www.gravatar.com/avatar/' + userData.gravatar_id + '" /></a>');
 	}
-	
+	// div for all text infos
 	$("#userData").append('<div id="userTextInfo"></div');
 	
 	// LOGIN --------------------------------------------------------------
@@ -23,6 +23,7 @@ var displayUserData = function(userData){
 		var shortBlog = userData.blog.replace("http://", "").replace("www.", "");
 		$("#userTextInfo").append('<a id="userBlog" href="' + userData.blog + '" title="Homepage">' + shortBlog + '</a>').log("blog appended!");
 	}
+	// MAP -----------------------------------------------------------------
 	if(userData.location != null){
 		$("#userTextInfo").append('<p id="userLocation">' + userData.location + '</p>').log("user location appended!");
 		// On success a map will be drawn
@@ -33,12 +34,3 @@ var displayUserData = function(userData){
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
     p5.userDataReady();
 }
-
-/*
- * Not finished yet, just for testing
- */
-/*
-var displayRepoData = funtion(repoData){
-	$("#repoData").append('<p id="repoName (First)">' + userData.repos[0].name + '</p>').log("repoName appended!");	
-}
-*/
