@@ -14,6 +14,8 @@ class Anchor {
   // size of the anchor
   int anchorSize = 20;
   
+  boolean moving;
+  
   
   Interaction interaction;
   
@@ -21,6 +23,7 @@ class Anchor {
   
   Anchor(){
     interaction = new Interaction();
+    moving = false;
   }
   
   
@@ -34,10 +37,11 @@ class Anchor {
   
   
   /**
-   * 
+   * linker Anchor
    */
   void drawLeft(int y){
-    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
+    if(moving){
+      x = mouseX;
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
@@ -52,10 +56,11 @@ class Anchor {
   
   
   /**
-   * 
+   * linker Anchor
    */
   void drawRight(int y){
-    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
+    if(moving){
+      x = mouseX;
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
@@ -69,11 +74,31 @@ class Anchor {
   
   
   
-  void mousePressed(int y){
+  /**
+   * Wir brauchen eine mousePressedLeft für eine andere interaction.overRect
+   * bei dem input müssen wir die breite des anchors von dem x wert abziehen. (x-anchorSize)
+   */
+  void mousePressedLeft(int y){
+    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
+      println("over");
+      moving = true;
+    }
+  }
+  
+  void mousePressedRight(int y){
     if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
       println("over");
-      x = mouseX;
+      moving = true;
     }
+  }
+  
+  
+  
+  /**
+   * bei released beenden wir das moving verhalten.
+   */
+  void mouseReleased(){
+    moving = false;
   }
   
   

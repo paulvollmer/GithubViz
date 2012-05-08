@@ -24,7 +24,20 @@ void mousePressed(){
   slider.mousePressed();
 }
 
-
-void mouseDragged(){ 
+void mouseDragged(){
+  println(slider.w);
+  
+ if(mouseX < slider.w+slider.x){
+      println("test");
+      slider.leftAnchor.moving = false;
+ } else {
+   println("dfffgv");
+ }
+ 
   slider.mousePressed();
+}
+
+
+void mouseReleased(){ 
+  slider.mouseReleased();
 }

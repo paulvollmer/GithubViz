@@ -67,10 +67,15 @@ class Slider2d {
   
   
   void mousePressed(){
-    leftAnchor.mousePressed(y);
-    rightAnchor.mousePressed(y);
+    leftAnchor.mousePressedLeft(y);
+    rightAnchor.mousePressedRight(y);
   }
   
+  
+  void mouseReleased(){
+    leftAnchor.mouseReleased();
+    rightAnchor.mouseReleased();
+  }
   
   
   
