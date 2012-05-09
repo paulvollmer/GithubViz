@@ -1,39 +1,51 @@
-
 /**
+ * Anchor
+ * GitHubViz
+ *
  * Diese klasse benutzen wir für unseren Slider.
  * der Anchor wird rechts und links benutzt um den silder zu bedienen.
+ *
+ * @author     Paul Vollmer <paul.vollmer@fh-potsdam.de>
+ * @version    1.0.1
+ * @modified   2012.05.09
  */
+ 
+ 
+ 
 class Anchor {
+  
+  // Class we need
+  Interaction interaction;
+  
   
   float value;           // Value of our anchor
   int x;                 // position of the anchor
   int anchorSize = 20;   // size of the anchor
   boolean moving;        // true, if the anchor is moving at the moment
   
-  Interaction interaction;
+  
   
   
   
   /**
    * Constructor
-   */
-  Anchor(){
-    interaction = new Interaction();
-    moving = false;
-  }
-  
-  
-  /**
-   * Initialize the Anchor.
+   * Initialize the Interaction class and set variables.
    *
    * @param value
    *        An input value. this we need to calculate the position.
    */
-  void init(float value){
+  Anchor(float value){
+    interaction = new Interaction();
+    
     this.value = value;
-    //println("value = " + value);
+    moving = false;
+    
+    // Debugging stuff
+    println("value        =   " + value);
+    println("x            =   " + x);
+    println("anchorSize   =   " + anchorSize);
+    println("moving       =   " + moving);
   }
-  
   
   
   /**
@@ -57,7 +69,6 @@ class Anchor {
     vertex(x-anchorSize, y);
     endShape();
   }
-  
   
   
   /**
@@ -86,7 +97,7 @@ class Anchor {
   
   /**
    * Wir brauchen eine mousePressedLeft für eine andere interaction.overRect
-   * bei dem input müssen wir die breite des anchors von dem x wert abziehen. (x-anchorSize)
+   * bei dem input müssen wir die breite des anchors von dem x-position wert abziehen. (x-anchorSize)
    *
    * param y
    *       y position of the anchor.
