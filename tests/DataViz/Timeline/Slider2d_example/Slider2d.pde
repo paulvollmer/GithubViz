@@ -1,4 +1,9 @@
-
+/**
+ * Slider2d
+ *
+ * diese classe liefert einen 2d slider.
+ * den 2d slider kann man an den enden über einen anchor einstellen.
+ */
 class Slider2d {
   
   // Position and size of the slider
@@ -7,9 +12,11 @@ class Slider2d {
   // min, max value of the Anchors
   float valueMin = 0.0;
   float valueMax = 1.0;
-  
+
+  // Anchor classes for left and right anchor.
   Anchor leftAnchor;
   Anchor rightAnchor;
+  
   
   Interaction interaction;
   
@@ -25,6 +32,7 @@ class Slider2d {
   
   
   /**
+   * Initialize the Silder2d
    *
    * @param x x-position
    * @param y y-position
@@ -41,22 +49,20 @@ class Slider2d {
     
     leftAnchor.init(val1);
     rightAnchor.init(val2);
-    
     leftAnchor.x = (int)mapValueToPixel(val1);
     rightAnchor.x = (int)mapValueToPixel(val2);
   }
   
   
-  
+  /**
+   * draw the Slider
+   */
   void draw(){
     noStroke();
     fill(120);
     rect(x, y, w, h);
     
     int yPadding = y+4;
-    fill(cBgHover);
-    leftAnchor.drawLeft(yPadding);
-    rightAnchor.drawRight(yPadding);
     
     fill(cBgCanvas);
     beginShape();
@@ -65,13 +71,28 @@ class Slider2d {
     vertex(rightAnchor.x, yPadding);
     vertex(rightAnchor.x, yPadding+15);
     endShape();
+    
+    fill(cBgHover);
+    leftAnchor.drawLeft(yPadding);
+    rightAnchor.drawRight(yPadding);
   }
   
   
   
   void mousePressed(){
+    /*if(mouseX > x){
+      //println("ok");
+      leftAnchor.mousePressedLeft(y);
+    } else {
+      leftAnchor.moving = false;
+      println("###");
+    }*/
+    
     leftAnchor.mousePressedLeft(y);
+    if(leftAnchor.moving) leftAnchor.value = mapPixelToValue();
+    
     rightAnchor.mousePressedRight(y);
+    if(rightAnchor.moving) rightAnchor.value = mapPixelToValue();
   }
   
   
