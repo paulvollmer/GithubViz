@@ -9,6 +9,9 @@ class Slider2d {
   // Position and size of the slider
   int x, y, w, h;
   
+  // Die spanne zwischen leftAnchor und rightAnchor.
+  float valueRange;
+  
   // min, max value of the Anchors
   float valueMin = 0.0;
   float valueMax = 1.0;
@@ -80,22 +83,36 @@ class Slider2d {
   
   
   void mousePressed(){
-    /*if(mouseX > x){
-      //println("ok");
-      leftAnchor.mousePressedLeft(y);
-    } else {
-      leftAnchor.moving = false;
-      println("###");
-    }*/
-    
     leftAnchor.mousePressedLeft(y);
-    if(leftAnchor.moving) leftAnchor.value = mapPixelToValue();
+    
+    if(leftAnchor.moving){
+      leftAnchor.value = mapPixelToValue();
+      
+      /*if(leftAnchor.value > valueMin){
+        leftAnchor.value = mapPixelToValue();
+      } /*else {
+        leftAnchor.value = 0.0;
+        leftAnchor.moving = false;
+      }*/
+      
+      if(leftAnchor.value > valueMax){
+        leftAnchor.value = mapPixelToValue();
+      }
+    }
     
     rightAnchor.mousePressedRight(y);
-    if(rightAnchor.moving) rightAnchor.value = mapPixelToValue();
+    if(rightAnchor.moving){
+      rightAnchor.value = mapPixelToValue();
+    }
+    
+    // calculate the valueRange
+    valueRange = rightAnchor.value - leftAnchor.value;
   }
   
   
+  /**
+   * mouseReleased
+   */
   void mouseReleased(){
     leftAnchor.mouseReleased();
     rightAnchor.mouseReleased();
@@ -103,13 +120,19 @@ class Slider2d {
   
   
   
-  // calculate ärmchen  position
+  /**
+   * mapValueToPixel
+   * calculate ärmchen  position
+   */
   float mapValueToPixel(float val){
     float temp = map(val, valueMin, valueMax, x, x+w);
     return temp;
   }
   
   
+  /**
+   * mapPixelToValue
+   */
   float mapPixelToValue(){
     return map(mouseX, x, x+w, valueMin, valueMax);
   }
