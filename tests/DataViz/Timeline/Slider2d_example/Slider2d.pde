@@ -52,15 +52,16 @@ class Slider2d {
     fill(120);
     rect(x, y, w, h);
     
-    leftAnchor.drawLeft(y);
-    rightAnchor.drawRight(y);
+    int yPadding = y+4;
+    leftAnchor.drawLeft(yPadding);
+    rightAnchor.drawRight(yPadding);
     
     fill(0, 255, 255);
     beginShape();
-    vertex(leftAnchor.x, y+h);
-    vertex(leftAnchor.x, y);
-    vertex(rightAnchor.x, y);
-    vertex(rightAnchor.x, y+h);
+    vertex(leftAnchor.x, yPadding+15);
+    vertex(leftAnchor.x, yPadding);
+    vertex(rightAnchor.x, yPadding);
+    vertex(rightAnchor.x, yPadding+15);
     endShape();
   }
   
