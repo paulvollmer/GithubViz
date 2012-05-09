@@ -47,9 +47,11 @@
 					});
    				});
    				repo.issues('open', function(issues) {	//'open'
+   					curRepo.issues_open = issues;
    					openIssuesCallback(issues);
    				});
    				repo.issues('closed', function(issues) {	//'closed'
+   					curRepo.issues_closed = issues;
    					closedIssuesCallback(issues);
    				});				
    			}
@@ -84,4 +86,15 @@
    				if(userData[i].login.toLowerCase() != null && userData[i].login.toLowerCase() == theUserName.toLowerCase()) return true;
    			}	
    			return false;
+   		}
+   		
+   		/*
+   		 * Returns the closed issues object for curRepo
+   		 */
+   		function getIssuesClosed(){
+   			return curRepo.issues_closed;	
+   		}
+   		
+		function getIssuesOpen(){
+   			return curRepo.issues_open;	
    		}
