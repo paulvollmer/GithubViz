@@ -1,9 +1,7 @@
-boolean viewChanged = false;
-boolean userChanged = false;
-boolean repoChanged = false;
 
-
-
+/**
+ * Processing Main Setup
+ */
 void setup(){
   size(800,600);
   background(#4D4D4D);
@@ -16,16 +14,19 @@ void setup(){
 
 
 
+/**
+ * Processing Main Draw
+ */
 void draw(){    
-  println("Hello ErrorLog!########");
+  println("Hello ErrorLog!");
 }
 
 
 
-void drawFollower(int n){
-	for(int i=0; i<n; i++){
-		rect(random(0, width), random(0, height), 40, 40);
-	}
+/**
+ * NOTE: look at callback_handler.js
+ */
+void userDataReady(){
 	var userData = getUser(getUrlVars()["user"]);;
 	println("### Log test");
 	
@@ -45,10 +46,10 @@ void drawFollower(int n){
 	println("email          =   " + userData.email);
 	println("hireable       =   " + userData.hireable);
 	println("bio            =   " + userData.bio);
-	println("public_repos   =   " + userData.public_repos);
-	println("public_gists   =   " + userData.public_gists);
-	println("followers      =   " + userData.followers.length());
-	println("following      =   " + userData.following.length());
+	println("public_repos   =   " + userData.public_repo_count);
+	println("public_gists   =   " + userData.public_gist_count);
+	println("followers      =   " + userData.followers.length);
+	println("following      =   " + userData.following.length);
 	println("html_url       =   " + userData.html_url);
 	println("created_at     =   " + userData.created_at);
 	println("type           =   " + userData.type);
@@ -64,7 +65,6 @@ void drawFollower(int n){
 		println("open_issues   =   " + userData.repos[i].open_issues);
 	}
 	
-	alert('BÖAAAA');
 	
 	/*fill(0);
 	rect(90, 90, 200, 200);

@@ -5,8 +5,8 @@ var viewEnum = {
 };
 
 var curView = viewEnum.USER; // current view mode
-var curUser = ''; // current user
-var curRepo = ''; // current repository
+var curUser = ''; // current user name
+var curRepo = ''; // current repository object, you can call everything like 'curRepo.name' directly!
 
 
 

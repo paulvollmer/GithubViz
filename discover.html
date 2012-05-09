@@ -33,8 +33,10 @@
 
 
 
-    <!-- LIBRARIES ------------------------------>
-    <!-- JQUERY -->
+	<!-- LIBRARIES ------------------------------>
+	<!-- GOOGLE MAPS API -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<!-- JQUERY -->
      <script src="js/libs/jquery-1.7.1.min.js"></script>
      <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 
@@ -51,6 +53,7 @@
     
     
     <!-- CUSTOM SCRIPTS ------------------------>
+    <script src="js/customMap.js"></script>
     <!-- CURRENT VIEW -->
     <!-- [repo, user], current User, current Repo -->
     <script src="js/mode.js"></script> 
@@ -68,7 +71,7 @@
 		// STORE VIEW -------------------
 		switch (getUrlVars()["view"]){
 			case viewEnum.USER:
-				curEnum = viewEnum.USER;
+				curView = viewEnum.USER;
 				break;
 			case viewEnum.REPO:
 				curView = viewEnum.REPO;
@@ -78,7 +81,7 @@
         curUser = getUrlVars()["user"].toLowerCase();
         // STORE REPO -------------------
        	if(getUrlVars()["repo"] != null) curRepo = getUrlVars()["repo"].toLowerCase();
-       	//alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepo);
+       	alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepo);
     </script>
 
     <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
@@ -122,18 +125,19 @@
     </form>
     <br><br>
 
-
-
-
+    <!-- Processing.js -->
+    <!--<canvas id="gitHubVizCanvas" data-processing-sources="UserTreemap.pde TreemapRect.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas>--> 
+    <!-- CONTENT STOP ------------------------------------------------------------------------------------>
 
 <!--<div id="userData"></div>
 <div id="repoData"></div>-->
 <script>
-	loadBasicUserData(currentUser);
+	//loadBasicUserData(currentUser);
 </script>
 
 <!-- <canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> -->
-<canvas id="gitHubVizCanvas" data-processing-sources="js/UserTreemap.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> 
+<!-- Sort data-sources alphabetically please ;) -->
+<canvas id="gitHubVizCanvas" data-processing-sources="GhvColors.pde GhvEntry.pde GhvInteraction.pde GhvRepoView.pde GhvTreemap.pde  GhvTreemapRect.pde GhvTreemapView.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> 
 
 <!-- uhh jetzt hat jemand auf ein repo geklickt...-->
 <script>

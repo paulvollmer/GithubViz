@@ -13,8 +13,39 @@
 }
 
 #userData{
-	width: 100%; 
+	width: 800px; 
 	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;
+}
+
+#userTextInfo{
+	width: 200px;
+	float: left;
+}
+
+#userId{
+	float: left;
+	margin-right: 20px;
+}
+
+#userLogin, #userBlog{
+	clear: both;
+	width: 100%;	
+}
+
+#userLogin{
+	margin-top: 0px;
+}
+
+#map{
+	position: relative;
+	margin-left: 20px;
+	margin: 0 0 20px 500px;
+	padding: 0;
+}
+
+#map img{
+	position: absolute;
+	top: 0; left: 0;
 }
 
 #repoData{
