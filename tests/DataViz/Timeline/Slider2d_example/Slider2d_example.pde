@@ -7,17 +7,19 @@ void setup(){
   smooth();
   
   slider = new Slider2d();
-  slider.init(100, 100, width-200, 50, 0.3f, 0.7f);
+  slider.init(100, 100, width-200, 35, 0.3f, 0.7f);
   
 }
 
 
 void draw(){
-  background(255);
+  background(cBgCanvas);
   
   slider.draw();
   
+  //drawColorSet();
 }
+
 
 
 void mousePressed(){ 
@@ -25,6 +27,13 @@ void mousePressed(){
 }
 
 
-void mouseDragged(){ 
+
+void mouseDragged(){
   slider.mousePressed();
+}
+
+
+
+void mouseReleased(){ 
+  slider.mouseReleased();
 }
