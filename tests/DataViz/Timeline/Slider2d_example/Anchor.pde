@@ -6,7 +6,7 @@
  * der Anchor wird rechts und links benutzt um den silder zu bedienen.
  *
  * @author     Paul Vollmer <paul.vollmer@fh-potsdam.de>
- * @version    1.0.1
+ * @version    1.0.1c
  * @modified   2012.05.09
  */
  
@@ -104,14 +104,16 @@ class Anchor {
    *       y position of the anchor.
    */
   void mousePressedLeft(int y){
-    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
+    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
       moving = true;
+      //println("mousePressedLeft");
     }
   }
   
   void mousePressedRight(int y){
-    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
+    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
       moving = true;
+      //println("mousePressedRight");
     }
   }
   
