@@ -1,30 +1,49 @@
+/**
+ * Slider2d
+ * GitHubViz
+ *
+ * Diese classe liefert einen 2d slider.
+ * den 2d slider kann man an den enden über einen anchor einstellen.
+ *
+ * @author     Paul Vollmer <paul.vollmer@fh-potsdam.de>
+ * @version    1.0.1b
+ * @modified   2012.05.09
+ */
+
+
 
 class Slider2d {
   
-  // Position and size of the slider
-  int x, y, w, h;
-  
-  // min, max value of the Anchors
-  float valueMin = 0.0;
-  float valueMax = 1.0;
-  
-  Anchor leftAnchor;
+  // Class we need
+  Interaction interaction;
+  Anchor leftAnchor;          // Anchor classes for left and right anchor.
   Anchor rightAnchor;
   
-  Interaction interaction;
+  
+  int x, y, w, h;             // Position and size of the slider
+  float valueRange;           // Die spanne zwischen leftAnchor und rightAnchor.
+  boolean valueRangeMoving;   // Dieser bool ist unser moving modus verantwortlich. true wenn
+                              // die maus gepresst im bereich zwichen den Anchors ist.
+  
+  float valueMin = 0.0;       // min, max value of the Anchors
+  float valueMax = 1.0;  
   
   
   
   
+  /**
+   * Constructor
+   */
   Slider2d(){
-    leftAnchor  = new Anchor();
-    rightAnchor = new Anchor();
     interaction = new Interaction();
   }
   
   
   
+  
+  
   /**
+   * Initialize the Silder2d
    *
    * @param x x-position
    * @param y y-position
@@ -39,58 +58,128 @@ class Slider2d {
     this.w = w;
     this.h = h;
     
-    leftAnchor.init(val1);
-    rightAnchor.init(val2);
-    
+    leftAnchor  = new Anchor(val1);
+    rightAnchor = new Anchor(val2);
     leftAnchor.x = (int)mapValueToPixel(val1);
     rightAnchor.x = (int)mapValueToPixel(val2);
+    
+    // berechne die aktuelle valueRange
+    calcValueRange();
+    
+    // Debugging stuff
+    /*println("[Slider2d] Constructor");
+    println("[Slider2d] x                  =   " + this.x);
+    println("[Slider2d] y                  =   " + this.y);
+    println("[Slider2d] width              =   " + this.w);
+    println("[Slider2d] height             =   " + this.h);
+    println("[Slider2d] valueRange         =   " + valueRange);
+    println("[Slider2d] valueRangeMoving   =   " + valueRangeMoving);
+    println("[Slider2d] valueMin           =   " + valueMin);
+    println("[Slider2d] valueMax           =   " + valueMax);*/
   }
   
   
-  
+  /**
+   * draw the Slider
+   */
   void draw(){
     noStroke();
     fill(120);
     rect(x, y, w, h);
     
     int yPadding = y+4;
+    
+    if(interaction.overRect(mouseX, mouseY,leftAnchor.x+leftAnchor.anchorSize, yPadding, rightAnchor.x-leftAnchor.x-(leftAnchor.anchorSize*2), 15)){
+      fill(cHover);
+      /*if(mousePressed){
+        leftAnchor.x = mouseX;
+      }*/
+    } else {
+      fill(cBgCanvas);
+    }
+    beginShape();
+    vertex(leftAnchor.x, yPadding+leftAnchor.anchorSize);
+    vertex(leftAnchor.x, yPadding);
+    vertex(rightAnchor.x, yPadding);
+    vertex(rightAnchor.x, yPadding+rightAnchor.anchorSize);
+    endShape();
+    
     fill(cBgHover);
     leftAnchor.drawLeft(yPadding);
     rightAnchor.drawRight(yPadding);
-    
-    fill(cBgCanvas);
-    beginShape();
-    vertex(leftAnchor.x, yPadding+15);
-    vertex(leftAnchor.x, yPadding);
-    vertex(rightAnchor.x, yPadding);
-    vertex(rightAnchor.x, yPadding+15);
-    endShape();
   }
   
   
   
   void mousePressed(){
     leftAnchor.mousePressedLeft(y);
+    
+    if(leftAnchor.moving){
+      leftAnchor.value = mapPixelToValue();
+      /*if(leftAnchor.value > valueMax){
+        leftAnchor.value = mapPixelToValue();
+      }*/
+    }
+    
     rightAnchor.mousePressedRight(y);
+    if(rightAnchor.moving){
+      rightAnchor.value = mapPixelToValue();
+    }
+    
+    // calculate the valueRange
+    calcValueRange();
   }
   
   
+  /**
+   * mouseReleased
+   */
   void mouseReleased(){
     leftAnchor.mouseReleased();
     rightAnchor.mouseReleased();
+    
+    valueRangeMoving = false;
   }
   
   
   
-  // calculate ärmchen  position
+  /**
+   * mapValueToPixel
+   * calculate ärmchen  position
+   */
   float mapValueToPixel(float val){
     float temp = map(val, valueMin, valueMax, x, x+w);
     return temp;
   }
   
   
+  /**
+   * mapPixelToValue
+   */
   float mapPixelToValue(){
     return map(mouseX, x, x+w, valueMin, valueMax);
+  }
+  
+  
+  /**
+   * Calculate value range
+   * With this method we calculate the size between leftAnchor and
+   * rightAnchor.
+   */
+  void calcValueRange(){
+    valueRange = rightAnchor.value - leftAnchor.value;
+    println("[Slider2d] calcValueRange = " + valueRange);
+  }
+  
+  /**
+   * Calculate the value range width in pixel
+   * This value we need for the interaction overRect.
+   */
+  int calcValueRangePixelWidth(){
+    int temp = rightAnchor.x - leftAnchor.x;
+    println("[Slider2d] calcValueRangePixelWidth = " + temp);
+    
+    return temp;
   }
   
   
