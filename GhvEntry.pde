@@ -58,7 +58,7 @@ void mouseClicked(){
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SWITCH MODE
  */
 void switchMode(String view, String user, int index){
-	println("\n" + "Switching mode - view: " + view + ", user: " + user + ", repo-index: " + index + "..." + "\n");
+	//println("\n" + "Switching mode - view: " + view + ", user: " + user + ", repo-index: " + index + "..." + "\n");
 	curView = view;
 	curUser = user;
 	curRepo = getUser(curUser).repos[index];
