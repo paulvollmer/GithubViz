@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<script src="jquery-1.7.1.min.js"></script>
+	<script src="processing-1.3.6.min.js"></script>	
+	
+	<title>Canvas Fullscreen Test using jQuery</title>
+	<style>
+		canvas{margin: 0; padding: 0;}
+		body{margin: 0; padding: 0;}
+	</style>
+
+
+</head>
+
+<body>
+		<script>
+		$(document).ready(function(){
+			if( jQuery(document).height() > jQuery(window).height() )
+			    setupHeight = jQuery(document).height();
+			else
+			    setupHeight = jQuery(window).height();
+			jQuery('canvas').width(jQuery(window).width());
+			jQuery('canvas').height(setupHeight);
+			size(jQuery(window).width(), setupHeight);
+		});
+		
+	</script>
+	<canvas id="canvas1" width="300" height="300" data-processing-sources="somePde.pde"></canvas>
+</body>
