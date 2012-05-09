@@ -43,6 +43,8 @@ class Anchor {
     if(moving){
       x = mouseX;
       fill(255, 255, 0);
+    } else if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
+      fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
     }
@@ -61,6 +63,8 @@ class Anchor {
   void drawRight(int y){
     if(moving){
       x = mouseX;
+      fill(255, 255, 255);
+    } else if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
       fill(255, 255, 0);
     } else {
       fill(255, 0, 0);
