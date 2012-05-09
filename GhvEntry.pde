@@ -8,7 +8,7 @@ RepoView repoView;
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SETUP
  */
 void setup(){
- 	size(800,600);  
+ 	size(document.body.clientWidth-42, document.body.clientHeight-240);  
  	smooth();
  	PFont fontA = loadFont("CordiaNew-18.vlw");
  	textFont(fontA, 14);

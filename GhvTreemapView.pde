@@ -17,7 +17,9 @@ void userDataReady(){
   	int nbItems = userData.public_repo_count;
   	rects = new TreemapRect[nbItems];
     //int nbItems = nEntries;
-  	println("nbItems = " + nbItems);
+
+	// Debugging Stuff
+  	//println("nbItems = " + nbItems);
   	numbers = new int[nbItems];
     indexes = new int[nbItems];
   	for( int i=0; i < numbers.length; i++ ) {
@@ -28,12 +30,14 @@ void userDataReady(){
   	}
   	
 	// Print indexes + values
-	println("\nIndex \t Value");
+	// Debugging Stuff
+	//println("\nIndex \t Value");
 	for(int i=0; i<nbItems; i++){
-		println(indexes[i] + " \t "  + numbers[i]); 
+		// Debugging Stuff
+		//println(indexes[i] + " \t "  + numbers[i]); 
 	}
 	// Calculate block sizes and strore in rects-array
-	tm.makeBlock(10, 10, width-20, height-20, numbers, indexes);
+	tm.makeBlock(0, 0, width, height, numbers, indexes);
 }
 
 
