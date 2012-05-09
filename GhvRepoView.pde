@@ -13,10 +13,14 @@ class RepoView{
 	void drawRepoView(){
 		text(curRepo.name, 50, 50);
 		if(openIssuesAvailable){
-				println("All repodata POW!");
+			//println("All repodata POW!");
 			var issues = getIssuesOpen();
 			for(int i=0; i<issues.length; i++){
-				text(issues[i].created_at, i*10, i*10);
+				text(issues[i].created_at + " - " + issues[i].timestamp, i*10, i*10);
+			}
+			issues = getIssuesClosed();
+			for(int i=0; i<issues.length; i++){
+				text(issues[i].created_at + " - " + issues[i].timestamp, i*10, 200+i*10);
 			}
 		}
 	}
