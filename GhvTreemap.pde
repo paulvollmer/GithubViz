@@ -1,10 +1,19 @@
 /**
- * Based on
- * http://www.openprocessing.org/sketch/24548
+ * GhvColors.pde
+ * GitHubViz
  *
+ * Based on http://www.openprocessing.org/sketch/24548
  * In version 2C, instead of calculating exactly the raios of all possibilities,
  * we take a heuristic approach, and don't resplit if it's not bat (close to 1:1, square ratio).
+ *
+ * Tim Pulver <tim.pulver@fh-potsdam.de>
+ * Paul Vollmer <paul.vollmer@fh-potsdam.de>
+ * 
+ *
+ * @version    1.0.0
+ * @modified   2012.05.10
  */
+
 class Treemap {
   
   //the total values of all elements together, just to write % on square.
