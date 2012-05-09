@@ -95,7 +95,7 @@ class Slider2d {
     line(x+w, y, x+w, y+h);*/
     
     
-    
+    // 
     int yPadding = y+4;
     noStroke();
     
@@ -114,6 +114,7 @@ class Slider2d {
     vertex(rightAnchor.x, yPadding+rightAnchor.anchorSize);
     endShape();
     
+    // Draw the Anchors
     fill(cBgHover);
     leftAnchor.drawLeft(yPadding, x);
     rightAnchor.drawRight(yPadding, x+w);
@@ -125,18 +126,22 @@ class Slider2d {
     leftAnchor.mousePressedLeft(y);
     rightAnchor.mousePressedRight(y);
     
+    // Anchor stuff
     if(leftAnchor.moving){
       leftAnchor.value = mapPixelToValue();
-      
       // calculate the valueRange
       calcValueRange();
     }
     else if(rightAnchor.moving){
       rightAnchor.value = mapPixelToValue();
-      
       // calculate the valueRange
       calcValueRange();
     }
+    
+    // Range bar
+    /*if(){
+      
+    }*/
     
   }
   
@@ -149,6 +154,26 @@ class Slider2d {
     rightAnchor.mouseReleased();
     
     valueRangeMoving = false;
+  }
+  
+  
+  /**
+   * keyPressed
+   * TODO use key to navigate between range
+   */
+  void keyPressed(){
+    if (key == CODED) {
+      
+      if (keyCode == LEFT) {
+        println("[Slider2d] keyPressed LEFT");
+      } else if (keyCode == RIGHT) {
+        println("[Slider2d] keyPressed RIGHT");
+      } 
+      
+    } else {
+      println("[Slider2d] keyPressed");
+      
+    }
   }
   
   

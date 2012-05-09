@@ -7,7 +7,7 @@ void setup(){
   smooth();
   
   slider = new Slider2d();
-  slider.init(50, height-35, width-100, 35, 0.1f, 0.7f);
+  slider.init(50, height-50, width-100, 28, 0.1f, 0.7f);
   
 }
 
@@ -22,12 +22,12 @@ void draw(){
   float tempX2 = map(slider.rightAnchor.value, 0.0, 1.0, 0, width);
   // draw the ellipse
   fill(0xFFFFFF00);
-  ellipse(tempX1, height/2, 20, 20);
-  ellipse(tempX2, height/2, 20, 20);
+  ellipse(tempX1, 60, 20, 20);
+  ellipse(tempX2, 85, 20, 20);
   
-  text("value: "+slider.leftAnchor.value, tempX1, height/2-20);
-  text("value: "+slider.rightAnchor.value, tempX2, height/2+30);
-  text("valueRange: "+slider.valueRange, 100, 100);
+  text("valueRange: "+slider.valueRange, 20, 40);
+  text("value 1: "+slider.leftAnchor.value, tempX1+14, 64);
+  text("value 2: "+slider.rightAnchor.value, tempX2+14, 89);
   
   // Display the colors from GhvColors
   //drawColorSet();
@@ -49,4 +49,9 @@ void mouseDragged(){
 
 void mouseReleased(){ 
   slider.mouseReleased();
+}
+
+
+void keyPressed(){
+  slider.keyPressed();
 }
