@@ -85,7 +85,7 @@ class Slider2d {
   void draw(){
     // ground rect
     noStroke();
-    fill(120);
+    fill(#555555);
     rect(x, y, w, h);
     
     // eine weitere möglichkeit als begrenzung sind linien am anfang nd ende des Slider2d.
@@ -105,7 +105,7 @@ class Slider2d {
         println("[Slider2d] range bar pressed");
       }
     } else {
-      fill(cBgCanvas);
+      fill(#9B9B9B);
     }
     beginShape();
     vertex(leftAnchor.x, yPadding+leftAnchor.anchorSize);
