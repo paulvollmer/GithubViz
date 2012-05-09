@@ -58,15 +58,15 @@ class Anchor {
     if(moving){
       x = mouseX;
       fill(cBlack);
-    } else if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
+    } else if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
       fill(cHover);
     } else {
       fill(cWhite);
     }
     beginShape();
     vertex(x, y);
+    vertex(x+anchorSize/2, y+anchorSize/2);
     vertex(x, y+anchorSize);
-    vertex(x-anchorSize, y);
     endShape();
   }
   
@@ -81,15 +81,15 @@ class Anchor {
     if(moving){
       x = mouseX;
       fill(cBlack);
-    } else if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
+    } else if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
       fill(cHover);
     } else {
       fill(cWhite);
     }
     beginShape();
     vertex(x, y);
+    vertex(x-anchorSize/2, y+anchorSize/2);
     vertex(x, y+anchorSize);
-    vertex(x+anchorSize, y);
     endShape();
   }
   
