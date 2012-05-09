@@ -1,5 +1,5 @@
 /**
- * GhvColors.pde
+ * GhvTreemap.pde
  * GitHubViz
  *
  * Based on http://www.openprocessing.org/sketch/24548

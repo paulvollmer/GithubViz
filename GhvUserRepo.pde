@@ -1,5 +1,5 @@
 /**
- * GhvRepoView.pde
+ * GhvUserRepo.pde
  * GitHubViz
  *
  * Tim Pulver <tim.pulver@fh-potsdam.de>
