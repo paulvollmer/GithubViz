@@ -34,3 +34,43 @@ var displayUserData = function(userData){
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
     p5.userDataReady();
 }
+
+/*
+ * Gets called, when tags and branches for curRepo are loaded
+ * Master SHA: use repo.branches.master to get the SHA
+ * Master name: 'master'
+ */
+var tagsAndBranchesCallback = function(data){
+	//alert('Tags & Branches for ' + curRepo.name + ' loaded, master branch SHA: ' + curRepo.branches.master);
+	var p5 = Processing.getInstanceById('gitHubVizCanvas');
+    p5.tagsAndBranchesReady();
+}
+
+/*
+ * Gets called, when recent issues (open) for curRepo are loaded
+ */
+var openIssuesCallback = function(issuesOpen){
+	//alert('Issues for ' + curRepo.name + ' loaded (open Issues)');
+	var p5 = Processing.getInstanceById('gitHubVizCanvas');
+    p5.openIssuesReady();		
+}
+
+/*
+ * Gets called, when recent issues (closed) for curRepo are loaded
+ */
+var closedIssuesCallback = function(issuesClosed){
+	//alert('Issues for ' + curRepo.name + ' loaded (closed Issues)');
+	var p5 = Processing.getInstanceById('gitHubVizCanvas');
+    p5.closedIssuesReady();	
+}
+
+/*
+ * Gets called, when recent commits for curRepo are loaded
+ */
+var commitsCallback = function(commits){
+	//alert('Commits for ' + curRepo.name + ' loaded (Master Branch)');
+	var p5 = Processing.getInstanceById('gitHubVizCanvas');
+    p5.commitsReady();		
+}
+
+

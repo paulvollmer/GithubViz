@@ -62,6 +62,8 @@ void switchMode(String view, String user, int index){
 	curView = view;
 	curUser = user;
 	curRepo = getUser(curUser).repos[index];
+	curRepoUrlParam = curRepo.name;
 	println("\n" + "Mode switched to: \n" + "curView: " + curView + "\n" + "curUser: " + curUser + "\n" + "curRepo: " + curRepo.name + "\n\n");
 	repoView.init();
+	requestRepoData(curRepo.name);
 }
