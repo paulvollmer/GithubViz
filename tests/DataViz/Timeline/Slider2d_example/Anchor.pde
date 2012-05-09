@@ -42,11 +42,11 @@ class Anchor {
   void drawLeft(int y){
     if(moving){
       x = mouseX;
-      fill(255, 255, 0);
+      fill(cBlack);
     } else if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
-      fill(255, 255, 0);
+      fill(cHover);
     } else {
-      fill(255, 0, 0);
+      fill(cWhite);
     }
     beginShape();
     vertex(x, y);
@@ -63,11 +63,11 @@ class Anchor {
   void drawRight(int y){
     if(moving){
       x = mouseX;
-      fill(255, 255, 255);
+      fill(cBlack);
     } else if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
-      fill(255, 255, 0);
+      fill(cHover);
     } else {
-      fill(255, 0, 0);
+      fill(cWhite);
     }
     beginShape();
     vertex(x, y);

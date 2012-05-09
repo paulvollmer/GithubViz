@@ -49,14 +49,16 @@ class Slider2d {
   
   
   void draw(){
+    noStroke();
     fill(120);
     rect(x, y, w, h);
     
     int yPadding = y+4;
+    fill(cBgHover);
     leftAnchor.drawLeft(yPadding);
     rightAnchor.drawRight(yPadding);
     
-    fill(0, 255, 255);
+    fill(cBgCanvas);
     beginShape();
     vertex(leftAnchor.x, yPadding+15);
     vertex(leftAnchor.x, yPadding);
