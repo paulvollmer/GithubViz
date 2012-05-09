@@ -6,7 +6,7 @@
  * der Anchor wird rechts und links benutzt um den silder zu bedienen.
  *
  * @author     Paul Vollmer <paul.vollmer@fh-potsdam.de>
- * @version    1.0.1
+ * @version    1.0.1c
  * @modified   2012.05.09
  */
  
@@ -52,18 +52,27 @@ class Anchor {
   /**
    * Draw left Anchor
    * 
-   * param y
-   *       y position of the anchor.
+   * @param y
+   *        y position of the anchor.
+   * @param minX
+   *        Minimum x position of the anchor.
    */
-  void drawLeft(int y){
-    if(moving){
+  void drawLeft(int y, int minX){
+    if(moving && mouseX > minX){
       x = mouseX;
       fill(cBlack);
-    } else if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
-      fill(cHover);
     } else {
+      moving = false;
+    }
+    
+    // hover
+    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
+      fill(cHover);
+    }
+    else {
       fill(cWhite);
     }
+    
     beginShape();
     vertex(x, y);
     vertex(x+anchorSize/2, y+anchorSize/2);
@@ -75,18 +84,28 @@ class Anchor {
   /**
    * Draw right Anchor
    *
-   * param y
-   *       y position of the anchor.
+   * @param y
+   *        y position of the anchor.
+   * @param maxX
+   *        Maximum x position of the anchor.
    */
-  void drawRight(int y){
-    if(moving){
+  void drawRight(int y, int maxX){
+    if(moving && mouseX < maxX){
       x = mouseX;
       fill(cBlack);
-    } else if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
+    }
+    else {
+      moving = false;
+    }
+    
+    // hover
+    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
       fill(cHover);
-    } else {
+    }
+    else {
       fill(cWhite);
     }
+    
     beginShape();
     vertex(x, y);
     vertex(x-anchorSize/2, y+anchorSize/2);
@@ -104,14 +123,16 @@ class Anchor {
    *       y position of the anchor.
    */
   void mousePressedLeft(int y){
-    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
+    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
       moving = true;
+      //println("mousePressedLeft");
     }
   }
   
   void mousePressedRight(int y){
-    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)){
+    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)){
       moving = true;
+      //println("mousePressedRight");
     }
   }
   

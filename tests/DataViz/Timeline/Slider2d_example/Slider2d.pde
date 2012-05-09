@@ -83,17 +83,27 @@ class Slider2d {
    * draw the Slider
    */
   void draw(){
+    // ground rect
     noStroke();
     fill(120);
     rect(x, y, w, h);
     
+    // eine weitere möglichkeit als begrenzung sind linien am anfang nd ende des Slider2d.
+    /*noFill();
+    stroke(120);
+    line(x, y, x, y+h);
+    line(x+w, y, x+w, y+h);*/
+    
+    
+    // 
     int yPadding = y+4;
+    noStroke();
     
     if(interaction.overRect(mouseX, mouseY,leftAnchor.x+leftAnchor.anchorSize, yPadding, rightAnchor.x-leftAnchor.x-(leftAnchor.anchorSize*2), 15)){
       fill(cHover);
-      /*if(mousePressed){
-        leftAnchor.x = mouseX;
-      }*/
+      if(mousePressed){
+        println("[Slider2d] range bar pressed");
+      }
     } else {
       fill(cBgCanvas);
     }
@@ -104,30 +114,35 @@ class Slider2d {
     vertex(rightAnchor.x, yPadding+rightAnchor.anchorSize);
     endShape();
     
+    // Draw the Anchors
     fill(cBgHover);
-    leftAnchor.drawLeft(yPadding);
-    rightAnchor.drawRight(yPadding);
+    leftAnchor.drawLeft(yPadding, x);
+    rightAnchor.drawRight(yPadding, x+w);
   }
   
   
   
   void mousePressed(){
     leftAnchor.mousePressedLeft(y);
+    rightAnchor.mousePressedRight(y);
     
+    // Anchor stuff
     if(leftAnchor.moving){
       leftAnchor.value = mapPixelToValue();
-      /*if(leftAnchor.value > valueMax){
-        leftAnchor.value = mapPixelToValue();
-      }*/
+      // calculate the valueRange
+      calcValueRange();
     }
-    
-    rightAnchor.mousePressedRight(y);
-    if(rightAnchor.moving){
+    else if(rightAnchor.moving){
       rightAnchor.value = mapPixelToValue();
+      // calculate the valueRange
+      calcValueRange();
     }
     
-    // calculate the valueRange
-    calcValueRange();
+    // Range bar
+    /*if(){
+      
+    }*/
+    
   }
   
   
@@ -139,6 +154,26 @@ class Slider2d {
     rightAnchor.mouseReleased();
     
     valueRangeMoving = false;
+  }
+  
+  
+  /**
+   * keyPressed
+   * TODO use key to navigate between range
+   */
+  void keyPressed(){
+    if (key == CODED) {
+      
+      if (keyCode == LEFT) {
+        println("[Slider2d] keyPressed LEFT");
+      } else if (keyCode == RIGHT) {
+        println("[Slider2d] keyPressed RIGHT");
+      } 
+      
+    } else {
+      println("[Slider2d] keyPressed");
+      
+    }
   }
   
   
