@@ -80,8 +80,8 @@
 		// STORE USER -------------------   
         curUser = getUrlVars()["user"].toLowerCase();
         // STORE REPO -------------------
-       	if(getUrlVars()["repo"] != null) curRepo = getUrlVars()["repo"].toLowerCase();
-       	alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepo);
+       	if(getUrlVars()["repo"] != null) curRepoUrlParam = getUrlVars()["repo"].toLowerCase();
+       	alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepoUrlParam);
     </script>
 
     <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
