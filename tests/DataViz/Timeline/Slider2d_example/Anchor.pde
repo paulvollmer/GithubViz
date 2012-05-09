@@ -41,10 +41,11 @@ class Anchor {
     moving = false;
     
     // Debugging stuff
-    println("value        =   " + value);
-    println("x            =   " + x);
-    println("anchorSize   =   " + anchorSize);
-    println("moving       =   " + moving);
+    /*println("[Anchor] Constructor");
+    println("[Anchor] value        =   " + value);
+    println("[Anchor] x            =   " + x);
+    println("[Anchor] anchorSize   =   " + anchorSize);
+    println("[Anchor] moving       =   " + moving);*/
   }
   
   
