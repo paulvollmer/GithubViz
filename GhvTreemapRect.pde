@@ -33,7 +33,7 @@ class TreemapRect extends Interaction {
 		}
 		else{
 			colorBg = cBg;
-			colorTxt = cTxt;
+			colorTxt = cBgHover;
 		}
 		fill(colorBg);
 		stroke(#4d4d4d);
