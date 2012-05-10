@@ -6,8 +6,9 @@
  * den 2d slider kann man an den enden über einen anchor einstellen.
  *
  * @author     Paul Vollmer <paul.vollmer@fh-potsdam.de>
- * @version    1.0.1b
- * @modified   2012.05.09
+ *             Tim Pulver <tim.pulver@fh-potsdam.de>
+ * @version    1.0.1d
+ * @modified   2012.05.10
  */
 
 
@@ -95,18 +96,20 @@ class Slider2d {
     line(x+w, y, x+w, y+h);*/
     
     
-    // 
+    // draw Range bar
     int yPadding = y+4;
     noStroke();
     
-    if(interaction.overRect(mouseX, mouseY,leftAnchor.x+leftAnchor.anchorSize, yPadding, rightAnchor.x-leftAnchor.x-(leftAnchor.anchorSize*2), 15)){
+    // Range bar hover
+    /*if(interaction.overRect(mouseX, mouseY,leftAnchor.x+leftAnchor.anchorSize, yPadding, rightAnchor.x-leftAnchor.x-(leftAnchor.anchorSize*2), 15)){
       fill(cHover);
       if(mousePressed){
         println("[Slider2d] range bar pressed");
       }
-    } else {
+    } else {*/
       fill(#9B9B9B);
-    }
+    //}
+    
     beginShape();
     vertex(leftAnchor.x, yPadding+leftAnchor.anchorSize);
     vertex(leftAnchor.x, yPadding);
@@ -162,15 +165,61 @@ class Slider2d {
    * TODO use key to navigate between range
    */
   void keyPressed(){
-    if (key == CODED) {
+    if (key == 'w') {
+        println("[Slider2d] keyPressed w");
+        
+        // check if the value is smaller than right anchor value
+        if(leftAnchor.value < rightAnchor.value-0.05){
+          leftAnchor.value += 0.02;
+          leftAnchor.x = (int)mapValueToPixel(leftAnchor.value);
+        }
+        
+      }
       
-      if (keyCode == LEFT) {
-        println("[Slider2d] keyPressed LEFT");
-      } else if (keyCode == RIGHT) {
-        println("[Slider2d] keyPressed RIGHT");
+      
+      else if (key == 'a') {
+        println("[Slider2d] keyPressed a");
+        
+        // check if the value is big enougth for controll.
+        // if it is too small we snap to left (value = 0.0).
+        if(leftAnchor.value > 0.04){
+          leftAnchor.value -= 0.02;
+          leftAnchor.x = (int)mapValueToPixel(leftAnchor.value);
+        }
+        // else, set value to 0.0 and map x from new value
+        else {
+          leftAnchor.value = 0.0;
+          leftAnchor.x = (int)mapValueToPixel(leftAnchor.value);
+        }
+        
+      }
+      
+      
+      else if (key == 'd') {
+        println("[Slider2d] keyPressed d");
+        
+        // check if the value is big enougth for controll.
+        // if it is too small we snap to left (value = 0.0).
+        if(rightAnchor.value < 0.96){
+          rightAnchor.value += 0.02;
+          rightAnchor.x = (int)mapValueToPixel(rightAnchor.value);
+        } else {
+          rightAnchor.value = 1.0;
+          rightAnchor.x = (int)mapValueToPixel(rightAnchor.value);
+        }
+      }
+      
+      
+      else if (key == 's') {
+        println("[Slider2d] keyPressed s");
+        
+        // check if the value is smaller than right anchor value
+        if(rightAnchor.value > leftAnchor.value+0.05){
+          rightAnchor.value -= 0.02;
+          rightAnchor.x = (int)mapValueToPixel(rightAnchor.value);
+        }
       } 
-      
-    } else {
+      else {
       println("[Slider2d] keyPressed");
       
     }

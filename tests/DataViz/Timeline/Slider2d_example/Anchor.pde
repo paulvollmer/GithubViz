@@ -6,8 +6,9 @@
  * der Anchor wird rechts und links benutzt um den silder zu bedienen.
  *
  * @author     Paul Vollmer <paul.vollmer@fh-potsdam.de>
- * @version    1.0.1c
- * @modified   2012.05.09
+ *             Tim Pulver <tim.pulver@fh-potsdam.de>
+ * @version    1.0.1d
+ * @modified   2012.05.10
  */
  
  
@@ -58,26 +59,7 @@ class Anchor {
    *        Minimum x position of the anchor.
    */
   void drawLeft(int y, int minX){
-    if(moving && mouseX > minX){
-      x = mouseX;
-      fill(cBlack);
-    } else {
-      moving = false;
-    }
-    
-    // hover
-    if(interaction.overRect(mouseX, mouseY, x, y, anchorSize, anchorSize)) {
-      fill(cHover);
-    }
-    else {
-      fill(cWhite);
-    }
-    
-    beginShape();
-    vertex(x, y);
-    vertex(x+anchorSize/2, y+anchorSize/2);
-    vertex(x, y+anchorSize);
-    endShape();
+    anchorDraw(y, x+anchorSize/2, x, moving && mouseX > minX);
   }
   
   
@@ -90,25 +72,34 @@ class Anchor {
    *        Maximum x position of the anchor.
    */
   void drawRight(int y, int maxX){
-    if(moving && mouseX < maxX){
+     anchorDraw(y, x-anchorSize/2, x-anchorSize, moving&&mouseX<maxX);
+  }
+  
+  
+  
+  /**
+   *
+   */
+  void anchorDraw(int y, int i, int inter, boolean val){
+    if(val){
       x = mouseX;
       fill(cBlack);
-    }
-    else {
+    } else {
       moving = false;
     }
     
     // hover
-    if(interaction.overRect(mouseX, mouseY, x-anchorSize, y, anchorSize, anchorSize)) {
+    if(interaction.overRect(mouseX, mouseY, inter, y, anchorSize, anchorSize)) {
       fill(cHover);
     }
     else {
       fill(cWhite);
     }
     
+    
     beginShape();
     vertex(x, y);
-    vertex(x-anchorSize/2, y+anchorSize/2);
+    vertex(i, y+anchorSize/2);
     vertex(x, y+anchorSize);
     endShape();
   }
