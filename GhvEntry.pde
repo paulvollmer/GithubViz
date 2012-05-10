@@ -27,6 +27,7 @@ void setup(){
 	userDataLoaded = false;
 	repoDataLoaded = false;
 	repoView = new RepoView();
+	Processing.logger = console
 }
 
 
