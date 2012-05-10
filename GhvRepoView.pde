@@ -15,15 +15,22 @@ boolean openIssuesAvailable = false;
 boolean closedIssuesAvailable = false;
 boolean commitsAvailable = false;
 int minTimestamp, maxTimestamp;
+Slider2d slider;
 
 class RepoView{
 
 	RepoView(){}
 	void init(){
 		println("Repo init called...");
+		slider = new Slider2d();
+  		slider.init(50, height-50, width-100, 28, 0.0, 1.0);
 	}
 	
 	void drawRepoView(){
+		println("[DRAW_REPO_VIEW] frameRate:\t" + frameRate);
+		background(cBgCanvas);
+		
+		/*
 		text(curRepo.name, 50, 50);
 		if(allRepoDataAvailable()){
 			var issues = getIssuesOpen();
@@ -34,11 +41,50 @@ class RepoView{
 			for(int i=0; i<issuesCl.length; i++){
 				text(issuesCl[i].created_at + " - " + issuesCl[i].timestamp, i*10, 200+i*10);
 			}
+		}
+		*/
+		if(allRepoDataAvailable()){
+			fill(cBgHover);
 			var commits = curRepo.commits;
+			/*
+			println("\n\n" + "minTimestamp: " + minTimestamp + "\n" + "maxTimestamp: " + maxTimestamp + "\n");
 			for(int i=0; i<commits.length; i++){
-				text(commits[i].message, 300+i*10, i*10);
+				text(commits[i].timestamp, 300+i*10, i*10);
+			}
+			println("commits.length: " + commits.length);
+			*/
+			for(int i=0; i<commits.length; i++){
+				ellipse(map(	commits[i].timestamp, 
+								minTimestamp, 
+								maxTimestamp, 
+				            	-slider.leftAnchor.value*(width-1), 
+				            	width-1+(1-slider.rightAnchor.value)*(width-1)), 
+	    			100, 20, 20);
 			}
 		}
+		
+		slider.draw();
+	}
+	
+	void mousePressed(){
+	  slider.mousePressed();
+	}
+	
+	
+	
+	void mouseDragged(){
+	  slider.mouseDragged();
+	}
+	
+	
+	
+	void mouseReleased(){ 
+	  slider.mouseReleased();
+	}
+	
+	
+	void keyPressed(){
+	  slider.keyPressed();
 	}
 }
 
@@ -130,8 +176,13 @@ void addTimestamps(){
 		if(commits[i].timestamp > maxTs) maxTs = commits[i].timestamp;
 	}
 	/* ADD THE REST HERE - COMMITS & CO DEPENDING ON WHAT WE NEED... */
+	/*
 	minTimestamp = minTs;	// Store globally
 	maxTimestamp = maxTs;
+	*/
+	// GHETTO - using commit-dates as timestamp-boundaries
+	minTimestamp = commits[commits.length-1].timestamp;
+	maxTimestamp = commits[0].timestamp;
 	println("minTimestamp: " + minTimestamp);
 	println("maxTimestamp: " + maxTimestamp);
 }

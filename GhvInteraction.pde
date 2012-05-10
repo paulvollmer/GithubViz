@@ -1,14 +1,9 @@
-/**
- * GhvInteraction.pde
- * GitHubViz
- *
- * Tim Pulver <tim.pulver@fh-potsdam.de>
- * Paul Vollmer <paul.vollmer@fh-potsdam.de>
- * 
- *
- * @version    1.0.0
- * @modified   2012.05.10
- */
+
+
+
+// COPY FROM ROOT DIR
+
+
 
 class Interaction {  
   Interaction(){}

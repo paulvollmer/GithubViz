@@ -50,6 +50,36 @@ void draw(){
 	}
 }
 
+void mousePressed(){
+	if(curView == viewEnum.REPO){
+		repoView.mousePressed();
+	}
+}
+
+
+
+void mouseDragged(){
+	if(curView == viewEnum.REPO){
+		repoView.mouseDragged();
+	}
+}
+
+
+
+void mouseReleased(){ 
+	if(curView == viewEnum.REPO){
+		repoView.mouseReleased();
+	}
+}
+
+
+void keyPressed(){
+	if(curView == viewEnum.REPO){
+		repoView.keyPressed();
+	}
+}
+
+
 
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MOUSE CLICKED
