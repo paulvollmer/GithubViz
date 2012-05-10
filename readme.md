@@ -26,16 +26,23 @@ v2
 
 **Aktueller Server Mirror**  
   
-http://interface.fh-potsdam.de/Users/web_basics/tim_paul_projekt/GitHubViz/  
+http://interface.fh-potsdam.de/Users/web_basics/tim_paul_projekt/!Liegt_In_Dropbox/GitHubViz/   
 TODO: script für einen automatischen server mirror von github generieren. serverseitig.
 
 **THIRD-PARTY ADDONS:**  
   
 > - [github.js](https://github.com/fitzgen/github-api)  
+> - [github.js example 1](https://github.com/Powder/github-js/blob/master/examples/ghb.html)
+> - [github.js example 2](https://github.com/judofyr/github-js/blob/master/README.markdown)
 > - [Processing.js](https://github.com/jeresig/processing-js)  
 > - [jQuery](https://github.com/jquery/jquery)  
 > - [jQuery ui](https://github.com/jquery/jquery-ui)  
+> - Clickhandling bei komplexen Formen (Pfaden) Sourcecode
+> - [paper.js](http://paperjs.org/examples/hit-testing/)
+
+**GitHub API v2 (verwendet von github.js)**  
   
+[API V2 Reference](http://develop.github.com/p/general.html)
   
 **GitHub API v3**  
   

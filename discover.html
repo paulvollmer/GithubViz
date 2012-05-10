@@ -1,0 +1,246 @@
+<!-- 
+GhvColors.pde
+GitHubViz
+
+Tim Pulver <tim.pulver@fh-potsdam.de>
+Paul Vollmer <paul.vollmer@fh-potsdam.de>
+
+@version    1.0.0
+@modified   2012.05.10
+-->
+
+<!doctype html>
+
+<head>
+    <!-- HEAD ------------------------------------------------------------------------------------>
+    <meta charset="utf-8">
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+         More info: h5bp.com/b/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GitHubViz</title>
+    <meta name="description" content="GitHubViz">
+    <meta name="keywords" content="github, github visualisation, visualisation, data, timpulver.de, wrong entertainment, wrong-entertainment.com">
+    <meta name="author" content="Paul Vollmer, wrong-entertainment.com">
+    <meta name="author" content="Tim Pulver, timpulver.de">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Import css stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/discover.css">
+    
+    <!-- Import the counter.php file for counting every site load. -->
+    <!-- include("static/counter.php"); -->
+
+    <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
+         Respond is a polyfill for min/max-width media queries.
+         Modernizr enables HTML5 elements & feature detects;
+         for optimal performance, create your own custom Modernizr build:
+         www.modernizr.com/download/ -->
+    <script src="js/libs/modernizr-2.0.6.min.js"></script>
+    <!-- HEAD ------------------------------------------------------------------------------------>
+
+
+
+	<!-- LIBRARIES ------------------------------>
+	<!--Timestamp Function -->
+	<script type="text/javascript" src="js/date_timestamp.js"></script>
+	<!-- GOOGLE MAPS API -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<!-- JQUERY -->
+     <script src="js/libs/jquery-1.7.1.min.js"></script>
+     <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+
+     <!-- GITHUB JS -->
+     <script src="js/vendor/jsclass.js"></script>
+     <script src="js/libs/github.js"></script>
+
+     <!-- PROCESSING JS -->
+     <script src="js/libs/processing-1.3.6.min.js"></script>
+    <!--[if lt IE 9]>
+	    <script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+    <![endif]-->
+    
+    
+    
+    <!-- CUSTOM SCRIPTS ------------------------>
+    <script src="js/customMap.js"></script>
+    <!-- CURRENT VIEW -->
+    <!-- [repo, user], current User, current Repo -->
+    <script src="js/mode.js"></script> 
+    <!-- CALLBACK HANDLER -->
+    <!-- when data we requested is ready, a function here will be called -->
+    <script src="js/callback_handler.js"></script>  
+
+    <script src="js/gitDataManager.js"></script>    
+    <script src="js/jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
+    <script src="js/get_url_vars.js"></script>
+
+	<script>
+		// store current view, current user and current repo from URL
+		// i.e. discover.html?view=user&user=powder
+		// STORE VIEW -------------------
+		switch (getUrlVars()["view"]){
+			case viewEnum.USER:
+				curView = viewEnum.USER;
+				break;
+			case viewEnum.REPO:
+				curView = viewEnum.REPO;
+				break;				 
+		}
+		// STORE USER -------------------   
+        curUser = getUrlVars()["user"].toLowerCase();
+        // STORE REPO -------------------
+        
+       	if(getUrlVars()["repo"] != null) curRepoUrlParam = getUrlVars()["repo"].toLowerCase();
+       	//alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepoUrlParam);
+       	
+    </script>
+
+    <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
+    
+    
+    <!-- github_userinfo -->    
+    <script>
+    	// Request the user data of the user taken from the url parameter
+    	// When data is ready displayUserData within callback_handler.js will be called
+    	// Places an avatar image, a user heading and the blog url in the div called 'userData'
+		loadBasicUserData(curUser);
+    </script>
+</head>
+	
+
+<body>
+    <!-- NAV ------------------------------------------------------------------------------------>
+    <!-- GitHubViz logo at the upper right corner -->
+    <img id="GitHubVizLogo" src="img/githubviz_logo.png" alt="GitHubViz"/>
+    <!-- Sublin under our GitHubViz logo -->
+    <p id="SiteSlogan" >Visualize your Social Coding Projects</p>
+    <!-- Navigation -->
+    <nav>
+      <ul id="navigation">
+        <li><a href="index.html">Search</a> | </li>
+        <li><a href="about.html">About</a> | </li>
+        <li><a href="discover.html?user=WrongEntertainment">Discover</a> | </li>
+        <li><a href="contact.html">Contact</a> </li>
+      </ul>
+      <br/>
+    </nav>
+    <!-- NAV ------------------------------------------------------------------------------------>
+
+    <div id="userData"></div>
+    <div id="repoData"></div>
+    <!-- Search Form (top right)-->
+    <!--<form id="SearchBox" action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>-->
+    <form id="SearchBox" action="discover.html">
+    	<input id="textInput" type="text" size="30" name="user" />
+    	<input id="submitButton" type="submit" class="Button" value="Search" />
+    </form>
+    <br><br>
+
+    <!-- Processing.js -->
+    <!--<canvas id="gitHubVizCanvas" data-processing-sources="UserTreemap.pde TreemapRect.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas>--> 
+    <!-- CONTENT STOP ------------------------------------------------------------------------------------>
+
+<!--<div id="userData"></div>
+<div id="repoData"></div>-->
+<script>
+	//loadBasicUserData(currentUser);
+</script>
+
+<!-- <canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> -->
+<!-- Sort data-sources alphabetically please ;) -->
+<canvas id="gitHubVizCanvas" data-processing-sources="GhvColors.pde GhvEntry.pde GhvInteraction.pde GhvRepoView.pde GhvTreemap.pde  GhvTreemapRect.pde GhvTreemapView.pde" style="margin-left: 30px; margin-bottom: 70px;"></canvas> 
+
+<!-- uhh jetzt hat jemand auf ein repo geklickt...-->
+<script>
+	/*
+	var curUserData = getUser(currentUser);
+	//var rndRepo = Math.floor(Math.random()*curUserData.public_repo_count);	//random [0..nRepos]
+	var rndRepo = 0;
+	var aRepo = curUserData.repos[rndRepo];
+	$("#userData").append();
+	*/		
+</script>
+
+
+
+
+    <!-- FOOTER ---------------------------------------------------------------------------------->
+    <footer>
+    <img src="img/footerbg.png">
+    <div id="footer_content">
+      <table>
+        <colgroup width="150" span="4"></colgroup>
+        <tr align="right" valign="middle">
+          <td><img src="img/fhp_white.png" alt="fh-potsdam, university of applied sciences"/></td>
+          <td><img src="img/github_white.png" alt="github, social coding"/></td>
+          <td><img src="img/powder_white.png" alt="Powder"/></td>
+          <td><img src="img/wrongagent_white.png" alt="wrong-entertainment"/></td>
+        </tr>
+      </table>
+      <br/><br/><br/>
+
+      <table width="750">
+        <tr>
+    	  <td><b><a href="index.php">GitHubViz</a></b></td>
+    	  <td> </td>
+    	  <td> </td>
+    	  <td> </td>
+    	</tr>
+
+    	<tr>
+    	  <td>Developed by</td>
+    	  <td>Developed at</td>
+    	  <td>Fork this Project at</td>
+    	  <td><a href="http://www.github.com/" target="_blank">GitHub</a></td>
+    	</tr>
+
+    	<tr>
+    	  <td>Tim Pulver, <a href="http://www.timpulver.de" target="_blank">timpulver.de</a></td>
+    	  <td><a href="http://www.fh-potsdam.de" target="_blank">FH Potsdam, University of Applied Sciences</a></td>
+    	  <td><a href="https://github.com/Powder/GithubViz" target="_blank">github/GithubViz</a></td>
+    	  <td><a href="http://www.incom.org/" target="_blank">Incom</a></td>
+    	  </tr>
+
+    	<tr>
+    	  <td>Paul Vollmer, <a href="http://www.wrong-entertainment.com" target="_blank">wrong-entertainment.com </a></td>
+    	  <td> </td>
+    	  <td> </td>
+    	  <td><a href="http://www.processingjs.com/" target"_blank">processing.js</td>
+    	</tr>
+      </table>
+
+      <div style="color: #3399FF;">
+        <br>Copyleft 2012<br>Lovely made in Germany.<br><br>
+      </div>
+    </div>
+    </footer>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script> -->
+
+    <!-- scripts concatenated and minified via build script 
+    <script defer src="js/plugins.js"></script> -->
+    <!-- end scripts -->
+
+    <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet 
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script> -->
+
+    <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+         chromium.org/developers/how-tos/chrome-frame-getting-started -->
+    <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+    <![endif]-->
+    <!-- FOOTER ---------------------------------------------------------------------------------->
+</body>
+</html>

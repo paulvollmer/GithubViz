@@ -1,0 +1,75 @@
+#GitHubVizLogo{
+	position: absolute; 
+	top: 0; right: 0; border: 0; 
+	padding: 15px;
+}
+
+#SiteSlogan{
+	position: absolute; 
+	top: 0; right: 0; border: 0; 
+	padding-right: 15px; padding-top: 30px; 
+	font-size: 9pt; 
+	color: #3399FF;
+}
+
+#userData{
+	width: 800px; 
+	height: 80px;
+	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;
+}
+
+#userTextInfo{
+	width: 200px;
+	float: left;
+}
+
+#userId{
+	float: left;
+	margin-right: 20px;
+}
+
+#userLogin, #userBlog{
+	clear: both;
+	width: 100%;	
+}
+
+#userLogin{
+	margin-top: 0px;
+}
+
+#map{
+	position: relative;
+	margin-left: 20px;
+	margin: 0 0 20px 500px;
+	padding: 0;
+}
+
+#map img{
+	position: absolute;
+	top: 0; left: 0;
+}
+
+#repoData{
+	width: 100%; 
+	margin-left: 30px; margin-top: 30px; margin-bottom: 0px;	
+}
+
+#SearchBox{
+	position: absolute; 
+	top: 85px; right: 10px;
+}
+
+#SearchBox input#textInput{
+	padding: 5px; 
+	background-color: #999; 
+	border: 1px; 
+	color: #fff;
+}
+
+#SearchBox input#submitButton{
+	padding: 5px; 
+	background-color:#39F; 
+	color:#fff; 
+	width:70px; 
+	border: 0px;
+}
