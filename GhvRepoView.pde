@@ -34,6 +34,10 @@ class RepoView{
 			for(int i=0; i<issuesCl.length; i++){
 				text(issuesCl[i].created_at + " - " + issuesCl[i].timestamp, i*10, 200+i*10);
 			}
+			var commits = curRepo.commits;
+			for(int i=0; i<commits.length; i++){
+				text(commits[i].message, 300+i*10, i*10);
+			}
 		}
 	}
 }
@@ -73,10 +77,16 @@ void closedIssuesReady(){
 
 /*
  * Gets called, when commits for curRepo are loaded
+ * We don't have a callback for the detailed commit call, yet,
+ * so accessing i.m. modified will result in undefined!!
  */
 void commitsReady(){
 	println("Commits ready");
-	commitsAvailable = true;
+	commitsAvailable = true;	// detailed infos are only available later - ghetto
+	var commits = curRepo.commits;
+	for(int i=0; i<commits.length; i++){
+		commits[i].load('detailed');
+	}
 	if(allRepoDataAvailable()){
 		addTimestamps();
 	}
