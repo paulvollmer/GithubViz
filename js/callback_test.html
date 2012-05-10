@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Callback Test</title>
+		<!--[if lt IE 9]>
+			<script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+		<![endif]-->
+		<!-- LIBRARIES ------------------------------>
+    	<!-- GOOGLE MAPS API -->
+    	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    	<!-- JQUERY -->
+         <script src="libs/jquery-1.7.1.min.js"></script>
+         <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+
+         <!-- GITHUB JS -->
+         <script src="vendor/jsclass.js"></script>
+         <script src="libs/github.js"></script>
+
+         <!-- PROCESSING JS -->
+         <script src="libs/processing-1.3.6.min.js"></script>
+        <!--[if lt IE 9]>
+    	    <script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+        <![endif]-->
+
+
+
+        <!-- CUSTOM SCRIPTS ------------------------>
+        <!-- CURRENT VIEW -->
+        <!-- [repo, user], current User, current Repo -->
+        <script src="mode.js"></script> 
+        <!-- CALLBACK HANDLER -->
+        <!-- when data we requested is ready, a function here will be called -->
+        <script src="callback_handler.js"></script>  
+
+        <script src="gitDataManager.js"></script>    
+        <script src="jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
+        <script src="get_url_vars.js"></script>
+
+    	<script>
+    		// store current view, current user and current repo from URL
+    		// i.e. discover.html?view=user&user=powder
+    		// STORE VIEW -------------------
+    		switch (getUrlVars()["view"]){
+    			case viewEnum.USER:
+    				curEnum = viewEnum.USER;
+    				break;
+    			case viewEnum.REPO:
+    				curView = viewEnum.REPO;
+    				break;				 
+    		}
+    		// STORE USER -------------------   
+            curUser = getUrlVars()["user"].toLowerCase();
+            // STORE REPO -------------------
+           	if(getUrlVars()["repo"] != null) curRepo = getUrlVars()["repo"].toLowerCase();
+           	//alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepo);
+        </script>
+        
+        <!-- github_userinfo -->    
+        <script>
+        	// Request the user data of the user taken from the url parameter
+        	// When data is ready displayUserData within callback_handler.js will be called
+        	// Places an avatar image, a user heading and the blog url in the div called 'userData'
+    		loadBasicUserData(curUser);
+        </script>
+        
+
+        <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
+	</head>
+	<body>
+		<div id="content">
+			<div>
+				<canvas id="gitHubVizCanvas" data-processing-sources="callback_test.pde">
+					<p>Your browser does not support the canvas tag.</p>
+					<!-- Note: you can put any alternative content here. -->
+				</canvas>
+				<noscript>
+					<p>JavaScript is required to view the contents of this page.</p>
+				</noscript>
+	    	</div>
+	    </div>
+	</body>
+</html>
