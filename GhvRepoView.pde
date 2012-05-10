@@ -16,6 +16,7 @@ boolean closedIssuesAvailable = false;
 boolean commitsAvailable = false;
 int minTimestamp, maxTimestamp;
 Slider2d slider;
+int zoom = 16;
 
 class RepoView{
 
@@ -54,38 +55,46 @@ class RepoView{
 			println("commits.length: " + commits.length);
 			*/
 			for(int i=0; i<commits.length; i++){
-				 int mx = getXFromTimestamp(commits[i].timestamp);
-				 int my = 100;
-				ellipse(mx, my, 8, 8);
-				pushMatrix();
-					translate(mx, my);
-					rotate(HALF_PI);
-					text(commits[i].message, 14, 4);
-				popMatrix();
+				 int mx = getXFromTimestamp(commits[i].timestamp, zoom);
+				 if(isInRange(mx)){
+					 int my = 100;
+					ellipse(mx, my, 8, 8);
+					pushMatrix();
+						translate(mx, my);
+						rotate(HALF_PI);
+						text(commits[i].message, 14, 4);
+					popMatrix();
+				}
 			}
 			// draw issues
 			var issuesCl = getIssuesClosed();
 			for(int i=0; i<issuesCl.length; i++){
-				 int mx = getXFromTimestamp(issuesCl[i].timestamp);
-				 int my = 100;
-				 fill(255, 0, 0);
-				 stroke(255, 0, 0);
-				line(mx, 0, mx, my);
-				ellipse(mx, my, 8, 8);
-				pushMatrix();
-					translate(mx, my);
-					rotate(HALF_PI);
-					text(issuesCl[i].title, 14, 4);
-				popMatrix();				
+				 int mx = getXFromTimestamp(issuesCl[i].timestamp, zoom);
+				 if(isInRange(mx)){
+					 int my = 100;
+					 fill(255, 0, 0);
+					 stroke(255, 0, 0);
+					line(mx, 0, mx, my);
+					ellipse(mx, my, 8, 8);
+					pushMatrix();
+						translate(mx, my);
+						rotate(HALF_PI);
+						text(issuesCl[i].title, 14, 4);
+					popMatrix();				
+				}
 			}
 		}
 		
 		slider.draw();
 	}
 	
-	int getXFromTimestamp(int val){
+	int getXFromTimestamp(int val, int zoom){
 		return map(val, minTimestamp, maxTimestamp, 
-				-slider.leftAnchor.value*(width-1), width-1+(1-slider.rightAnchor.value)*(width-1));
+				-slider.leftAnchor.value*(width-1)*zoom, (width-1+(1-slider.rightAnchor.value)*(width-1)*zoom));
+	}
+
+	boolean isInRange(int mx){
+		return mx >= 0 && mx < width;
 	}
 	
 	void mouseClicked(){
