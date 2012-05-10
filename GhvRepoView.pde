@@ -31,6 +31,13 @@ class RepoView{
 		//println("[DRAW_REPO_VIEW] frameRate:\t" + frameRate);
 		background(cBgCanvas);
 		
+		// THIS SHOULD NOT BE HERE! MOVE LATER!
+		if(slider == null){
+			slider = new Slider2d();
+	  		slider.init(50, height-50, width-100, 28, 0.0, 1.0);
+	  		return;
+	  	}
+		
 		/*
 		text(curRepo.name, 50, 50);
 		if(allRepoDataAvailable()){
@@ -83,13 +90,18 @@ class RepoView{
 					popMatrix();				
 				}
 			}
-			slider.draw();
+			//println("repoDataAvailable: " + repoDataAvailable + "\n" + "userDataAvailable: " + userDataAvailable);  
+			println("allRepoDataAvailable()) " + allRepoDataAvailable() + "\n" + "userDataLoaded: " + userDataLoaded);
+			if(slider != null) slider.draw();
 		}
 	}
 	
 	int getXFromTimestamp(int val, int zoom){
-		return map(val, minTimestamp, maxTimestamp, 
-				-slider.leftAnchor.value*(width-1)*zoom, (width-1+(1-slider.rightAnchor.value)*(width-1)*zoom));
+		if(slider == null) return 0;	// GHETTO!!
+	  	else{
+			return map(val, minTimestamp, maxTimestamp, 
+					-slider.leftAnchor.value*(width-1)*zoom, (width-1+(1-slider.rightAnchor.value)*(width-1)*zoom));
+		}
 	}
 
 	boolean isInRange(int mx){
