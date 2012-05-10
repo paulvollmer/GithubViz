@@ -69,6 +69,8 @@ class RepoView{
 				 int mx = getXFromTimestamp(issuesCl[i].timestamp);
 				 int my = 100;
 				 fill(255, 0, 0);
+				 stroke(255, 0, 0);
+				line(mx, 0, mx, my);
 				ellipse(mx, my, 8, 8);
 				pushMatrix();
 					translate(mx, my);
