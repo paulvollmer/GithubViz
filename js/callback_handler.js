@@ -69,6 +69,7 @@ var closedIssuesCallback = function(issuesClosed){
  */
 var commitsCallback = function(commits){
 	//alert('Commits for ' + curRepo.name + ' loaded (Master Branch)');
+	curRepo.commits = commits;	// We are setting the master commits as main commits in the object
 	var p5 = Processing.getInstanceById('gitHubVizCanvas');
     p5.commitsReady();		
 }

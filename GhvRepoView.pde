@@ -14,6 +14,7 @@ boolean tagsAndBranchesAvailable = false;
 boolean openIssuesAvailable = false;
 boolean closedIssuesAvailable = false;
 boolean commitsAvailable = false;
+int minTimestamp, maxTimestamp;
 
 class RepoView{
 
@@ -45,7 +46,6 @@ void tagsAndBranchesReady(){
 	tagsAndBranchesAvailable = true;
 	if(allRepoDataAvailable()){
 		addTimestamps();
-		//getTimestampBorders();
 	}	
 }
 
@@ -57,7 +57,6 @@ void openIssuesReady(){
 	openIssuesAvailable = true;
 	if(allRepoDataAvailable()){
 		addTimestamps();
-		//getTimestampBorders();
 	}
 }
 
@@ -69,7 +68,6 @@ void closedIssuesReady(){
 	closedIssuesAvailable = true;
 	if(allRepoDataAvailable()){
 		addTimestamps();
-		//getTimestampBorders();
 	}
 }	
 
@@ -81,33 +79,49 @@ void commitsReady(){
 	commitsAvailable = true;
 	if(allRepoDataAvailable()){
 		addTimestamps();
-		//getTimestampBorders();
 	}
 }
 
 
+
 /*
  * Checks if all repo-data for curRepo is loaded already.
+ * Sets minTimestamp and maxTimestamp
  */
 boolean allRepoDataAvailable(){
 	return tagsAndBranchesAvailable && openIssuesAvailable && closedIssuesAvailable && commitsAvailable;    
 }
 
 void addTimestamps(){
+	int minTs, maxTs;	// min timestamp, max timestamp, we will store this later
+	
 	// add timestamp to closed issues
 	var issuesClosed = getIssuesClosed();
+	// just init minTs and maxTs with first date
+	minTs = getTimestamp(issuesClosed[0].created_at);
+	maxTs = minTs;
 	for(int i=0; i<issuesClosed.length; i++){
 		issuesClosed[i].timestamp = getTimestamp(issuesClosed[i].created_at);
+		if(issuesClosed[i].timestamp < minTs) minTs = issuesClosed[i].timestamp;		
+		if(issuesClosed[i].timestamp > maxTs) maxTs = issuesClosed[i].timestamp;
 	}
 	// add timestamp to open issues
 	var issuesOpen = getIssuesOpen();
 	for(int i=0; i<issuesOpen.length; i++){
 		issuesOpen[i].timestamp = getTimestamp(issuesOpen[i].created_at);
+		if(issuesOpen[i].timestamp < minTs) minTs = issuesOpen[i].timestamp;		
+		if(issuesOpen[i].timestamp > maxTs) maxTs = issuesOpen[i].timestamp;
 	}
-	// add timestamp to open issues
-	var issuesOpen = getIssuesOpen();
-	for(int i=0; i<issuesOpen.length; i++){
-		issuesOpen[i].timestamp = getTimestamp(issuesOpen[i].created_at);
+	// add timestamp to commits
+	var commits = curRepo.commits;
+	for(int i=0; i<commits.length; i++){
+		commits[i].timestamp = getTimestamp(commits[i].committed_date);
+		if(commits[i].timestamp < minTs) minTs = commits[i].timestamp;		
+		if(commits[i].timestamp > maxTs) maxTs = commits[i].timestamp;
 	}
 	/* ADD THE REST HERE - COMMITS & CO DEPENDING ON WHAT WE NEED... */
+	minTimestamp = minTs;	// Store globally
+	maxTimestamp = maxTs;
+	println("minTimestamp: " + minTimestamp);
+	println("maxTimestamp: " + maxTimestamp);
 }
