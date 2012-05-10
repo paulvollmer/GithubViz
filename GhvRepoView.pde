@@ -54,16 +54,36 @@ class RepoView{
 			println("commits.length: " + commits.length);
 			*/
 			for(int i=0; i<commits.length; i++){
-				ellipse(map(	commits[i].timestamp, 
-								minTimestamp, 
-								maxTimestamp, 
-				            	-slider.leftAnchor.value*(width-1), 
-				            	width-1+(1-slider.rightAnchor.value)*(width-1)), 
-	    			100, 20, 20);
+				 int mx = getXFromTimestamp(commits[i].timestamp);
+				 int my = 100;
+				ellipse(mx, my, 8, 8);
+				pushMatrix();
+					translate(mx, my);
+					rotate(HALF_PI);
+					text(commits[i].message, 14, 4);
+				popMatrix();
+			}
+			// draw issues
+			var issuesCl = getIssuesClosed();
+			for(int i=0; i<issuesCl.length; i++){
+				 int mx = getXFromTimestamp(issuesCl[i].timestamp);
+				 int my = 100;
+				 fill(255, 0, 0);
+				ellipse(mx, my, 8, 8);
+				pushMatrix();
+					translate(mx, my);
+					rotate(HALF_PI);
+					text(issuesCl[i].title, 14, 4);
+				popMatrix();				
 			}
 		}
 		
 		slider.draw();
+	}
+	
+	int getXFromTimestamp(int val){
+		return map(val, minTimestamp, maxTimestamp, 
+				-slider.leftAnchor.value*(width-1), width-1+(1-slider.rightAnchor.value)*(width-1));
 	}
 	
 	void mouseClicked(){
