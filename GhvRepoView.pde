@@ -83,9 +83,8 @@ class RepoView{
 					popMatrix();				
 				}
 			}
+			slider.draw();
 		}
-		
-		slider.draw();
 	}
 	
 	int getXFromTimestamp(int val, int zoom){

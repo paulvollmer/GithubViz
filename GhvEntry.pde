@@ -102,11 +102,13 @@ void mouseClicked(){
  */
 void switchMode(String view, String user, int index){
 	//println("\n" + "Switching mode - view: " + view + ", user: " + user + ", repo-index: " + index + "..." + "\n");
+	//userDataLoaded = false;
+	repoDataLoaded = false;
 	curView = view;
 	curUser = user;
 	curRepo = getUser(curUser).repos[index];
 	curRepoUrlParam = curRepo.name;
-	println("\n" + "Mode switched to: \n" + "curView: " + curView + "\n" + "curUser: " + curUser + "\n" + "curRepo: " + curRepo.name + "\n\n");
+	println("\n" + "Mode switched to: \n" + "curView: " + curView + "\n" + "curUser: " + getUser(curUser).name + "\n" + "curRepo: " + curRepo.name + "\n\n");
 	repoView.init();
 	requestRepoData(curRepo.name);
 }
