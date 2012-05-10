@@ -27,7 +27,7 @@ class RepoView{
 	}
 	
 	void drawRepoView(){
-		println("[DRAW_REPO_VIEW] frameRate:\t" + frameRate);
+		//println("[DRAW_REPO_VIEW] frameRate:\t" + frameRate);
 		background(cBgCanvas);
 		
 		/*
@@ -66,6 +66,10 @@ class RepoView{
 		slider.draw();
 	}
 	
+	void mouseClicked(){
+		slider.mousePressed();
+	}
+	
 	void mousePressed(){
 	  slider.mousePressed();
 	}
@@ -73,7 +77,7 @@ class RepoView{
 	
 	
 	void mouseDragged(){
-	  slider.mouseDragged();
+	  slider.mousePressed();
 	}
 	
 	
@@ -129,10 +133,12 @@ void closedIssuesReady(){
 void commitsReady(){
 	println("Commits ready");
 	commitsAvailable = true;	// detailed infos are only available later - ghetto
+	/*
 	var commits = curRepo.commits;
 	for(int i=0; i<commits.length; i++){
 		commits[i].load('detailed');
 	}
+	*/
 	if(allRepoDataAvailable()){
 		addTimestamps();
 	}
