@@ -25,13 +25,10 @@ class RepoView{
 	void drawRepoView(){
 		text(curRepo.name, 50, 50);
 		if(allRepoDataAvailable()){
-			//println("All repodata POW!");
-			println("before issues open");
 			var issues = getIssuesOpen();
 			for(int i=0; i<issues.length; i++){
 				text(issues[i].created_at + " - " + issues[i].timestamp, i*10, i*10);
 			}
-			println("before issues closed");
 			var issuesCl = getIssuesClosed();
 			for(int i=0; i<issuesCl.length; i++){
 				text(issuesCl[i].created_at + " - " + issuesCl[i].timestamp, i*10, 200+i*10);
