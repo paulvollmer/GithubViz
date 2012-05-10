@@ -22,6 +22,7 @@ class Anchor {
   int x;                 // position of the anchor
   int anchorSize = 20;   // size of the anchor
   boolean moving;        // true, if the anchor is moving at the moment
+  Anchor theOther;
   
   
   
@@ -47,7 +48,6 @@ class Anchor {
     println("[Anchor] anchorSize   =   " + anchorSize);
     println("[Anchor] moving       =   " + moving);*/
   }
-  
   
   /**
    * Draw left Anchor

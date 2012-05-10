@@ -14,10 +14,13 @@ void setup(){
   smooth();
   
   issues = new int[20];
+
   for(int i=0; i<issues.length; i++){
     issues[i] = (int)map(i, 0, issues.length, minTimestamp, maxTimestamp);
     println("issues["+i+"] = " + issues[i]);
   }
+  minTimestamp = issues[0];
+  maxTimestamp = issues[issues.length-1];
   
   
   slider = new Slider2d();
@@ -62,11 +65,20 @@ void draw(){
     //if((slider.leftAnchor.value-0.5 * issues[i] <= minTimestamp)){// && slider.rightAnchor.value * issues[i] > maxTimestamp){
       
       // 
-      ellipse(map(issues[i], map(slider.leftAnchor.value, 0.0, 1.0, minTimestamp, maxTimestamp),
-                             map(slider.rightAnchor.value, 0.0, 1.0, minTimestamp, maxTimestamp),
-                             0, width),
-              20,
-              10, 10);
+      /*
+      ellipse(map(issues[i], 
+                  map(slider.leftAnchor.value, 0.0, 1.0, minTimestamp, maxTimestamp),
+                  map(slider.rightAnchor.value, 0.0, 1.0, minTimestamp, maxTimestamp),
+                  0, 
+                  width),
+        20, 10, 10);
+      */
+      ellipse(  map(    issues[i], 
+                        minTimestamp, 
+                        maxTimestamp, 
+                        -slider.leftAnchor.value*(width-1), 
+                        width-1+(1-slider.rightAnchor.value)*(width-1)), 
+                100, 20, 20);
     //}
   }
   
