@@ -15,11 +15,12 @@ boolean openIssuesAvailable = false;
 boolean closedIssuesAvailable = false;
 boolean commitsAvailable = false;
 int minTimestamp, maxTimestamp;
-Slider2d slider;
+
 int zoom = 16;
 
 class RepoView{
-
+	Slider2d slider;
+	
 	RepoView(){}
 	void init(){
 		println("Repo init called...");
