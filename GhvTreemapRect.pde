@@ -26,8 +26,9 @@ class TreemapRect extends Interaction {
   
 	void draw(){
 		int colorBg, colorTxt;
+		boolean hover = overRect(mouseX, mouseY, x, y, w, h);
 		
-		if(overRect(mouseX, mouseY, x, y, w, h)){
+		if(hover){
 			colorBg = cBgHover;
 			colorTxt = cTxtHover;
 		}
@@ -36,12 +37,16 @@ class TreemapRect extends Interaction {
 			colorTxt = cBgHover;
 		}
 		fill(colorBg);
-		stroke(#4d4d4d);
+		stroke(cBgCanvas);
 		rect(x, y, w, h);
 		
 		fill(colorTxt);
 		noStroke();
-		text(userData.repos[index].name, x+6, y+20);
+		text(userData.repos[index].name, x+6, y+treemapLineHeight);
+		if(hover){
+			text("Watchers:\t" + userData.repos[index].watchers, x+6, y+treemapLineHeight*2);
+			text("Forks:\t" + userData.repos[index].forks, x+6, y+treemapLineHeight*3);
+		}
 	}
 }
 

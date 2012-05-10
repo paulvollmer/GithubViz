@@ -15,6 +15,7 @@ int[] indexes;
 Treemap tm;
 TreemapRect[] rects; // Here all TreemapRects are stored
 int rectCount = 0;	// used for creating new elements within the index-array, will increment by time
+int treemapLineHeight = 20;
 
 /**
  * NOTE: look at callback_handler.js
