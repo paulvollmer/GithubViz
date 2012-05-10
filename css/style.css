@@ -133,6 +133,10 @@ h1 {
 	color: #48A1F0;
 }
 
+h1#mainHeading{
+	text-indent: -999em;
+}
+
 h2 {
 	font-size: 12pt;
 	color: #39F;

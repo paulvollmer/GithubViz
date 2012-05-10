@@ -12,97 +12,63 @@ Paul Vollmer <paul.vollmer@fh-potsdam.de>
 <!doctype html>
 
 <head>
-    <!-- HEAD ------------------------------------------------------------------------------------>
+    <!-- HEAD ===============================================================================================-->
+    <!-- META DATA -------------------------------------------------------------------------------------------->
     <meta charset="utf-8">
-    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-         More info: h5bp.com/b/378 -->
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues, more info: h5bp.com/b/378 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>GitHubViz</title>
-    <meta name="description" content="GitHubViz">
-    <meta name="keywords" content="github, github visualisation, visualisation, data, timpulver.de, wrong entertainment, wrong-entertainment.com">
+    <meta name="description" content="GitHubViz is a GitHub visualization tool - discover your repositories!">
+    <meta name="keywords" content="github, github visualisation, visualisation, data, timpulver.de, wrong entertainment, wrong-entertainment.com, fh-potsdam">
     <meta name="author" content="Paul Vollmer, wrong-entertainment.com">
     <meta name="author" content="Tim Pulver, timpulver.de">
 
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <!-- Import css stylesheet -->
+    <!-- STYLESHEETS ------------------------------------------------------------------------------------------>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/discover.css">
     
-    <!-- Import the counter.php file for counting every site load. -->
-    <!-- include("static/counter.php"); -->
+    <!-- SCRIPTS ---------------------------------------------------------------------------------------------->
 
-    <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
-         Respond is a polyfill for min/max-width media queries.
-         Modernizr enables HTML5 elements & feature detects;
-         for optimal performance, create your own custom Modernizr build:
-         www.modernizr.com/download/ -->
+    <!-- MODERNIZR - enables HTML5 elements & feature detects-->
     <script src="js/libs/modernizr-2.0.6.min.js"></script>
-    <!-- HEAD ------------------------------------------------------------------------------------>
-
-
-
-	<!-- LIBRARIES ------------------------------>
-	<!--Timestamp Function -->
+	<!-- TIMESTAMP function -->
 	<script type="text/javascript" src="js/date_timestamp.js"></script>
-	<!-- GOOGLE MAPS API -->
+	<!-- GOOGLE MAPS GEOLOCATION API -->
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<!-- JQUERY -->
-     <script src="js/libs/jquery-1.7.1.min.js"></script>
-     <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-
-     <!-- GITHUB JS -->
-     <script src="js/vendor/jsclass.js"></script>
-     <script src="js/libs/github.js"></script>
-
-     <!-- PROCESSING JS -->
-     <script src="js/libs/processing-1.3.6.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-1.7.1.min.js"></script>
+    <!-- GITHUB JS -->
+    <script type="text/javascript" src="js/vendor/jsclass.js"></script>
+    <script type="text/javascript" src="js/libs/github.js"></script>
+    <!-- PROCESSING JS -->
+    <script type="text/javascript" src="js/libs/processing-1.3.6.min.js"></script>
+	<!-- OLD BROWSER SCRIPT -->
     <!--[if lt IE 9]>
 	    <script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
-    <![endif]-->
-    
-    
-    
-    <!-- CUSTOM SCRIPTS ------------------------>
-    <script src="js/customMap.js"></script>
-    <!-- CURRENT VIEW -->
-    <!-- [repo, user], current User, current Repo -->
-    <script src="js/mode.js"></script> 
+    <![endif]-->    
+    <!-- CUSTOM MAP SCRIPT -->
+    <script type="text/javascript" src="js/customMap.js"></script>
+    <!-- MODE SWITCH - user/repo, current User, current Repo -->
+    <script type="text/javascript" src="js/mode.js"></script> 
     <!-- CALLBACK HANDLER -->
     <!-- when data we requested is ready, a function here will be called -->
-    <script src="js/callback_handler.js"></script>  
+    <script type="text/javascript" src="js/callback_handler.js"></script>
+    <!-- GIT DATA MANAGER - request cache -->
+    <script type="text/javascript" src="js/gitDataManager.js"></script>
+    <!-- JQUERY ELEMENT LOGGING -->    
+    <script type="text/javascript" src="js/jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
+    <!-- URL PARAMETER GRAB -->
+    <script type="text/javascript" src="js/get_url_vars.js"></script>
+	<!-- URL PARAMETER STORE - saves custom url-parameters for later usage -->
+	<script type="text/javascript" src="js/store_url_vars.js"></script>
 
-    <script src="js/gitDataManager.js"></script>    
-    <script src="js/jquery_log.js"></script>	<!-- to append logging data to Html-elements -->
-    <script src="js/get_url_vars.js"></script>
-
-	<script>
-		// store current view, current user and current repo from URL
-		// i.e. discover.html?view=user&user=powder
-		// STORE VIEW -------------------
-		switch (getUrlVars()["view"]){
-			case viewEnum.USER:
-				curView = viewEnum.USER;
-				break;
-			case viewEnum.REPO:
-				curView = viewEnum.REPO;
-				break;				 
-		}
-		// STORE USER -------------------   
-        curUser = getUrlVars()["user"].toLowerCase();
-        // STORE REPO -------------------
-        
-       	if(getUrlVars()["repo"] != null) curRepoUrlParam = getUrlVars()["repo"].toLowerCase();
-       	//alert('Current View: ' + curView + '\n' + 'currentUser: ' + curUser + '\n' + 'Current Repo: ' + curRepoUrlParam);
-       	
-    </script>
-
-    <script type="text/javascript">function getProcessingSketchID () { return 'gitHubVizCanvas'; }</script>
-    
-    
-    <!-- github_userinfo -->    
-    <script>
+    <script type="text/javascript">
+    	// Returns the sketch ID of our canvas
+    	function getProcessingSketchID () { return 'gitHubVizCanvas'; }
+    	
     	// Request the user data of the user taken from the url parameter
     	// When data is ready displayUserData within callback_handler.js will be called
     	// Places an avatar image, a user heading and the blog url in the div called 'userData'
@@ -112,12 +78,13 @@ Paul Vollmer <paul.vollmer@fh-potsdam.de>
 	
 
 <body>
-    <!-- NAV ------------------------------------------------------------------------------------>
+    <!-- BODY ----------------------------------------------------------------------------------->
     <!-- GitHubViz logo at the upper right corner -->
     <img id="GitHubVizLogo" src="img/githubviz_logo.png" alt="GitHubViz"/>
+    <h1 id="mainHeading">GitHubViz - Home</h1>
     <!-- Sublin under our GitHubViz logo -->
     <p id="SiteSlogan" >Visualize your Social Coding Projects</p>
-    <!-- Navigation -->
+    <!-- NAV ------------------------------------------------------------------------------------>
     <nav>
       <ul id="navigation">
         <li><a href="index.html">Search</a> | </li>
@@ -129,47 +96,22 @@ Paul Vollmer <paul.vollmer@fh-potsdam.de>
     </nav>
     <!-- NAV ------------------------------------------------------------------------------------>
 
-    <div id="userData"></div>
-    <div id="repoData"></div>
-    <!-- Search Form (top right)-->
-    <!--<form id="SearchBox" action="discover.html" style="position: absolute; top: 85px; right: 10px;"><input type="text" size="30" name="user" style="padding: 5px; background-color: #999; border: 1px; color: #fff;"> <input type="submit" class="Button" value="Search" style="padding: 5px; background-color:#39F; color:#fff; width:70px; border: 0px;"></form>-->
+    <section id="userData"></section>
+    <section id="repoData"></section>
+    <!-- SEARCH BOX ------------------------------------------------------------------------------>
     <form id="SearchBox" action="discover.html">
     	<input id="textInput" type="text" size="30" name="user" />
     	<input id="submitButton" type="submit" class="Button" value="Search" />
     </form>
-    <br><br>
+    <br /><br />
 
-    <!-- Processing.js -->
-    <!--<canvas id="gitHubVizCanvas" data-processing-sources="UserTreemap.pde TreemapRect.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas>--> 
-    <!-- CONTENT STOP ------------------------------------------------------------------------------------>
-
-<!--<div id="userData"></div>
-<div id="repoData"></div>-->
-<script>
-	//loadBasicUserData(currentUser);
-</script>
-
-<!-- <canvas id="gitHubVizCanvas" data-processing-sources="js/pjs.pde" style="width: 100%; margin-left: 30px; margin-bottom: 70px;"></canvas> -->
-<!-- Sort data-sources alphabetically please ;) -->
-<canvas id="gitHubVizCanvas" data-processing-sources="GhvAnchor.pde GhvColors.pde GhvEntry.pde GhvInteraction.pde GhvRepoView.pde GhvSlider2d.pde GhvTreemap.pde  GhvTreemapRect.pde GhvTreemapView.pde" style="margin-left: 30px; margin-bottom: 70px;"></canvas> 
-
-<!-- uhh jetzt hat jemand auf ein repo geklickt...-->
-<script>
-	/*
-	var curUserData = getUser(currentUser);
-	//var rndRepo = Math.floor(Math.random()*curUserData.public_repo_count);	//random [0..nRepos]
-	var rndRepo = 0;
-	var aRepo = curUserData.repos[rndRepo];
-	$("#userData").append();
-	*/		
-</script>
-
-
-
-
+	<!-- CANVAS --------------------------------------------------------------------------------->
+	<!-- Sort data-sources alphabetically please ;) -->
+	<canvas id="gitHubVizCanvas" data-processing-sources="GhvAnchor.pde GhvColors.pde GhvEntry.pde GhvInteraction.pde GhvRepoView.pde GhvSlider2d.pde GhvTreemap.pde  GhvTreemapRect.pde GhvTreemapView.pde" style="margin-left: 30px; margin-bottom: 70px;"></canvas> 
+	
     <!-- FOOTER ---------------------------------------------------------------------------------->
     <footer>
-    <img src="img/footerbg.png">
+    <img alt="Footer Background" src="img/footerbg.png">
     <div id="footer_content">
       <table>
         <colgroup width="150" span="4"></colgroup>
@@ -234,7 +176,6 @@ Paul Vollmer <paul.vollmer@fh-potsdam.de>
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
     </script> -->
-
     <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
          chromium.org/developers/how-tos/chrome-frame-getting-started -->
     <!--[if lt IE 7 ]>
