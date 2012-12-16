@@ -1,6 +1,6 @@
 #GitHubViz#
   
-###Description  
+#Description#
   
 **TODO**  
   
@@ -75,6 +75,46 @@ Repository
 > https://api.github.com/repos/WrongEntertainment/wrongPowder/issues  
 > Milestones  
 >https://api.github.com/repos/WrongEntertainment/wrongPowder/milestones
+
+#Research#
+A list of other Projects.  
+
+> R&D NYT Cascade Project  
+> http://nytlabs.com/projects/cascade.html  
+> http://www.creativeapplications.net/processing/cascades-processing/  
+  
+> WLCG Monitoring SVN repository visualisation  
+> http://vimeo.com/18361065  
+  
+> PLAS repository visualization, June 2010 - Oct 2010  
+> http://vimeo.com/16314360  
+
+> Walrus - Gallery: Visualization & Navigation  
+> http://www.caida.org/tools/visualization/walrus/gallery1/  
+
+
+Javascript / P5 IDE / Eclipse communication
+
+> https://wiki.mozilla.org/Processing.js_for_JavaScript_Devs
+
+
+Software  
+
+> http://gephi.org/features/  
+> http://vimeo.com/gephi  
+
+> http://code.google.com/p/gource/
+
+
+Code-Snippets / Useful Sourcecode
+
+> How to mark places on a map
+> http://blog.osmeusapontamentos.com/processing/ex_pag33.htm
+
+> Radial Navigator
+> Source: http://quasipartikel.at/tween/donut.pjs  
+> Demo (weiter unten): http://quasipartikel.at/tween/
+
 
 **License**  
 GNU Lesser General Public License  
